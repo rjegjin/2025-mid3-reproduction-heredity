@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생식과 유전 - 학습 허브</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .chapter-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .status-icon::after {
+            content: '📖'; /* 기본 아이콘: 책 */
+            font-size: 1.5rem;
+        }
+        .chapter-card.completed .status-icon::after {
+            content: '✅'; /* 완료 아이콘: 체크 */
+        }
+        .chapter-card.completed {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <div class="container mx-auto px-4 py-12 md:py-20">
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-6xl font-black text-slate-800 mb-2">V. 생식과 유전</h1>
+            <p class="text-lg md:text-xl text-slate-500">대화형 학습 콘텐츠로 생명의 신비를 탐험하세요.</p>
+        </header>
+
+        <main>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                
+                <!-- Chapter 1: 체세포 분열 -->
+                <a href="mitosis.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="mitosis">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-emerald-500">01</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">체세포 분열</h2>
+                        <p class="text-slate-500">우리 몸이 성장하고 상처를 회복하는 원리를 실제 영상과 함께 배워보세요.</p>
+                    </div>
+                    <button class="mt-6 w-full bg-emerald-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-600 transition-colors">학습 시작</button>
+                </a>
+
+                <!-- Chapter 2: 감수 분열 -->
+                <a href="meiosis.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="meiosis">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-indigo-500">02</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">감수 분열</h2>
+                        <p class="text-slate-500">생식세포는 어떻게 만들어지며, 유전적 다양성은 어떻게 확보될까요?</p>
+                    </div>
+                    <button class="mt-6 w-full bg-indigo-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors">학습 시작</button>
+                </a>
+
+                <!-- 추가될 챕터 카드 (예시) -->
+                <div class="bg-slate-200 p-8 rounded-2xl border-4 border-transparent flex flex-col items-center justify-center text-slate-400">
+                     <span class="text-5xl font-black">03</span>
+                     <h2 class="text-2xl font-bold mt-4">학습 예정</h2>
+                     <p class="mt-2">다음 챕터가 준비 중입니다.</p>
+                </div>
+
+            </div>
+        </main>
+        
+        <footer class="text-center mt-16">
+            <button id="reset-progress" class="bg-red-100 text-red-700 font-bold py-2 px-4 rounded-lg hover:bg-red-200 transition-colors text-sm">학습 기록 초기화</button>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chapterCards = document.querySelectorAll('.chapter-card');
+            
+            // 1. 학습 진행 상황 불러오기 및 UI 업데이트
+            function updateProgressUI() {
+                const progress = JSON.parse(localStorage.getItem('learningProgress')) || {};
+                chapterCards.forEach(card => {
+                    const chapterName = card.dataset.chapter;
+                    if (progress[chapterName]) {
+                        card.classList.add('completed');
+                    } else {
+                        card.classList.remove('completed');
+                    }
+                });
+            }
+
+            // 2. 챕터 카드 클릭 시 진행 상황 저장
+            chapterCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // 기본 링크 이동은 막지 않음
+                    const chapterName = card.dataset.chapter;
+                    let progress = JSON.parse(localStorage.getItem('learningProgress')) || {};
+                    progress[chapterName] = true; // 완료로 표시
+                    localStorage.setItem('learningProgress', JSON.stringify(progress));
+                });
+            });
+
+            // 3. 학습 기록 초기화 기능
+            const resetButton = document.getElementById('reset-progress');
+            resetButton.addEventListener('click', () => {
+                if (confirm('모든 학습 기록을 초기화하시겠습니까?')) {
+                    localStorage.removeItem('learningProgress');
+                    updateProgressUI(); // UI 즉시 업데이트
+                }
+            });
+
+            // 페이지 로드 시 UI 업데이트 실행
+            updateProgressUI();
+        });
+    </script>
+</body>
+</html>
