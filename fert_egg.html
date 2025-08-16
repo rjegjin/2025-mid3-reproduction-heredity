@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정란이 개체가 되는 과정</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+        }
+        #progress-nav a { transition: all 0.3s ease; }
+        #progress-nav a.active {
+            transform: scale(1.5);
+            background-color: #f59e0b; /* Amber */
+        }
+        .comparison-table td, .comparison-table th {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav id="progress-nav" class="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col space-y-3">
+        <a href="#title" data-section="title" class="w-3 h-3 bg-slate-300 rounded-full block" title="제목"></a>
+        <a href="#objectives" data-section="objectives" class="w-3 h-3 bg-slate-300 rounded-full block" title="학습 목표"></a>
+        <a href="#intro-q" data-section="intro-q" class="w-3 h-3 bg-slate-300 rounded-full block" title="도입 질문"></a>
+        <a href="#fertilization" data-section="fertilization" class="w-3 h-3 bg-slate-300 rounded-full block" title="수정"></a>
+        <a href="#cleavage" data-section="cleavage" class="w-3 h-3 bg-slate-300 rounded-full block" title="난할"></a>
+        <a href="#development" data-section="development" class="w-3 h-3 bg-slate-300 rounded-full block" title="발생"></a>
+        <a href="#comparison" data-section="comparison" class="w-3 h-3 bg-slate-300 rounded-full block" title="비교"></a>
+        <a href="#summary" data-section="summary" class="w-3 h-3 bg-slate-300 rounded-full block" title="핵심 정리"></a>
+    </nav>
+
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-amber-600 hover:text-amber-700">🏠 수정란에서 개체로</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="title" class="text-center">
+            <div class="bg-amber-50 rounded-2xl p-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">V. 생식과 유전: 수정란이 개체가 되는 과정</h2>
+                <p class="text-xl md:text-2xl text-slate-600 mb-8">하나의 수정란에서 완전한 개체까지, 생명의 신비</p>
+            </div>
+        </section>
+
+        <section id="objectives">
+             <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 text-center">
+                <h3 class="text-2xl font-bold text-amber-700">학습 목표 🎯</h3>
+                <ul class="list-disc list-inside space-y-3 text-lg text-left">
+                    <li>수정란이 개체로 <strong class="text-amber-600">발생</strong>하는 과정을 설명할 수 있다.</li>
+                    <li>발생 과정 중 <strong class="text-amber-600">수정, 난할, 분화, 생장</strong>의 의미와 특징을 이해한다.</li>
+                    <li>발생 과정에서 세포의 <strong class="text-amber-600">수와 종류</strong>가 어떻게 변화하는지 설명할 수 있다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="intro-q">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-8">생각 열기</h2>
+                <p class="text-5xl font-bold text-slate-700">달걀이 병아리가 되기까지<br/>어떤 과정을 거칠까? 🐣</p>
+            </div>
+        </section>
+
+        <section id="fertilization">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 1: 수정 (Fertilization)</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl text-center">수정은 정자(n)와 난자(n)와 같은 암수 생식세포가 결합하여 <strong class="text-amber-600">수정란(2n)</strong>을 만드는 <strong class="text-amber-600">생명의 시작점</strong>입니다. 이 과정을 통해 부모의 유전 정보가 자손에게 전달되고, 다시 체세포와 같은 염색체 수를 갖게 됩니다.</p>
+            </div>
+        </section>
+
+        <section id="cleavage">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 2: 난할 (Cleavage)</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl text-center mb-4">난할은 수정란이 겪는 <strong class="text-amber-600">빠르고 특별한 초기 세포 분열</strong>입니다.</p>
+                <ul class="list-disc list-inside space-y-3 text-lg max-w-2xl mx-auto">
+                    <li>세포의 생장(크기 증가) 없이 분열만 빠르게 반복됩니다.</li>
+                    <li>전체 배아의 크기는 그대로이지만, 세포 수는 기하급수적으로 늘어납니다.</li>
+                    <li>결과적으로 세포 각각의 크기는 점점 작아집니다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="development">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 3: 발생 (Development)</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl text-center mb-4">수정란이 세포 분열을 거듭하여 완전한 개체가 되기까지의 과정 전체를 <strong class="text-amber-600">발생</strong>이라고 합니다. 발생은 다음과 같은 변화를 포함합니다.</p>
+                 <div class="grid md:grid-cols-3 gap-4 text-center mt-8">
+                    <div class="bg-slate-100 p-4 rounded-lg"><h3 class="font-bold text-lg">증식 (Proliferation)</h3><p>세포 수가 증가</p></div>
+                    <div class="bg-slate-100 p-4 rounded-lg"><h3 class="font-bold text-lg">생장 (Growth)</h3><p>세포 크기가 커짐</p></div>
+                    <div class="bg-slate-100 p-4 rounded-lg"><h3 class="font-bold text-lg">분화 (Differentiation)</h3><p>세포가 특정 기능(신경, 근육 등)을 갖게 됨</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2 class="text-3xl font-bold text-center mb-12">난할 vs 일반 체세포 분열</h2>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg overflow-x-auto">
+                <table class="w-full comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th><th class="text-amber-600">난할</th><th class="text-emerald-600">일반 체세포 분열</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>분열 속도</th><td>매우 빠름</td><td>상대적으로 느림</td></tr>
+                        <tr><th>세포 생장</th><td>거의 없음</td><td>분열 전 충분히 생장</td></tr>
+                        <tr><th>딸세포 크기</th><td>점점 작아짐</td><td>모세포와 비슷함</td></tr>
+                        <tr><th>전체 크기</th><td>변화 없음</td><td>커짐 (생장)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="summary">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 정리</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-3">
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li><strong class="text-amber-600">수정</strong>으로 시작된 수정란은 <strong class="text-amber-600">난할</strong>을 통해 세포 수를 빠르게 늘립니다.</li>
+                    <li>이후 증식, 생장, 분화를 거치는 <strong class="text-amber-600">발생</strong> 과정을 통해 하나의 개체로 완성됩니다.</li>
+                    <li>이 과정에서 세포의 <strong class="text-amber-600">수와 종류</strong>는 다양하게 늘어납니다.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('section');
+            const progressNavLinks = document.querySelectorAll('#progress-nav a');
+            let currentSlideIndex = 0;
+            let isScrolling = false;
+
+            function updateNav(index) {
+                progressNavLinks.forEach((link, i) => {
+                    link.classList.toggle('active', i === index);
+                });
+            }
+
+            function scrollToSlide(index) {
+                if (isScrolling || index < 0 || index >= slides.length) return;
+                isScrolling = true;
+                currentSlideIndex = index;
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+                updateNav(index);
+                setTimeout(() => { isScrolling = false; }, 1000);
+            }
+            
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') scrollToSlide(currentSlideIndex + 1);
+                else if (event.key === 'ArrowLeft') scrollToSlide(currentSlideIndex - 1);
+            });
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(slides).indexOf(entry.target);
+                        currentSlideIndex = index;
+                        updateNav(index);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            slides.forEach(slide => observer.observe(slide));
+            updateNav(0);
+
+            gsap.registerPlugin(ScrollTrigger);
+            slides.forEach(section => {
+                gsap.fromTo(section.children[0], 
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>
