@@ -32,6 +32,34 @@
         .comparison-table th {
             background-color: #f3f4f6;
         }
+        .choice-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .choice-btn:hover {
+            transform: scale(1.05);
+            border-color: #0ea5e9;
+        }
+        .choice-btn.selected {
+            background-color: #0ea5e9;
+            color: white;
+            border-color: #0ea5e9;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        .reveal-item {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .reveal-item.visible {
+            opacity: 1;
+            max-height: 100px; /* 충분한 높이 */
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -79,13 +107,20 @@
         </section>
 
         <section id="intro-q1">
-            <h2 class="text-3xl font-bold text-center mb-12">생각 열기 1</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-                <p class="text-4xl font-bold text-slate-700 mb-8">가래떡을 반으로 자르면<br>표면적은 어떻게 변할까?</p>
-                <details class="bg-slate-100 p-4 rounded-lg cursor-pointer">
-                    <summary class="font-bold text-lg">정답 보기</summary>
-                    <p class="mt-4 text-xl">잘린 단면만큼 <strong class="text-sky-600">표면적이 늘어난다.</strong></p>
-                </details>
+            <h2 class="text-3xl font-bold text-center mb-6">1단계: 생각 깨우기 - 시원한 얼음에서 찾는 힌트!</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-lg text-center mb-6">컵에 담긴 음료수를 빨리 시원하게 만들고 싶을 때, 커다란 얼음 덩어리 하나를 넣는 것과 같은 양의 잘게 부순 얼음을 넣는 것 중 어느 쪽이 더 효과적일까요?</p>
+                <div id="ice-choices" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-lg">① 커다란 얼음 덩어리</button>
+                    <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-lg" data-correct="true">② 잘게 부순 얼음</button>
+                    <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-lg">③ 효과는 똑같다</button>
+                </div>
+                <div id="ice-feedback" class="text-center font-bold mb-6 h-6"></div>
+                
+                <div>
+                    <label for="thinking" class="font-bold">생각해보기:</label>
+                    <p class="text-sm text-slate-600 mb-2">우리 몸을 이루는 작은 세포들도 커다란 얼음 덩어리처럼 하나로 뭉쳐있는 게 좋을까요? 아니면 잘게 부순 얼음처럼 작게 나뉘어 있는 게 우리 몸에 더 유리할까요? 왜 그렇게 생각하는지 짧게 적어보세요.</p>
+                </div>
             </div>
         </section>
         
@@ -132,46 +167,57 @@
 
         <section id="cube-example">
             <h2 class="text-3xl font-bold text-center mb-12">정육면체로 알아보는 표면적과 부피</h2>
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
-                <p class="text-center mb-8">세포 크기가 커질 때 부피에 대한 표면적의 비율이 어떻게 변하는지 알아봅시다.</p>
-                <table class="w-full text-center comparison-table">
-                    <thead>
-                        <tr class="bg-slate-100">
-                            <th>한 변의 길이</th><th>표면적 (길이²)×6</th><th>부피 (길이³)</th><th>부피에 대한 표면적 비</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1cm</td><td>6 cm²</td><td>1 cm³</td><td class="font-bold text-xl text-sky-600">6</td></tr>
-                        <tr><td>2cm</td><td>24 cm²</td><td>8 cm³</td><td class="font-bold text-xl text-sky-600">3</td></tr>
-                        <tr><td>3cm</td><td>54 cm²</td><td>27 cm³</td><td class="font-bold text-xl text-sky-600">2</td></tr>
-                    </tbody>
-                </table>
-                <p class="text-center mt-8 font-bold text-lg">결론: 커질수록 부피에 대한 표면적의 비율은 <strong class="text-red-500">작아진다.</strong></p>
-            </div>
+            <details class="bg-white p-6 md:p-8 rounded-2xl shadow-lg cursor-pointer group">
+                <summary class="font-bold text-xl list-none text-center">
+                    세포 크기에 따른 변화 알아보기 <span class="text-sky-500 group-open:hidden">(클릭)</span>
+                </summary>
+                <div class="mt-8">
+                    <table class="w-full text-center comparison-table">
+                        <thead>
+                            <tr class="bg-slate-100">
+                                <th>한 변의 길이</th><th>표면적 (길이²)×6</th><th>부피 (길이³)</th><th>부피에 대한 표면적 비</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1cm</td><td>6 cm²</td><td>1 cm³</td><td class="font-bold text-xl text-sky-600">6</td></tr>
+                            <tr><td>2cm</td><td>24 cm²</td><td>8 cm³</td><td class="font-bold text-xl text-sky-600">3</td></tr>
+                            <tr><td>3cm</td><td>54 cm²</td><td>27 cm³</td><td class="font-bold text-xl text-sky-600">2</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-center mt-8 font-bold text-lg">결론: 커질수록 부피에 대한 표면적의 비율은 <strong class="text-red-500">작아진다.</strong></p>
+                </div>
+            </details>
         </section>
 
         <section id="final-reason">
             <h2 class="text-3xl font-bold text-center mb-12">세포가 분열하는 이유: 효율적인 생존 전략</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-                <p class="text-xl">세포는 부피 당 표면적의 비율을 높게 유지하여<br/><strong class="text-sky-600">물질 교환을 효율적으로 수행하기 위해</strong> 분열합니다.<br/>따라서 세포는 무작정 커지지 않고 분열하여 그 수를 늘립니다.</p>
-            </div>
+            <details class="bg-white p-8 rounded-2xl shadow-lg cursor-pointer group">
+                <summary class="font-bold text-xl list-none text-center">
+                    핵심 이유 알아보기 <span class="text-sky-500 group-open:hidden">(클릭)</span>
+                </summary>
+                <p class="text-xl text-center mt-8">세포는 부피 당 표면적의 비율을 높게 유지하여<br/><strong class="text-sky-600">물질 교환을 효율적으로 수행하기 위해</strong> 분열합니다.<br/>따라서 세포는 무작정 커지지 않고 분열하여 그 수를 늘립니다.</p>
+            </details>
         </section>
 
         <section id="organism-size">
             <h2 class="text-3xl font-bold text-center mb-12">코끼리는 쥐보다 세포가 클까?</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-                <p class="text-xl">몸집이 큰 생물은 세포의 크기가 큰 것이 아니라,<br/><strong class="text-sky-600">세포의 수가 훨씬 더 많습니다.</strong><br/>모든 생물은 효율적인 물질 교환을 위해 세포 크기를 일정하게 유지하려 합니다.</p>
+            <div id="organism-reveal" class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer">
+                <p class="reveal-item text-xl">몸집이 큰 생물은 세포의 크기가 큰 것이 아니라,</p>
+                <p class="reveal-item text-xl"><strong class="text-sky-600">세포의 수가 훨씬 더 많습니다.</strong></p>
+                <p class="reveal-item text-xl">모든 생물은 효율적인 물질 교환을 위해 세포 크기를 일정하게 유지하려 합니다.</p>
+                <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
             </div>
         </section>
 
         <section id="summary">
             <h2 class="text-3xl font-bold text-center mb-12">핵심 정리</h2>
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
+            <div id="summary-reveal" class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 cursor-pointer">
                 <ul class="list-disc list-inside space-y-3 text-lg">
-                    <li>세포 분열의 두 가지 핵심 목적은 <strong class="text-sky-600">생장</strong>과 <strong class="text-sky-600">효율적인 물질 교환</strong>입니다.</li>
-                    <li>세포가 커질수록 부피에 대한 표면적의 비가 <strong class="text-red-500">작아져</strong> 물질 교환에 불리해집니다.</li>
-                    <li>따라서 몸집이 큰 생물은 세포 크기가 큰 것이 아니라 <strong class="text-sky-600">세포 수가 많은 것</strong>입니다.</li>
+                    <li class="reveal-item">세포 분열의 두 가지 핵심 목적은 <strong class="text-sky-600">생장</strong>과 <strong class="text-sky-600">효율적인 물질 교환</strong>입니다.</li>
+                    <li class="reveal-item">세포가 커질수록 부피에 대한 표면적의 비가 <strong class="text-red-500">작아져</strong> 물질 교환에 불리해집니다.</li>
+                    <li class="reveal-item">따라서 몸집이 큰 생물은 세포 크기가 큰 것이 아니라 <strong class="text-sky-600">세포 수가 많은 것</strong>입니다.</li>
                 </ul>
+                 <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
             </div>
         </section>
 
@@ -223,6 +269,52 @@
             slides.forEach(slide => observer.observe(slide));
             updateNav(0);
 
+            // Ice cube question logic
+            const iceChoices = document.querySelectorAll('#ice-choices .choice-btn');
+            const iceFeedback = document.getElementById('ice-feedback');
+            iceChoices.forEach(button => {
+                button.addEventListener('click', () => {
+                    iceChoices.forEach(btn => btn.classList.remove('selected'));
+                    button.classList.add('selected');
+                    if (button.dataset.correct) {
+                        iceFeedback.textContent = '정답입니다! 👍';
+                        iceFeedback.className = 'text-center font-bold mb-6 h-6 text-green-600';
+                    } else {
+                        iceFeedback.textContent = '다시 생각해 보세요. 🤔';
+                        iceFeedback.className = 'text-center font-bold mb-6 h-6 text-red-600';
+                    }
+                });
+            });
+            
+            // Click-to-reveal logic
+            function setupClickReveal(containerId) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                const items = container.querySelectorAll('.reveal-item');
+                let currentIndex = 0;
+
+                function showNextItem() {
+                    if (currentIndex < items.length) {
+                        items[currentIndex].classList.add('visible');
+                        currentIndex++;
+                    }
+                }
+                
+                // Initially hide all
+                items.forEach(item => item.classList.remove('visible'));
+
+                // Show first item immediately
+                showNextItem();
+
+                container.addEventListener('click', showNextItem);
+            }
+
+            setupClickReveal('organism-reveal');
+            setupClickReveal('summary-reveal');
+
+
+            // GSAP Animations
             gsap.registerPlugin(ScrollTrigger);
             slides.forEach(section => {
                 gsap.fromTo(section.children[0], 
