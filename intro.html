@@ -26,7 +26,7 @@
         }
         .comparison-table td, .comparison-table th {
             border: 1px solid #e5e7eb;
-            padding: 12px;
+            padding: 8px;
             text-align: center;
         }
         .comparison-table th {
@@ -81,8 +81,12 @@
     </nav>
 
     <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
-        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center relative">
             <a href="index.html" class="text-2xl md:text-3xl font-bold text-sky-600 hover:text-sky-700">🏠 세포 분열의 필요성</a>
+            <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-sky-600 transition-colors" title="전체 화면">
+                <svg id="fullscreen-enter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
+            </button>
         </nav>
     </header>
 
@@ -332,6 +336,36 @@
                     }
                 );
             });
+
+            // Fullscreen API Logic
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const enterIcon = document.getElementById('fullscreen-enter-icon');
+            const exitIcon = document.getElementById('fullscreen-exit-icon');
+
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        alert(`전체 화면 모드를 시작할 수 없습니다: ${err.message}`);
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            function updateFullscreenIcon() {
+                if (document.fullscreenElement) {
+                    enterIcon.classList.add('hidden');
+                    exitIcon.classList.remove('hidden');
+                } else {
+                    enterIcon.classList.remove('hidden');
+                    exitIcon.classList.add('hidden');
+                }
+            }
+
+            fullscreenBtn.addEventListener('click', toggleFullScreen);
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
         });
     </script>
 </body>
