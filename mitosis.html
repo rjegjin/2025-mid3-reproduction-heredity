@@ -52,17 +52,34 @@
             padding: 12px;
             text-align: center;
         }
-        details > summary {
-            list-style: none;
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
         }
-        details > summary::-webkit-details-marker {
-            display: none;
+        .modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <nav id="progress-nav" class="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col space-y-2">
+    <!-- Modal Popup Structure -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0 modal-overlay" onclick="closeModal()">
+        <div id="dna-modal" class="modal-content bg-white rounded-lg p-4 max-w-md w-full transform scale-95 opacity-0 hidden" onclick="event.stopPropagation()">
+            <h3 class="text-xl font-bold mb-4">DNA 이중 나선 구조</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/DNA_animation.gif" alt="회전하는 DNA 이중 나선" class="w-full rounded">
+            <button onclick="closeModal()" class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors">닫기</button>
+        </div>
+        <div id="gene-modal" class="modal-content bg-white rounded-lg p-4 max-w-lg w-full transform scale-95 opacity-0 hidden" onclick="event.stopPropagation()">
+            <h3 class="text-xl font-bold mb-4">원형 유전체 지도 (Circular Genome Map) 예시</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Escherichia_coli_K-12_substr._MG1655_circular_genome.svg/1024px-Escherichia_coli_K-12_substr._MG1655_circular_genome.svg.png" alt="대장균의 원형 유전체 지도" class="w-full rounded bg-white">
+            <p class="text-xs text-slate-500 mt-2">예시: 대장균(E. coli)의 유전체 지도. 각 색깔은 다른 유전자 그룹을 나타냅니다.</p>
+            <button onclick="closeModal()" class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors">닫기</button>
+        </div>
+    </div>
+
+    <nav id="progress-nav" class="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col space-y-2">
         <a href="#title" data-section="title" class="w-3 h-3 bg-slate-300 rounded-full block" title="제목"></a>
         <a href="#objectives" data-section="objectives" class="w-3 h-3 bg-slate-300 rounded-full block" title="학습 목표"></a>
         <a href="#intro-activity" data-section="intro-activity" class="w-3 h-3 bg-slate-300 rounded-full block" title="생각 열기"></a>
@@ -81,9 +98,13 @@
         <a href="#next" data-section="next" class="w-3 h-3 bg-slate-300 rounded-full block" title="다음 시간"></a>
     </nav>
 
-    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
-        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-30">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center relative">
             <a href="index.html" class="text-xl md:text-2xl font-bold text-emerald-600 hover:text-emerald-700">🏠 체세포 분열 탐험</a>
+            <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-emerald-600 transition-colors" title="전체 화면">
+                <svg id="fullscreen-enter-icon" xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
+            </button>
         </nav>
     </header>
 
@@ -136,14 +157,16 @@
 
         <section id="dna-genes">
             <h2 class="text-3xl font-bold text-center mb-12">DNA와 유전자</h2>
-             <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <h3 class="font-bold text-xl mb-2">DNA</h3>
-                    <p>염색체를 구성하는 유전 물질로, 생물의 특징(형질)에 대한 다양한 유전 정보가 담겨 있습니다.</p>
+             <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white p-8 rounded-xl shadow-md space-y-4">
+                    <h3 class="font-bold text-xl">DNA (디옥시리보핵산)</h3>
+                    <p>생명의 모든 유전 정보를 담고 있는 설계도입니다. 두 가닥이 서로 꼬여있는 <strong class="text-emerald-600">이중 나선 구조</strong>를 하고 있으며, 이 구조 안에 유전 암호가 저장되어 있습니다.</p>
+                    <button onclick="openModal('dna-modal')" class="mt-2 w-full bg-emerald-100 text-emerald-800 font-bold py-2 px-4 rounded-lg hover:bg-emerald-200 transition-colors">이중 나선 구조 보기</button>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <h3 class="font-bold text-xl mb-2">유전자</h3>
-                    <p>DNA에 담겨 있는 각각의 특정한 유전 정보를 의미합니다.</p>
+                <div class="bg-white p-8 rounded-xl shadow-md space-y-4">
+                    <h3 class="font-bold text-xl">유전자 (Gene)</h3>
+                    <p>DNA의 특정 구간으로, 눈 색깔, 키 등 생물의 특정 형질을 결정하는 <strong class="text-emerald-600">하나의 정보 단위</strong>입니다. 염색체에는 수많은 유전자가 배열되어 있습니다.</p>
+                    <button onclick="openModal('gene-modal')" class="mt-2 w-full bg-emerald-100 text-emerald-800 font-bold py-2 px-4 rounded-lg hover:bg-emerald-200 transition-colors">원형 유전체 지도 예시 보기</button>
                 </div>
             </div>
         </section>
@@ -236,47 +259,31 @@
                     <p class="text-lg text-slate-600">세포 분열이 활발한 <strong class="text-emerald-600">양파 뿌리 끝 생장점</strong>을 이용하면 체세포 분열의 여러 단계를 직접 관찰할 수 있습니다.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Step 1 -->
                     <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-                        <summary class="font-bold text-xl list-none text-center">
-                            1. 고정
-                            <span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span>
-                        </summary>
+                        <summary class="font-bold text-xl list-none text-center">1. 고정<span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span></summary>
                         <div class="mt-4 text-left">
-                            <img src="https://github.com/user-attachments/assets/9e21e251-7d14-4c50-9058-c251b80d5eef" alt="고정 과정" class="w-full h-32 object-cover rounded mb-2">
+                            <img src="images/1-고정.jpg" alt="고정 과정" class="w-full h-32 object-cover rounded mb-2">
                             <p class="text-slate-600 text-sm">양파 뿌리 끝 약 1cm를 잘라 에탄올과 아세트산 혼합 용액(3:1)에 넣어 세포 분열을 멈추고 살아있을 때의 모습을 유지시킵니다.</p>
                         </div>
                     </details>
-                    <!-- Step 2 -->
                      <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-                        <summary class="font-bold text-xl list-none text-center">
-                            2. 해리
-                            <span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span>
-                        </summary>
+                        <summary class="font-bold text-xl list-none text-center">2. 해리<span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span></summary>
                         <div class="mt-4 text-left">
-                            <img src="https://github.com/user-attachments/assets/fd72aa45-9743-4c2d-8a62-45b5523584cb" alt="해리 과정" class="w-full h-32 object-cover rounded mb-2">
+                            <img src="images/2-해리.png" alt="해리 과정" class="w-full h-32 object-cover rounded mb-2">
                             <p class="text-slate-600 text-sm">묽은 염산에 뿌리 끝을 넣고 가열하여 세포벽을 연하게 만들어 세포들이 잘 분리되도록 합니다.</p>
                         </div>
                     </details>
-                    <!-- Step 3 -->
                      <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-                        <summary class="font-bold text-xl list-none text-center">
-                            3. 염색
-                            <span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span>
-                        </summary>
+                        <summary class="font-bold text-xl list-none text-center">3. 염색<span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span></summary>
                         <div class="mt-4 text-left">
-                            <img src="https://github.com/user-attachments/assets/5cef26ca-0891-432e-87d2-cbefe054c3f0" alt="염색 과정" class="w-full h-32 object-cover rounded mb-2">
+                            <img src="images/3-염색.jpg" alt="염색 과정" class="w-full h-32 object-cover rounded mb-2">
                             <p class="text-slate-600 text-sm">아세트산 카민과 같은 염색 용액으로 핵과 염색체를 붉게 염색하여 관찰이 쉽도록 합니다.</p>
                         </div>
                     </details>
-                    <!-- Step 4 -->
                     <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-                        <summary class="font-bold text-xl list-none text-center">
-                            4. 분리 및 관찰
-                            <span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span>
-                        </summary>
+                        <summary class="font-bold text-xl list-none text-center">4. 분리 및 관찰<span class="text-sm font-normal text-slate-500 block group-open:hidden">(클릭)</span></summary>
                         <div class="mt-4 text-left">
-                            <img src="https://github.com/user-attachments/assets/0358a718-01cd-44e8-aa95-c8b9f7ad2ccf" alt="분리 및 관찰 과정" class="w-full h-32 object-cover rounded mb-2">
+                            <img src="images/4-분리.jpg" alt="분리 및 관찰 과정" class="w-full h-32 object-cover rounded mb-2">
                             <p class="text-slate-600 text-sm">염색된 뿌리 끝을 해부침으로 잘게 찢고 압착하여 세포를 한 겹으로 편 뒤 현미경으로 관찰합니다.</p>
                         </div>
                     </details>
@@ -398,6 +405,70 @@
                     playSegment(phase);
                 });
             });
+
+            // Modal Logic
+            const modalOverlay = document.getElementById('modal-overlay');
+            const dnaModal = document.getElementById('dna-modal');
+            const geneModal = document.getElementById('gene-modal');
+
+            window.openModal = function(modalId) {
+                modalOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    modalOverlay.classList.remove('opacity-0');
+                    if (modalId === 'dna-modal') {
+                        dnaModal.classList.remove('hidden');
+                        setTimeout(() => {
+                            dnaModal.classList.remove('opacity-0', 'scale-95');
+                        }, 50);
+                    } else if (modalId === 'gene-modal') {
+                        geneModal.classList.remove('hidden');
+                        setTimeout(() => {
+                            geneModal.classList.remove('opacity-0', 'scale-95');
+                        }, 50);
+                    }
+                }, 10);
+            }
+
+            window.closeModal = function() {
+                modalOverlay.classList.add('opacity-0');
+                dnaModal.classList.add('opacity-0', 'scale-95');
+                geneModal.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    modalOverlay.classList.add('hidden');
+                    dnaModal.classList.add('hidden');
+                    geneModal.classList.add('hidden');
+                }, 300);
+            }
+            
+            // Fullscreen API Logic
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const enterIcon = document.getElementById('fullscreen-enter-icon');
+            const exitIcon = document.getElementById('fullscreen-exit-icon');
+
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        alert(`전체 화면 모드를 시작할 수 없습니다: ${err.message}`);
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            function updateFullscreenIcon() {
+                if (document.fullscreenElement) {
+                    enterIcon.classList.add('hidden');
+                    exitIcon.classList.remove('hidden');
+                } else {
+                    enterIcon.classList.remove('hidden');
+                    exitIcon.classList.add('hidden');
+                }
+            }
+
+            fullscreenBtn.addEventListener('click', toggleFullScreen);
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
         });
     </script>
 </body>
