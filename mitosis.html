@@ -68,12 +68,12 @@
     <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0 modal-overlay" onclick="closeModal()">
         <div id="dna-modal" class="modal-content bg-white rounded-lg p-4 max-w-md w-full transform scale-95 opacity-0 hidden" onclick="event.stopPropagation()">
             <h3 class="text-xl font-bold mb-4">DNA 이중 나선 구조</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/DNA_animation.gif" alt="회전하는 DNA 이중 나선" class="w-full rounded">
+            <img src="images/DNA_animation.gif" alt="회전하는 DNA 이중 나선" class="w-full rounded">
             <button onclick="closeModal()" class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors">닫기</button>
         </div>
         <div id="gene-modal" class="modal-content bg-white rounded-lg p-4 max-w-lg w-full transform scale-95 opacity-0 hidden" onclick="event.stopPropagation()">
             <h3 class="text-xl font-bold mb-4">원형 유전체 지도 (Circular Genome Map) 예시</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Escherichia_coli_K-12_substr._MG1655_circular_genome.svg/1024px-Escherichia_coli_K-12_substr._MG1655_circular_genome.svg.png" alt="대장균의 원형 유전체 지도" class="w-full rounded bg-white">
+            <img src="images/circular_genome_ecoli.jpg" alt="대장균의 원형 유전체 지도" class="w-full rounded bg-white">
             <p class="text-xs text-slate-500 mt-2">예시: 대장균(E. coli)의 유전체 지도. 각 색깔은 다른 유전자 그룹을 나타냅니다.</p>
             <button onclick="closeModal()" class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors">닫기</button>
         </div>
@@ -102,7 +102,7 @@
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center relative">
             <a href="index.html" class="text-xl md:text-2xl font-bold text-emerald-600 hover:text-emerald-700">🏠 체세포 분열 탐험</a>
             <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-emerald-600 transition-colors" title="전체 화면">
-                <svg id="fullscreen-enter-icon" xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                <svg id="fullscreen-enter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
                 <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
             </button>
         </nav>
@@ -205,7 +205,7 @@
         </section>
         
         <section id="mitosis-phases">
-            <h2 class="text-3xl font-bold text-center mb-12">핵 분열 과정 영상</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">핵 분 열 과정 영상</h2>
             <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="lg:col-span-1 flex flex-col space-y-3">
