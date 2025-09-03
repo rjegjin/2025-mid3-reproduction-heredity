@@ -142,23 +142,18 @@
         </section>
 
         <section id="chromosome-info">
-    <h2 class="text-3xl font-bold text-center mb-12">염색체 (Chromosome)</h2>
-    <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
-        <div class="bg-white p-8 rounded-xl shadow-md">
-            <h3 class="font-bold text-xl mb-2">정의</h3>
-            <p>분열 중인 세포에서 유전 물질이 꼬이고 뭉쳐서 만들어진 막대 모양의 구조물입니다.</p>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-md">
-            <h3 class="font-bold text-xl mb-2">구조</h3>
-            <p>두 개의 <strong class="text-emerald-600">염색 분체</strong>가 중앙의 <strong class="text-emerald-600">동원체</strong>에 의해 연결된 구조입니다.</p>
-        </div>
-    </div>
-    <div class="flex justify-center">
-        <div class="bg-white p-8 rounded-xl shadow-md">
-            <img src="images/Chromatin.jpg" alt="Chromatin">
-        </div>
-    </div>
-</section>
+            <h2 class="text-3xl font-bold text-center mb-12">염색체 (Chromosome)</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="font-bold text-xl mb-2">정의</h3>
+                    <p>분열 중인 세포에서 유전 물질이 꼬이고 뭉쳐서 만들어진 막대 모양의 구조물입니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="font-bold text-xl mb-2">구조</h3>
+                    <p>두 개의 <strong class="text-emerald-600">염색 분체</strong>가 중앙의 <strong class="text-emerald-600">동원체</strong>에 의해 연결된 구조입니다.</p>
+                </div>
+            </div>
+        </section>
 
         <section id="dna-genes">
             <h2 class="text-3xl font-bold text-center mb-12">DNA와 유전자</h2>
@@ -210,7 +205,7 @@
         </section>
         
         <section id="mitosis-phases">
-            <h2 class="text-3xl font-bold text-center mb-12">체세포 분열 과정 영상</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">핵 분열 과정 영상</h2>
             <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="lg:col-span-1 flex flex-col space-y-3">
@@ -244,19 +239,24 @@
                     <p>세포 중앙에서 <strong class="text-emerald-600">세포판</strong>이 만들어져 바깥으로 자라면서 두 개로 나뉩니다.</p>
                 </div>
             </div>
-        </section>
-
-        <section id="significance">
-            <h2 class="text-3xl font-bold text-center mb-12">체세포 분열의 의의</h2>
-             <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-                 <ul class="list-disc list-inside space-y-3 text-lg">
-                    <li><strong class="text-emerald-600">생장</strong>: 세포 수를 늘려 생명체 전체의 몸집을 키웁니다.</li>
-                    <li><strong class="text-emerald-600">재생</strong>: 손상되거나 죽은 세포를 새로운 세포로 교체하여 상처를 치유하고 조직을 유지합니다.</li>
-                    <li><strong class="text-emerald-600">유전 정보 보존</strong>: 모세포의 유전 정보가 딸세포에 정확하게 전달되어 유전적 안정성을 유지합니다.</li>
-                </ul>
+            <div class="mt-12 max-w-xl mx-auto">
+                <div class="relative">
+                    <div id="slider-container" class="relative w-full h-72 overflow-hidden rounded-lg shadow-lg bg-slate-200">
+                        <div id="slider" class="flex transition-transform duration-500 ease-in-out h-full">
+                            <img src="images/cell_division_1.png" alt="동물 세포질 분열" class="w-full h-full object-contain flex-shrink-0">
+                            <img src="images/cell_division_2.png" alt="식물 세포질 분열" class="w-full h-full object-contain flex-shrink-0">
+                        </div>
+                    </div>
+                    <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/60 hover:bg-white rounded-full p-2 ml-2 transition shadow">
+                        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/60 hover:bg-white rounded-full p-2 mr-2 transition shadow">
+                        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
             </div>
         </section>
-        
+
         <section id="lab">
             <h2 class="text-3xl font-bold text-center mb-12">양파 뿌리 끝 세포 관찰</h2>
             <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
@@ -443,6 +443,33 @@
                     dnaModal.classList.add('hidden');
                     geneModal.classList.add('hidden');
                 }, 300);
+            }
+            
+            // Image Slider Logic
+            const slider = document.getElementById('slider');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            if (slider) {
+                const images = slider.querySelectorAll('img');
+                const imageCount = images.length;
+                let currentIndex = 0;
+
+                function showImage(index) {
+                    const offset = -index * 100;
+                    slider.style.transform = `translateX(${offset}%)`;
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : imageCount - 1;
+                    showImage(currentIndex);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex < imageCount - 1) ? currentIndex + 1 : 0;
+                    showImage(currentIndex);
+                });
+                
+                showImage(currentIndex);
             }
             
             // Fullscreen API Logic
