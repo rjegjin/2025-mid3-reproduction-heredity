@@ -28,6 +28,15 @@
             border-color: #10b981;
             background-color: #f0fdf4;
         }
+        .section-title {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #334155; /* slate-700 */
+        }
     </style>
 </head>
 <body class="bg-slate-100">
@@ -45,7 +54,8 @@
         <main>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                 
-                <!-- Chapter 1: 서론 -->
+                <h2 class="section-title">생식</h2>
+                
                 <a href="intro.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="intro">
                     <div class="flex-grow">
                         <div class="flex justify-between items-start mb-4">
@@ -58,7 +68,6 @@
                     <button class="mt-6 w-full bg-sky-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-sky-600 transition-colors">학습 시작</button>
                 </a>
 
-                <!-- Chapter 2: 체세포 분열 -->
                 <a href="mitosis.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="mitosis">
                     <div class="flex-grow">
                         <div class="flex justify-between items-start mb-4">
@@ -71,7 +80,6 @@
                     <button class="mt-6 w-full bg-emerald-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-600 transition-colors">학습 시작</button>
                 </a>
 
-                <!-- Chapter 3: 감수 분열 -->
                 <a href="meiosis.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="meiosis">
                     <div class="flex-grow">
                         <div class="flex justify-between items-start mb-4">
@@ -84,7 +92,6 @@
                     <button class="mt-6 w-full bg-indigo-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors">학습 시작</button>
                 </a>
 
-                <!-- Chapter 4: 수정란에서 개체로 -->
                 <a href="fert_egg.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="fert_egg">
                     <div class="flex-grow">
                         <div class="flex justify-between items-start mb-4">
@@ -95,6 +102,56 @@
                         <p class="text-slate-500">하나의 수정란이 완전한 생명체로 탄생하기까지의 신비한 발생 과정을 탐험합니다.</p>
                     </div>
                     <button class="mt-6 w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 transition-colors">학습 시작</button>
+                </a>
+
+                <h2 class="section-title">유전</h2>
+
+                <a href="mendel1.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="mendel1">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-lime-500">01</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">멘델이 밝힌 유전 원리(1)</h2>
+                        <p class="text-slate-500">멘델은 어떻게 유전의 비밀을 풀었을까요? 완두콩 실험을 통해 유전의 기본 원리를 알아봅니다.</p>
+                    </div>
+                    <button class="mt-6 w-full bg-lime-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-lime-600 transition-colors">학습 시작</button>
+                </a>
+
+                <a href="mendel2.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="mendel2">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-cyan-500">02</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">멘델이 밝힌 유전 원리(2)</h2>
+                        <p class="text-slate-500">두 가지 이상의 형질이 함께 유전될 때 어떤 규칙이 숨어있을까요? 독립 법칙을 탐구합니다.</p>
+                    </div>
+                    <button class="mt-6 w-full bg-cyan-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-cyan-600 transition-colors">학습 시작</button>
+                </a>
+
+                <a href="human_genetics.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="human_genetics">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-violet-500">03</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">사람의 유전 연구하는 방법</h2>
+                        <p class="text-slate-500">사람의 유전은 어떻게 연구할까요? 가계도 분석 등 사람의 유전 연구 방법을 알아봅니다.</p>
+                    </div>
+                    <button class="mt-6 w-full bg-violet-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-violet-600 transition-colors">학습 시작</button>
+                </a>
+
+                <a href="genetics_activity.html" class="chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="genetics_activity">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-rose-500">04</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">모의 활동으로 알아보는 유전 현상</h2>
+                        <p class="text-slate-500">가상 실험을 통해 유전 현상을 직접 체험하고 유전 원리를 더욱 깊이 이해해 보세요.</p>
+                    </div>
+                    <button class="mt-6 w-full bg-rose-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-rose-600 transition-colors">학습 시작</button>
                 </a>
 
             </div>
@@ -126,10 +183,18 @@
 
             chapterCards.forEach(card => {
                 card.addEventListener('click', (e) => {
-                    const chapterName = card.dataset.chapter;
-                    let progress = JSON.parse(localStorage.getItem('learningProgress')) || {};
-                    progress[chapterName] = true;
-                    localStorage.setItem('learningProgress', JSON.stringify(progress));
+                    // 학습 시작 버튼을 누를 때만 진행률이 저장되도록 합니다.
+                    if (e.target.tagName === 'BUTTON') {
+                        const chapterName = card.dataset.chapter;
+                        let progress = JSON.parse(localStorage.getItem('learningProgress')) || {};
+                        progress[chapterName] = true;
+                        localStorage.setItem('learningProgress', JSON.stringify(progress));
+                        // UI 업데이트는 페이지 이동 후 돌아왔을 때 보입니다.
+                    } else {
+                        // 카드의 다른 부분을 클릭하면 기본 링크 이동만 수행합니다.
+                        e.preventDefault();
+                        window.location.href = card.href;
+                    }
                 });
             });
 
