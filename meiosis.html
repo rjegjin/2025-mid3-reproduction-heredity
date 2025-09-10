@@ -61,5 +61,319 @@
         <a href="#intro-q" data-section="intro-q" class="w-3 h-3 bg-slate-300 rounded-full block" title="도입 질문"></a>
         <a href="#definition" data-section="definition" class="w-3 h-3 bg-slate-300 rounded-full block" title="정의"></a>
         <a href="#overview" data-section="overview" class="w-3 h-3 bg-slate-300 rounded-full block" title="감수 분열 개요"></a>
+        <a href="#meiosis-phases" data-section="meiosis-phases" class="w-3 h-3 bg-slate-300 rounded-full block" title="분열 과정"></a>
+        <a href="#result" data-section="result" class="w-3 h-3 bg-slate-300 rounded-full block" title="결과"></a>
+        <a href="#comparison1" data-section="comparison1" class="w-3 h-3 bg-slate-300 rounded-full block" title="비교 1"></a>
+        <a href="#comparison2" data-section="comparison2" class="w-3 h-3 bg-slate-300 rounded-full block" title="비교 2"></a>
         <a href="#crossing-over" data-section="crossing-over" class="w-3 h-3 bg-slate-300 rounded-full block" title="교차"></a>
-        <a href="#meiosis-phases" data-section="meiosis-phases" class="w-3 h-
+        <a href="#summary" data-section="summary" class="w-3 h-3 bg-slate-300 rounded-full block" title="핵심 정리"></a>
+        <a href="#next" data-section="next" class="w-3 h-3 bg-slate-300 rounded-full block" title="다음 시간"></a>
+    </nav>
+
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center relative">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-indigo-600 hover:text-indigo-700">🏠 감수 분열 탐험</a>
+            <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-indigo-600 transition-colors" title="전체 화면">
+                <svg id="fullscreen-enter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="title" class="text-center">
+            <div class="bg-indigo-50 rounded-2xl p-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">V. 생식과 유전: 생식세포 형성 과정</h2>
+                <p class="text-xl md:text-2xl text-slate-600 mb-8">염색체의 행동을 중심으로 이해하는 감수 분열</p>
+                <div class="flex justify-center space-x-2">
+                    <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">#생식세포</span>
+                    <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">#염색체</span>
+                    <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">#유전적 다양성</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives">
+             <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 text-center">
+                <h3 class="text-2xl font-bold text-indigo-700">학습 목표 🎯</h3>
+                <p class="text-xl">생식세포 형성 과정의 특징을 <strong class="text-indigo-600">염색체의 행동</strong>으로 설명할 수 있다.</p>
+            </div>
+        </section>
+
+        <section id="intro-q">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-8">생각 열기</h2>
+                <p class="text-5xl font-bold text-slate-700">생식세포는 어떤 과정을 거쳐<br/>만들어질까? 🤔</p>
+            </div>
+        </section>
+
+        <section id="definition">
+            <h2 class="text-3xl font-bold text-center mb-12">생식과 생식세포란?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-2">생식 (Reproduction)</h3>
+                    <p class="text-slate-600">생물이 살아 있는 동안 자신과 닮은 자손을 만드는 것.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-2">생식세포 (Germ Cell)</h3>
+                    <p class="text-slate-600">정자와 난자 같이 생식 과정에서 자손에게 유전 물질을 전달하는 세포.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview">
+            <h2 class="text-3xl font-bold text-center mb-12">감수 분열 (Meiosis) 개요</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li>생식세포는 <strong class="text-indigo-600">감수 분열</strong>을 통해 만들어집니다.</li>
+                    <li>세포 분열이 <strong class="text-indigo-600">두 번 연속</strong>해서 일어나는 특별한 과정입니다.</li>
+                    <li>감수 1분열 전에는 DNA가 복제되지만, 1분열과 2분열 사이에는 <strong class="text-red-600">DNA 복제 없이</strong> 바로 2분열이 일어납니다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="meiosis-phases">
+            <h2 class="text-3xl font-bold text-center mb-12">감수 분열 과정 영상</h2>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1 flex flex-col space-y-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-center mb-2 text-indigo-700">감수 1분열</h3>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="prophase1">전기 I</button>
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="metaphase1">중기 I</button>
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="anaphase1">후기 I</button>
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="telophase1">말기 I</button>
+                            </div>
+                        </div>
+                        <div class="border-t pt-4 mt-4">
+                            <h3 class="text-xl font-bold text-center mb-2 text-indigo-700">감수 2분열</h3>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="prophase2">전기 II</button>
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="metaphase2">중기 II</button>
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="anaphase2">후기 II</button>
+                                <button class="phase-button p-3 rounded-lg text-md border" data-phase="telophase2">말기 II</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 flex flex-col gap-4">
+                        <div class="w-full bg-slate-100 rounded-lg overflow-hidden">
+                           <div id="player-container"><div id="player"></div></div>
+                        </div>
+                        <div id="phase-description" class="w-full p-4 bg-indigo-50 rounded-lg min-h-[100px]">
+                            <h4 id="phase-title" class="text-xl font-bold text-indigo-800 mb-2">단계를 선택하세요</h4>
+                            <p id="phase-text" class="text-slate-700">버튼을 클릭하면 해당 단계의 영상이 재생됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="result">
+            <h2 class="text-3xl font-bold text-center mb-12">감수 분열의 결과</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                <p class="text-2xl">모세포 하나(2n)로부터<br/>염색체 수가 <strong class="text-indigo-600">절반으로 줄어든 (n)</strong><br/><strong class="text-indigo-600">딸세포 네 개</strong>가 만들어집니다.</p>
+            </div>
+        </section>
+
+        <section id="comparison1">
+            <h2 class="text-3xl font-bold text-center mb-12">비교 1: 염색체 행동</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                    <ul class="list-disc list-inside space-y-4 text-lg">
+                        <li><strong class="text-indigo-600">공통점</strong>: 분열 전 DNA를 복제합니다. (1회)</li>
+                        <li><strong class="text-red-600">차이점 (감수 1분열)</strong>: 체세포 분열과 달리, <strong class="text-red-600">상동 염색체가 접합(2가 염색체 형성)</strong>했다가 분리됩니다. 이 과정에서 염색체 수가 절반으로 줄어듭니다.</li>
+                        <li><strong class="text-red-600">차이점 (감수 2분열)</strong>: 염색 분체가 분리되는 점은 체세포 분열과 같지만, 핵상이 n인 상태에서 시작합니다(n → n).</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-lg">
+                    <img src="images/gr1_lrg.jpg" alt="체세포분열과 감수분열 비교" class="w-full rounded-lg">
+                    <p class="text-xs text-center text-slate-500 mt-2">체세포 분열(오른쪽)과 감수 분열(왼쪽)의 염색체 행동 비교</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison2">
+            <h2 class="text-3xl font-bold text-center mb-12">비교 2: 결과 및 특징</h2>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg overflow-x-auto">
+                <table class="w-full comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th><th class="text-indigo-600">감수 분열</th><th class="text-emerald-600">체세포 분열</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>분열 횟수</th><td>2회 연속 분열</td><td>1회 분열</td></tr>
+                        <tr><th>딸세포 수</th><td>4개</td><td>2개</td></tr>
+                        <tr><th>염색체 수 변화</th><td>절반으로 감소 (2n → n)</td><td>변화 없음 (2n → 2n)</td></tr>
+                        <tr><th>유전적 다양성</th><td class="text-indigo-600 font-bold">높아짐 (교차 발생)</td><td>변화 없음</td></tr>
+                        <tr><th>주요 목적</th><td>생식세포 형성</td><td>생장, 재생</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="crossing-over">
+            <h2 class="text-3xl font-bold text-center mb-12">심화 과정: 교차 (Crossing Over)와 유전적 다양성</h2>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-4">유전 정보의 재조합 🧬</h3>
+                        <p class="text-lg text-slate-700 space-y-4">
+                            감수 1분열 전기 때, 아버지와 어머니에게서 물려받은 상동 염색체 쌍이 접합하여 2가 염색체를 형성합니다. 이때 두 염색체의 일부가 서로 꼬이면서 유전자 조각을 교환하는 현상을 <strong class="text-red-600">교차(Crossing Over)</strong>라고 합니다.
+                        </p>
+                        <p class="text-lg text-slate-700 mt-4">
+                            교차를 통해 부모의 유전 정보가 새로운 조합으로 섞이게 되어, 자손이 부모와 다르면서도 다양한 형질을 가질 수 있게 됩니다. 이는 <strong class="text-indigo-600">유전적 다양성</strong>을 높이는 매우 중요한 과정입니다.
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-lg overflow-hidden">
+                        <div id="crossing-over-player-container">
+                            <div id="crossing-over-player"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="summary">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 정리</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-3">
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li>생식세포는 <strong class="text-indigo-600">두 번 연속 분열</strong>하는 감수 분열로 만들어진다.</li>
+                    <li>1분열 전기 때 <strong class="text-red-600">교차</strong>가 일어나 유전적 다양성이 확보된다.</li>
+                    <li>1분열에서는 <strong class="text-red-600">상동 염색체</strong>가, 2분열에서는 <strong class="text-red-600">염색 분체</strong>가 분리된다.</li>
+                    <li>그 결과 염색체 수가 <strong class="text-indigo-600">절반</strong>으로 줄어든 <strong class="text-indigo-600">4개의 딸세포</strong>가 만들어진다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="next">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-4">다음 시간에 배울 내용</h2>
+                <p class="text-2xl text-slate-600">V. 생식과 유전 - 수정란이 개체가 되는 과정</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('section');
+            const progressNavLinks = document.querySelectorAll('#progress-nav a');
+            let currentSlideIndex = 0;
+            let isScrolling = false;
+
+            function updateNav(index) {
+                const sectionId = slides[index].id;
+                progressNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
+                });
+            }
+
+            function scrollToSlide(index) {
+                if (isScrolling || index < 0 || index >= slides.length) return;
+                isScrolling = true;
+                currentSlideIndex = index;
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+                updateNav(index);
+                setTimeout(() => { isScrolling = false; }, 1000);
+            }
+            
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') scrollToSlide(currentSlideIndex + 1);
+                else if (event.key === 'ArrowLeft') scrollToSlide(currentSlideIndex - 1);
+            });
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(slides).indexOf(entry.target);
+                        currentSlideIndex = index;
+                        updateNav(index);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            slides.forEach(slide => observer.observe(slide));
+            updateNav(0);
+
+            // YouTube Player Logic
+            const phaseButtons = document.querySelectorAll('#meiosis-phases .phase-button');
+            const phaseTitle = document.getElementById('phase-title');
+            const phaseText = document.getElementById('phase-text');
+            let player;
+            let crossingOverPlayer;
+            let intervalId;
+
+            window.onYouTubeIframeAPIReady = function() {
+                player = new YT.Player('player', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: 'n_vJ5a_p-sI', // Meiosis video
+                    playerVars: { 'playsinline': 1, 'controls': 0, 'rel': 0, 'start': 5 },
+                });
+                
+                crossingOverPlayer = new YT.Player('crossing-over-player', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: 'pd_j-00-6M4', // Crossing Over Animation video
+                    playerVars: { 'playsinline': 1, 'controls': 1, 'rel': 0, 'loop': 1, 'playlist': 'pd_j-00-6M4' },
+                });
+            }
+
+            const timeSegments = {
+                prophase1: { start: 14, end: 20 },
+                metaphase1: { start: 21, end: 24 },
+                anaphase1: { start: 25, end: 28 },
+                telophase1: { start: 29, end: 35 },
+                prophase2: { start: 38, end: 41 },
+                metaphase2: { start: 42, end: 44 },
+                anaphase2: { start: 45, end: 48 },
+                telophase2: { start: 49, end: 55 }
+            };
+            
+            const phaseData = {
+                prophase1: { title: '전기 I', text: '상동 염색체끼리 접합하여 2가 염색체를 형성합니다. 교차가 일어날 수 있습니다.'},
+                metaphase1: { title: '중기 I', text: '2가 염색체가 세포 중앙(적도면)에 배열됩니다.'},
+                anaphase1: { title: '후기 I', text: '상동 염색체가 분리되어 세포의 양 극으로 이동합니다.'},
+                telophase1: { title: '말기 I', text: '세포질이 나뉘어 2개의 딸세포가 만들어집니다. 염색체 수는 절반으로 줄어듭니다.'},
+                prophase2: { title: '전기 II', text: '염색체가 다시 응축되고 방추사가 나타납니다.'},
+                metaphase2: { title: '중기 II', text: '염색체가 세포 중앙에 배열됩니다.'},
+                anaphase2: { title: '후기 II', text: '염색 분체가 분리되어 양 극으로 이동합니다. (체세포 분열 후기와 유사)'},
+                telophase2: { title: '말기 II', text: '핵막이 다시 생기고 세포질이 나뉘어 총 4개의 딸세포가 형성됩니다.'}
+            };
+
+            function playSegment(phase) {
+                if (!player || typeof player.seekTo !== 'function') return;
+                const segment = timeSegments[phase];
+                if (!segment) return;
+                if (intervalId) clearInterval(intervalId);
+                
+                player.seekTo(segment.start, true);
+                player.playVideo();
+                
+                intervalId = setInterval(() => {
+                    if (player.getCurrentTime() >= segment.end) {
+                        player.pauseVideo();
+                        clearInterval(intervalId);
+                    }
+                }, 250);
+            }
+
+            phaseButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const phase = button.dataset.phase;
+                    phaseButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    phaseTitle.textContent = phaseData[phase].title;
+                    phaseText.textContent = phaseData[phase].text;
+                    playSegment(phase);
+                });
+            });
+
+            gsap.registerPlugin(ScrollTrigger);
+            slides.forEach(section => {
+                gsap.fromTo(section.children[0], 
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity
