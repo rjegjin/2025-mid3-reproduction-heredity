@@ -256,7 +256,7 @@
         </section>
     </main>
 
-    <script src="https://www.youtube.com/watch?v=EPBSsGqTC8I&list=TLGGnao5UbezxNMxMDA5MjAyNQ&ab_channel=BiologiacomSanabria"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('section');
@@ -310,8 +310,14 @@
                 player = new YT.Player('player', {
                     height: '100%',
                     width: '100%',
-                    videoId: 'n_vJ5a_p-sI', // Meiosis video
-                    playerVars: { 'playsinline': 1, 'controls': 0, 'rel': 0, 'start': 5 },
+                    videoId: 'EPBSsGqTC8I', // Video ID changed as requested
+                    playerVars: { 'playsinline': 1, 'controls': 0, 'rel': 0 },
+                    // ✨ NEW: Add events property to set playback rate on ready
+                    events: {
+                        'onReady': (event) => {
+                            event.target.setPlaybackRate(1.5); // Set playback speed to 1.5x
+                        }
+                    }
                 });
                 
                 crossingOverPlayer = new YT.Player('crossing-over-player', {
@@ -319,18 +325,25 @@
                     width: '100%',
                     videoId: 'pd_j-00-6M4', // Crossing Over Animation video
                     playerVars: { 'playsinline': 1, 'controls': 1, 'rel': 0, 'loop': 1, 'playlist': 'pd_j-00-6M4' },
+                     // ✨ NEW: Add events property to set playback rate on ready
+                    events: {
+                        'onReady': (event) => {
+                            event.target.setPlaybackRate(1.5); // Set playback speed to 1.5x
+                        }
+                    }
                 });
             }
 
+            // NOTE: These time segments might need adjustment for the new video
             const timeSegments = {
-                prophase1: { start: 14, end: 20 },
-                metaphase1: { start: 21, end: 24 },
-                anaphase1: { start: 25, end: 28 },
-                telophase1: { start: 29, end: 35 },
-                prophase2: { start: 38, end: 41 },
-                metaphase2: { start: 42, end: 44 },
-                anaphase2: { start: 45, end: 48 },
-                telophase2: { start: 49, end: 55 }
+                prophase1: { start: 1, end: 17 },
+                metaphase1: { start: 18, end: 38 },
+                anaphase1: { start: 47, end: 51 },
+                telophase1: { start: 60, end: 69 },
+                prophase2: { start: 80, end: 83 },
+                metaphase2: { start: 85, end: 89 },
+                anaphase2: { start: 90, end: 97 },
+                telophase2: { start: 99, end: 105 }
             };
             
             const phaseData = {
@@ -346,6 +359,10 @@
 
             function playSegment(phase) {
                 if (!player || typeof player.seekTo !== 'function') return;
+
+                // Ensure playback rate is set before playing a new segment
+                player.setPlaybackRate(1.5);
+
                 const segment = timeSegments[phase];
                 if (!segment) return;
                 if (intervalId) clearInterval(intervalId);
@@ -376,4 +393,46 @@
             slides.forEach(section => {
                 gsap.fromTo(section.children[0], 
                     { y: 50, opacity: 0 },
-                    { y: 0, opacity
+                    { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+            });
+            
+            // Fullscreen API Logic
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const enterIcon = document.getElementById('fullscreen-enter-icon');
+            const exitIcon = document.getElementById('fullscreen-exit-icon');
+
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        alert(`전체 화면 모드를 시작할 수 없습니다: ${err.message}`);
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            function updateFullscreenIcon() {
+                if (document.fullscreenElement) {
+                    enterIcon.classList.add('hidden');
+                    exitIcon.classList.remove('hidden');
+                } else {
+                    enterIcon.classList.remove('hidden');
+                    exitIcon.classList.add('hidden');
+                }
+            }
+
+            fullscreenBtn.addEventListener('click', toggleFullScreen);
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
+        });
+    </script>
+</body>
+</html>
