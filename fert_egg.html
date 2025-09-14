@@ -51,7 +51,7 @@
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="index.html" class="text-xl md:text-2xl font-bold text-amber-600 hover:text-amber-700">🏠 수정란에서 개체로</a>
             <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-amber-600 transition-colors" title="전체 화면">
-                <svg id="fullscreen-enter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                <svg id="fullscreen-enter-icon" xmlns="http://www.w.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
                 <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
             </button>
         </nav>
@@ -88,7 +88,9 @@
                 <h2 class="text-3xl font-bold mb-8">생각 열기</h2>
                 <p class="text-5xl font-bold text-slate-700 leading-tight">달걀이 병아리가 되기까지<br/>어떤 과정을 거칠까? 🐣</p>
                 <div class="max-w-2xl mx-auto mt-8">
-                                        <p class="text-sm text-slate-500 mt-2">하나의 수정란 세포가 어떻게 복잡한 구조를 가진 병아리가 되는지 알아봅시다.</p>
+                    <button id="reveal-btn" class="bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors">열기</button>
+                    <img id="chick-embryo" src="/images/Schematic-drawings-of-chronological-chick-embryo-development.png" alt="병아리 발생 과정" class="w-full rounded-lg mt-4 hidden">
+                    <p class="text-sm text-slate-500 mt-2">하나의 수정란 세포가 어떻게 복잡한 구조를 가진 병아리가 되는지 알아봅시다.</p>
                 </div>
             </div>
         </section>
@@ -103,7 +105,8 @@
                     </p>
                 </div>
                 <div class="bg-white p-4 rounded-2xl shadow-lg">
-                                        <p class="text-xs text-center text-slate-500 mt-2">정자와 난자가 만나 하나의 수정란을 형성하는 과정입니다.</p>
+                    <img src="/images/The_sperm_and_ovum_during_fertilization.svg" alt="수정 과정" class="w-full rounded-lg">
+                    <p class="text-xs text-center text-slate-500 mt-2">정자와 난자가 만나 하나의 수정란을 형성하는 과정입니다.</p>
                 </div>
             </div>
         </section>
@@ -112,7 +115,8 @@
             <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 2: 난할 (Cleavage)</h2>
             <div class="grid md:grid-cols-2 gap-8 items-center">
                  <div class="bg-white p-4 rounded-2xl shadow-lg">
-                                        <p class="text-xs text-center text-slate-500 mt-2">수정란이 2, 4, 8세포기로 분열하는 과정. 전체 배아의 크기는 변하지 않습니다.</p>
+                    <img src="/images/Cell_Cleavage.png" alt="난할 과정" class="w-full rounded-lg">
+                    <p class="text-xs text-center text-slate-500 mt-2">수정란이 2, 4, 8세포기로 분열하는 과정. 전체 배아의 크기는 변하지 않습니다.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-amber-700 mb-4">크기 변화 없는 빠른 세포 분열</h3>
@@ -265,6 +269,13 @@
 
             fullscreenBtn.addEventListener('click', toggleFullScreen);
             document.addEventListener('fullscreenchange', updateFullscreenIcon);
+
+            // Reveal image on button click
+            const revealBtn = document.getElementById('reveal-btn');
+            const chickEmbryoImg = document.getElementById('chick-embryo');
+            revealBtn.addEventListener('click', () => {
+                chickEmbryoImg.classList.toggle('hidden');
+            });
         });
     </script>
 </body>
