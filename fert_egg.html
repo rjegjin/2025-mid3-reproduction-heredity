@@ -32,6 +32,10 @@
         .comparison-table th {
             background-color: #f3f4f6;
         }
+        .quiz-option { transition: background-color 0.2s; }
+        .quiz-option.selected { background-color: #f59e0b; color: white; }
+        .quiz-option.correct { background-color: #10b981; color: white; }
+        .quiz-option.incorrect { background-color: #ef4444; color: white; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -40,11 +44,17 @@
         <a href="#title" data-section="title" class="w-3 h-3 bg-slate-300 rounded-full block" title="제목"></a>
         <a href="#objectives" data-section="objectives" class="w-3 h-3 bg-slate-300 rounded-full block" title="학습 목표"></a>
         <a href="#intro-q" data-section="intro-q" class="w-3 h-3 bg-slate-300 rounded-full block" title="도입 질문"></a>
+        <a href="#gametes" data-section="gametes" class="w-3 h-3 bg-slate-300 rounded-full block" title="생식세포"></a>
         <a href="#fertilization" data-section="fertilization" class="w-3 h-3 bg-slate-300 rounded-full block" title="수정"></a>
         <a href="#cleavage" data-section="cleavage" class="w-3 h-3 bg-slate-300 rounded-full block" title="난할"></a>
-        <a href="#development-growth" data-section="development-growth" class="w-3 h-3 bg-slate-300 rounded-full block" title="발생과 생장"></a>
+        <a href="#implantation" data-section="implantation" class="w-3 h-3 bg-slate-300 rounded-full block" title="착상과 태반"></a>
+        <a href="#fetus-growth-early" data-section="fetus-growth-early" class="w-3 h-3 bg-slate-300 rounded-full block" title="태아 성장 (초기)"></a>
+        <a href="#fetus-growth-mid" data-section="fetus-growth-mid" class="w-3 h-3 bg-slate-300 rounded-full block" title="태아 성장 (중기)"></a>
+        <a href="#fetus-growth-late" data-section="fetus-growth-late" class="w-3 h-3 bg-slate-300 rounded-full block" title="태아 성장 (후기)"></a>
+        <a href="#fetus-growth-summary" data-section="fetus-growth-summary" class="w-3 h-3 bg-slate-300 rounded-full block" title="발생 과정 요약"></a>
         <a href="#comparison" data-section="comparison" class="w-3 h-3 bg-slate-300 rounded-full block" title="비교"></a>
         <a href="#summary" data-section="summary" class="w-3 h-3 bg-slate-300 rounded-full block" title="핵심 정리"></a>
+        <a href="#quiz" data-section="quiz" class="w-3 h-3 bg-slate-300 rounded-full block" title="퀴즈"></a>
     </nav>
 
     <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
@@ -52,7 +62,7 @@
             <a href="index.html" class="text-xl md:text-2xl font-bold text-amber-600 hover:text-amber-700">🏠 수정란에서 개체로</a>
             <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-amber-600 transition-colors" title="전체 화면">
                 <svg id="fullscreen-enter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-                <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
+                <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
             </button>
         </nav>
     </header>
@@ -61,8 +71,8 @@
         
         <section id="title" class="text-center">
             <div class="bg-amber-50 rounded-2xl p-8 shadow-inner">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">V. 생식과 유전: 수정란이 개체가 되는 과정</h2>
-                <p class="text-xl md:text-2xl text-slate-600 mb-8">하나의 세포에서 완전한 개체까지, 발생의 과정을 탐구합니다.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">V. 생식과 유전: 수정되어 개체가 되기까지</h2>
+                <p class="text-xl md:text-2xl text-slate-600 mb-8">하나의 세포에서 온전한 생명으로</p>
                 <div class="flex justify-center space-x-2">
                     <span class="bg-amber-100 text-amber-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">#수정</span>
                     <span class="bg-amber-100 text-amber-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">#난할</span>
@@ -76,8 +86,8 @@
              <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 text-center">
                 <h3 class="text-2xl font-bold text-amber-700">학습 목표 🎯</h3>
                 <ul class="list-disc list-inside space-y-3 text-lg text-left">
-                    <li>수정란이 하나의 생명체(개체)가 되는 <strong class="text-amber-600">발생</strong> 과정을 설명할 수 있다.</li>
-                    <li>발생 과정의 핵심 단계인 <strong class="text-amber-600">수정</strong>과 <strong class="text-amber-600">난할</strong>의 의미와 특징을 이해한다.</li>
+                    <li>수정란으로부터 개체가 <strong class="text-amber-600">발생</strong>하는 과정을 설명할 수 있다.</li>
+                    <li><strong class="text-amber-600">정자와 난자</strong>의 특징을 비교하고 수정 과정에서의 역할을 이해한다.</li>
                     <li>난할과 일반적인 체세포 분열의 차이점을 비교하여 설명할 수 있다.</li>
                 </ul>
             </div>
@@ -95,24 +105,49 @@
             </div>
         </section>
 
+        <section id="gametes">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 1: 생식세포 - 정자와 난자</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-amber-700 mb-4">정자 (Sperm)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>머리(핵)와 꼬리로 구성됩니다.</li>
+                        <li>꼬리를 이용해 <strong class="text-amber-600">스스로 움직여</strong> 난자를 찾아갑니다.</li>
+                        <li>핵에는 아버지의 유전 물질 절반이 들어있습니다.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-amber-700 mb-4">난자 (Ovum)</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>정자보다 크기가 훨씬 큽니다.</li>
+                        <li>스스로 움직이지 못하지만, 초기 배아 발달에 필요한 <strong class="text-amber-600">많은 양분</strong>을 저장하고 있습니다.</li>
+                        <li>핵에는 어머니의 유전 물질 절반이 들어있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 max-w-3xl mx-auto bg-white p-4 rounded-xl shadow-lg">
+                <img src="images/gametes1_med.jpeg" alt="정자와 난자의 구조" class="w-full rounded-lg">
+                <p class="text-sm text-center mt-2 text-slate-500">정자와 난자의 크기와 모양이 다른 이유는 각자의 역할(이동, 양분 공급)에 최적화되었기 때문입니다.</p>
+            </div>
+        </section>
+
         <section id="fertilization">
-            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 1: 수정 (Fertilization)</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 2: 수정 (Fertilization) - 새로운 생명의 시작</h2>
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-amber-700 mb-4">생명의 시작점, 수정</h3>
                     <p class="text-lg text-slate-700 space-y-3">
-                        <strong class="text-amber-600">수정</strong>은 부계의 생식세포인 '정자'와 모계의 생식세포인 '난자'가 결합하는 과정입니다. 이 과정을 통해 <strong class="text-amber-600">수정란</strong>이라는 새로운 세포가 만들어지며, 이는 새로운 개체의 시작이 됩니다.
+                       <strong class="text-amber-600">수정</strong>은 정자와 난자가 만나 하나의 세포인 <strong class="text-amber-600">수정란</strong>을 이루는 과정입니다. 사람의 경우, 난소에서 배출된 난자(<strong class="text-amber-600">배란</strong>)가 <strong class="text-amber-600">수란관</strong>에서 정자를 만나 수정이 이루어집니다. 수정란은 부모 양쪽의 유전 정보를 모두 갖게 된 새로운 세포입니다.
                     </p>
                 </div>
                 <div class="bg-white p-4 rounded-2xl shadow-lg">
                     <img src="images/The_sperm_and_ovum_during_fertilization.svg" alt="수정 과정" class="w-full rounded-lg">
-                    <p class="text-xs text-center text-slate-500 mt-2">정자와 난자가 만나 하나의 수정란을 형성하는 과정입니다.</p>
+                    <p class="text-xs text-center text-slate-500 mt-2">하나의 정자가 난자와 결합하여 수정란을 형성하는 과정입니다.</p>
                 </div>
             </div>
         </section>
 
         <section id="cleavage">
-            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 2: 난할 (Cleavage)</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 3: 발생 ① - 난할 (Cleavage)</h2>
             <div class="grid md:grid-cols-2 gap-8 items-center">
                  <div class="bg-white p-4 rounded-2xl shadow-lg">
                     <img src="images/Cell_Cleavage.png" alt="난할 과정" class="w-full rounded-lg">
@@ -120,33 +155,102 @@
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-amber-700 mb-4">크기 변화 없는 빠른 세포 분열</h3>
-                    <p class="text-lg text-slate-700 mb-4">수정란은 <strong class="text-amber-600">난할</strong>이라는 매우 빠르고 특별한 초기 세포 분열을 시작합니다. 일반적인 체세포 분열과는 몇 가지 차이점이 있습니다.</p>
+                    <p class="text-lg text-slate-700 mb-4">수정란은 <strong class="text-amber-600">난할</strong>이라는 특별한 초기 세포 분열을 시작합니다.</p>
                     <ul class="list-disc list-inside space-y-3 text-lg text-slate-700">
-                        <li><strong class="text-amber-600">세포 생장기 생략:</strong> 세포가 커지는 시기(간기)가 거의 없이 분열만 빠르게 반복됩니다.</li>
-                        <li><strong class="text-amber-600">세포 크기 감소:</strong> 결과적으로 분열을 거듭할수록 세포 하나의 크기는 점점 작아집니다.</li>
-                        <li><strong class="text-amber-600">전체 배아 크기 유지:</strong> 세포 수가 늘어나도 전체 배아의 크기는 처음 수정란과 거의 동일하게 유지됩니다.</li>
+                        <li><strong class="text-amber-600">세포 생장기 생략</strong>: 세포가 커지는 시기(간기)가 거의 없이 분열만 빠르게 반복됩니다.</li>
+                        <li><strong class="text-amber-600">세포 크기 감소</strong>: 분열을 거듭할수록 세포 하나의 크기는 점점 작아집니다.</li>
+                        <li><strong class="text-amber-600">전체 배아 크기 유지</strong>: 세포 수가 늘어나도 전체 배아의 크기는 처음 수정란과 거의 동일하게 유지됩니다.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="development-growth">
-            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 3: 발생과 생장</h2>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="bg-white p-8 rounded-2xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-amber-700 mb-4">개체 형성 과정</h3>
-                    <p class="text-lg text-slate-700 space-y-3">
-                       <strong class="text-amber-600">발생</strong>은 수정란이 세포 분열을 거듭하여 여러 조직과 기관을 형성하고, 완전한 개체가 되는 모든 과정을 의미합니다.
-                    </p>
-                     <ul class="list-disc list-inside space-y-3 text-lg text-slate-700 mt-4">
-                        <li><strong>세포 수 증가:</strong> 난할 이후에도 체세포 분열은 계속되어 세포 수가 증가합니다.</li>
-                        <li><strong>조직과 기관 형성:</strong> 세포들이 점차 기능과 모양에 따라 피부, 근육, 신경 등 다양한 조직과 기관을 형성합니다.</li>
-                        <li><strong>생장:</strong> 세포 분열을 통해 세포 수가 늘어나면서 개체의 크기가 커지고 무게가 늘어납니다.</li>
-                    </ul>
+        <section id="implantation">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 개념 4: 발생 ② - 착상과 태반 형성</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg text-slate-700 mb-4">수정란은 수란관에서 난할을 반복하며 자궁으로 이동합니다. 수정 후 약 5~7일 뒤, 배아는 <strong class="text-amber-600">자궁 내막</strong>에 파고들어 자리 잡는데, 이를 <strong class="text-amber-600">착상</strong>이라고 합니다.</p>
+                        <p class="text-lg text-slate-700"><strong class="text-amber-600">태반</strong>은 착상 후 형성되며, 모체와 태아를 연결하여 <strong class="text-amber-600">산소와 영양소를 공급</strong>하고, 태아의 <strong class="text-amber-600">노폐물을 배출</strong>하는 생명 유지 장치입니다.</p>
+                    </div>
+                    <div class="p-4">
+                        <img src="images/human-embryonic-development-embryogenesis-zygote-260nw-1850260765.webp" alt="착상 과정" class="w-full rounded-lg shadow-md">
+                        <p class="text-xs text-center text-slate-500 mt-2">수정부터 착상까지의 과정</p>
+                    </div>
                 </div>
-                 <div class="bg-white p-4 rounded-2xl shadow-lg">
-                    <img src="images/human-embryonic-development-embryogenesis-zygote-260nw-1850260765.webp" alt="인간 배아 발생" class="w-full rounded-lg">
-                    <p class="text-xs text-center text-slate-500 mt-2">세포들이 분화하고 개체가 성장하면서 완전한 모습을 갖추게 됩니다.</p>
+            </div>
+        </section>
+        
+        <section id="fetus-growth-early">
+            <h2 class="text-3xl font-bold text-center mb-12">발생 ③: 태아의 성장 (임신 초기)</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-amber-700 mb-4">수정 후 5~13주</h3>
+                        <p class="text-lg text-slate-700">기관이 형성되는 매우 중요한 시기입니다. 외부 자극에 민감하므로 약물 복용이나 음주, 흡연을 반드시 삼가야 합니다.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                            <li><strong>5주</strong>: 뇌가 발달하고 뼈대의 중심부가 만들어지기 시작합니다.</li>
+                            <li><strong>7주</strong>: 입, 생식기 등 얼굴의 주요 기관이 형성되기 시작합니다.</li>
+                            <li><strong>11주</strong>: 대부분의 주요 신체 구조가 형성되며 사람의 모습을 갖추게 됩니다.</li>
+                        </ul>
+                    </div>
+                    <div class="p-4">
+                        <img src="images/fetus_11_weeks.png" alt="임신 11주차 태아" class="w-full rounded-lg shadow-md">
+                        <p class="text-sm text-center mt-2 text-slate-500">임신 11주차 태아 (평균 크기: 4.1cm)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fetus-growth-mid">
+            <h2 class="text-3xl font-bold text-center mb-12">발생 ④: 태아의 성장 (임신 중기)</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="p-4 order-last md:order-first">
+                        <img src="images/fetus_21_weeks.png" alt="임신 21주차 태아" class="w-full rounded-lg shadow-md">
+                        <p class="text-sm text-center mt-2 text-slate-500">임신 21주차 태아 (평균 크기: 25.6cm)</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-amber-700 mb-4">수정 후 17~26주</h3>
+                        <p class="text-lg text-slate-700">태아의 성장이 활발하게 이루어지며, 태동을 느낄 수 있는 시기입니다.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+                            <li><strong>17주</strong>: 뼈가 단단해지고, 감각 기관이 발달하기 시작합니다.</li>
+                            <li><strong>21주</strong>: 모든 신체 기관이 자리를 잡고 성숙해지며, 활발하게 움직입니다.</li>
+                            <li><strong>26주</strong>: 폐가 성숙하기 시작하여 스스로 호흡하는 연습을 합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fetus-growth-late">
+            <h2 class="text-3xl font-bold text-center mb-12">발생 ⑤: 태아의 성장 (임신 후기) 및 출산</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                 <p class="text-xl text-slate-700 mb-6">태아가 세상 밖으로 나올 준비를 하는 마지막 단계입니다. 수정 후 약 <strong class="text-amber-600">266일(40주)</strong>이 지나면 출산을 통해 모체 밖으로 나오게 됩니다.</p>
+                 <div class="max-w-2xl mx-auto">
+                     <img src="images/fetus_37_weeks.jpg" alt="임신 37주차 태아" class="w-full rounded-lg border">
+                     <p class="text-sm text-center mt-2 text-slate-500">임신 37주차 태아 (평균 크기: 47.4cm)</p>
+                 </div>
+            </div>
+        </section>
+
+        <section id="fetus-growth-summary">
+            <h2 class="text-3xl font-bold text-center mb-12">발생 ⑥: 발생 과정 한눈에 보기</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                <p class="text-xl text-slate-700 mb-8">수정란에서 태아로, 그리고 완전한 개체로 성장하기까지의 여정은 생명의 신비 그 자체입니다. 아래 이미지들을 통해 전체 발생 과정을 다시 한번 확인해 보세요.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+                    <div class="p-2 border rounded-lg">
+                        <img src="images/Human_embryonic_fetus_development.jpg" alt="인간 배아 및 태아 발달" class="w-full rounded-md shadow">
+                        <p class="text-sm mt-2 text-slate-600">초기 배아부터 태아까지의 모습</p>
+                    </div>
+                    <div class="p-2 border rounded-lg">
+                        <img src="images/52554-Fetal-Development-Tear-Pad-English_media-01.avif" alt="태아 발달 단계" class="w-full rounded-md shadow">
+                        <p class="text-sm mt-2 text-slate-600">주차별 태아 발달 단계</p>
+                    </div>
+                    <div class="p-2 border rounded-lg">
+                        <img src="images/fetal-growth-4-40-weeks-260nw-551553100.webp" alt="4주부터 40주까지 태아 성장" class="w-full rounded-md shadow">
+                        <p class="text-sm mt-2 text-slate-600">임신 기간 전체 성장 과정</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -167,10 +271,6 @@
                         <tr><th>전체 크기 변화</th><td>거의 변화 없음 (수정란 크기 유지)</td><td>세포 수가 늘면서 전체적으로 커짐 (생장)</td></tr>
                     </tbody>
                 </table>
-                 <div class="mt-8 max-w-3xl mx-auto">
-                    <img src="images/cleamodcell.gif" alt="체세포 분열과 감수 분열 비교 다이어그램" class="w-full rounded-lg border">
-                    <p class="text-sm text-center mt-2 text-slate-500">난할은 체세포 분열의 한 종류지만, '세포가 성장하는 시기'가 거의 없다는 점이 가장 큰 특징입니다.</p>
-                </div>
             </div>
         </section>
 
@@ -178,10 +278,23 @@
             <h2 class="text-3xl font-bold text-center mb-12">핵심 정리</h2>
             <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-3">
                 <ul class="list-disc list-inside space-y-4 text-lg">
-                    <li><strong class="text-amber-600">수정</strong>을 통해 형성된 수정란은 새로운 개체의 시작점입니다.</li>
-                    <li>수정란은 <strong class="text-amber-600">난할</strong>이라는 빠르고 특별한 세포 분열을 통해 세포 수를 늘리며, 이 때 전체 크기는 변하지 않습니다.</li>
-                    <li>이후 세포들이 각각의 역할을 가지게 되고 몸집이 커지는 <strong class="text-amber-600">발생</strong>과 <strong class="text-amber-600">생장</strong> 과정을 통해 완전한 개체가 됩니다.</li>
+                    <li><strong class="text-amber-600">수정</strong>은 정자와 난자가 <strong class="text-amber-600">수란관</strong>에서 결합하는 것입니다.</li>
+                    <li>수정란은 세포 생장 없이 빠르게 분열하는 <strong class="text-amber-600">난할</strong>을 통해 세포 수를 늘립니다.</li>
+                    <li>배아는 자궁 내막에 <strong class="text-amber-600">착상</strong>한 후, <strong class="text-amber-600">태반</strong>을 통해 모체와 물질 교환을 하며 개체로 발생합니다.</li>
                 </ul>
+            </div>
+        </section>
+
+        <section id="quiz">
+            <h2 class="text-3xl font-bold text-center mb-12">개념 확인 퀴즈 ✍️</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl font-bold mb-4">문제: 수정란의 초기 세포 분열로, 배아의 전체 크기 변화가 거의 없는 분열 과정은 무엇일까요?</p>
+                <div id="quiz-options" class="space-y-3">
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-answer="체세포 분열">1. 체세포 분열</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-answer="난할">2. 난할</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-answer="감수 분열">3. 감수 분열</button>
+                </div>
+                <div id="quiz-feedback" class="mt-4 text-lg font-bold"></div>
             </div>
         </section>
     </main>
@@ -241,7 +354,6 @@
                 );
             });
 
-            // Fullscreen API Logic
             const fullscreenBtn = document.getElementById('fullscreen-btn');
             const enterIcon = document.getElementById('fullscreen-enter-icon');
             const exitIcon = document.getElementById('fullscreen-exit-icon');
@@ -270,12 +382,40 @@
 
             fullscreenBtn.addEventListener('click', toggleFullScreen);
             document.addEventListener('fullscreenchange', updateFullscreenIcon);
-
-            // Reveal image on button click
+            
             const revealBtn = document.getElementById('reveal-btn');
             const chickEmbryoImg = document.getElementById('chick-embryo');
-            revealBtn.addEventListener('click', () => {
-                chickEmbryoImg.classList.toggle('hidden');
+            if(revealBtn) {
+                revealBtn.addEventListener('click', () => {
+                    chickEmbryoImg.classList.toggle('hidden');
+                });
+            }
+
+            // Quiz Logic
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const quizFeedback = document.getElementById('quiz-feedback');
+            const correctAnswer = "난할";
+
+            quizOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    quizOptions.forEach(opt => {
+                        opt.classList.remove('selected', 'correct', 'incorrect');
+                        opt.disabled = true;
+                    });
+                    
+                    option.classList.add('selected');
+                    
+                    if (option.dataset.answer === correctAnswer) {
+                        option.classList.add('correct');
+                        quizFeedback.textContent = "정답입니다! 👍 난할은 세포 성장이 거의 없이 분열만 빠르게 반복하는 과정입니다.";
+                        quizFeedback.style.color = '#10b981';
+                    } else {
+                        option.classList.add('incorrect');
+                        quizFeedback.textContent = "아쉽네요. 다시 생각해 보세요. 🤔";
+                        quizFeedback.style.color = '#ef4444';
+                        document.querySelector(`[data-answer="${correctAnswer}"]`).classList.add('correct');
+                    }
+                });
             });
         });
     </script>
