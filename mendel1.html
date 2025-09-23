@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생식과 유전: 멘델이 밝힌 유전 원리(1)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        #progress-nav a { transition: all 0.3s ease; }
+        #progress-nav a.active {
+            transform: scale(1.5);
+            background-color: #84cc16; /* Lime */
+        }
+        .comparison-table td, .comparison-table th {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table th { background-color: #f3f4f6; }
+        .quiz-option { transition: background-color 0.2s; }
+        .quiz-option.selected { background-color: #84cc16; color: white; }
+        .quiz-option.correct { background-color: #10b981; color: white; }
+        .quiz-option.incorrect { background-color: #ef4444; color: white; }
+        .punnett-square {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 300px;
+            height: 300px;
+            border: 2px solid #333;
+            margin: auto;
+        }
+        .punnett-square div {
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .punnett-square .header { background-color: #f3f4f6; }
+        .punnett-square .genotype-RR { background-color: #ecfccb; }
+        .punnett-square .genotype-Rr { background-color: #d9f99d; }
+        .punnett-square .genotype-rr { background-color: #bef264; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav id="progress-nav" class="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col space-y-3">
+        </nav>
+
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-lime-600 hover:text-lime-700">🏠 멘델의 유전 원리 (1)</a>
+            <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-lime-600 transition-colors" title="전체 화면">
+                <svg id="fullscreen-enter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                <svg id="fullscreen-exit-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0-2-2h-3M3 16h3a2 2 0 0 0 2-2v-3"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="slide1" class="text-center">
+            <div class="bg-lime-50 rounded-2xl p-8 shadow-inner">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">V. 생식과 유전 - 멘델이 밝힌 유전 원리</h2>
+                <p class="text-xl md:text-2xl text-slate-600 mb-8">완두콩 속에 숨겨진 생명의 비밀</p>
+                <img src="images/mendel_pea.jpg" alt="멘델의 초상화와 완두콩 그림" class="max-w-md mx-auto rounded-lg shadow-lg">
+            </div>
+        </section>
+
+        <section id="slide2">
+             <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 text-center">
+                <h3 class="text-2xl font-bold text-lime-700">학습 목표 🎯</h3>
+                <ul class="list-disc list-inside space-y-3 text-lg text-left">
+                    <li>유전의 뜻을 알고, 멘델의 실험 과정을 설명할 수 있다.</li>
+                    <li>우성과 열성의 의미를 알고, <strong class="text-lime-600">우열의 원리</strong>를 설명할 수 있다.</li>
+                    <li>생식세포 형성 과정과 연관지어 <strong class="text-lime-600">분리의 법칙</strong>을 설명할 수 있다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="slide3">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-8">도입: 우리는 왜 부모님을 닮았을까? 🤔</h2>
+                <p class="text-xl text-slate-600 mb-6">어미가 같은 강아지들도 생김새와 털색이 조금씩 다른 이유는 무엇일까?</p>
+                <p class="text-2xl font-bold text-slate-700 leading-tight">부모의 특징은 어떻게 자손에게 전달되는 걸까?</p>
+                <img src="images/dog_puppies.jpg" alt="어미 개와 여러 마리의 강아지" class="max-w-lg mx-auto rounded-lg shadow-md mt-8">
+            </div>
+        </section>
+        
+        <section id="slide4">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 용어 정리 (1): 형질과 유전</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-lime-700 mb-2">형질 (Trait)</h3>
+                    <p>생물이 가진 고유한 모양, 색깔, 크기, 성질 등.<br> (예: 완두의 씨 모양, 사람의 눈꺼풀 모양)</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-lime-700 mb-2">유전 (Heredity)</h3>
+                    <p>부모의 형질이 생식 과정을 통해 자손에게 전달되는 현상.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-lime-700 mb-2">대립 형질 (Allelic traits)</h3>
+                    <p>하나의 형질에 대해 뚜렷하게 대비되는 특징.<br> (예: 씨 모양 → '둥글다' vs '주름지다')</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide5">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델 이전의 생각: 혼합설</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md text-center">
+                <p class="text-xl mb-4">19세기 사람들은 "부모의 형질이 자손에게 물감처럼 섞여서 전달된다"고 생각했습니다.</p>
+                <img src="images/blending_inheritance.png" alt="물감 혼합" class="max-w-xs mx-auto my-4">
+                <p class="text-xl">이 생각대로라면 세대가 거듭될수록 형질의 차이가 점점 사라져야 합니다.</p>
+                <p class="text-2xl font-bold mt-6 text-lime-800">멘델의 의문: "과연 그럴까? 유전에는 어떤 규칙이 있지 않을까?"</p>
+            </div>
+        </section>
+
+        <section id="slide6">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델, 유전학의 문을 열다</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
+                <img src="images/Gregor_Mendel.png" alt="그레고어 멘델" class="w-full h-auto rounded-lg">
+                <div>
+                    <h3 class="text-2xl font-bold">그레고어 멘델 (G. J. Mendel, 1822~1884)</h3>
+                    <ul class="list-disc list-inside mt-4 space-y-2 text-lg">
+                        <li>오스트리아의 수도사.</li>
+                        <li>수도원 텃밭에서 8년간 완두를 재배하며 유전의 기본 원리를 과학적으로 설명함.</li>
+                        <li>"식물의 잡종에 대한 연구" 논문을 발표했으나, 당시에는 인정받지 못함.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide7">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 실험 재료: 완두 🌿</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold text-center mb-6">왜 완두를 선택했을까?</h3>
+                <div class="grid md:grid-cols-2 gap-6 text-lg">
+                    <div class="bg-lime-50 p-4 rounded-lg"><strong>① 재배가 쉽고 한 세대가 짧다</strong>: 짧은 시간에 여러 세대를 관찰할 수 있음.</div>
+                    <div class="bg-lime-50 p-4 rounded-lg"><strong>② 자손의 수가 많다</strong>: 통계적인 분석에 유리함.</div>
+                    <div class="bg-lime-50 p-4 rounded-lg"><strong>③ 대립 형질이 뚜렷하다</strong>: 결과를 명확하게 해석 가능 (예: 둥글다/주름지다).</div>
+                    <div class="bg-lime-50 p-4 rounded-lg"><strong>④ 자가 수분과 타가 수분이 모두 가능</strong>: 연구자가 의도한 대로 교배를 조절할 수 있음.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide8">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 실험 준비: 순종 얻기</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
+                <h3 class="text-2xl font-bold mb-4">순종 (Pure line)이란?</h3>
+                <p class="text-xl mb-6">여러 세대에 걸쳐 자가 수분을 해도 부모와 같은 형질의 자손만 나오는 개체.</p>
+                <img src="images/pea_self_pollination.png" alt="완두 자가수분" class="max-w-lg mx-auto rounded-lg border p-2">
+                <p class="text-lg mt-4">멘델은 실험 전, 여러 세대에 걸친 자가 수분을 통해 순종 둥근 완두와 순종 주름진 완두를 확보했습니다.</p>
+            </div>
+        </section>
+        
+        <section id="slide9">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 용어 정리 (2): 유전자와 표현형</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <div class="grid md:grid-cols-2 gap-6 text-lg">
+                    <div><strong>유전자 (Gene)</strong>: 형질을 결정하는 정보 단위. DNA의 특정 구간.</div>
+                    <div><strong>대립유전자 (Allele)</strong>: 쌍을 이루는 상동 염색체의 같은 위치에 존재하며 하나의 형질을 결정하는 유전자들.</div>
+                    <div><strong>유전자형 (Genotype)</strong>: 대립유전자의 조합을 기호로 나타낸 것 (예: RR, Rr, rr).</div>
+                    <div><strong>표현형 (Phenotype)</strong>: 유전자형에 의해 겉으로 드러나는 형질 (예: 둥글다, 주름지다).</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide10">
+            <h2 class="text-3xl font-bold text-center mb-12">순종과 잡종의 유전자형</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <h3 class="text-2xl font-bold mb-4">순종 (Homozygote)</h3>
+                    <p class="text-lg">유전자 조합이 서로 같음 (예: RR, rr)</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <h3 class="text-2xl font-bold mb-4">잡종 (Heterozygote)</h3>
+                    <p class="text-lg">유전자 조합이 서로 다름 (예: Rr)</p>
+                </div>
+                <div class="md:col-span-2">
+                    <img src="images/homologous_chromosomes_alleles.png" alt="상동 염색체와 대립유전자" class="w-full max-w-2xl mx-auto rounded-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="slide11">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 첫 번째 실험: 한 쌍의 대립 형질 교배</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                 <h3 class="text-2xl font-bold mb-2">어버이(P) 세대 교배</h3>
+                 <p class="text-xl mb-6"><strong>순종 둥근 완두(RR)</strong>와 <strong>순종 주름진 완두(rr)</strong>를 교배 (타가 수분)</p>
+                 <img src="images/mendel_cross1.png" alt="순종 완두 교배" class="max-w-lg mx-auto rounded-lg">
+                 <p class="text-3xl font-bold mt-8">자손(F1, 잡종 1대)에서는 어떤 완두가 나올까?</p>
+            </div>
+        </section>
+        
+        <section id="slide12">
+            <h2 class="text-3xl font-bold text-center mb-12">실험 결과: 잡종 1대에서는?</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                 <p class="text-3xl font-bold mb-6">결과: 잡종 1대(F1)에서는 <strong class="text-lime-600">모두 둥근 완두만</strong> 나타났다!</p>
+                 <img src="images/f1_generation_result.png" alt="잡종 1대 결과" class="max-w-sm mx-auto my-4">
+                 <p class="text-2xl font-bold my-4">주름진 형질은 어디로 사라졌을까?</p>
+                 <p class="text-xl p-4 bg-lime-50 rounded-lg">멘델의 생각: "주름진 형질이 사라진 것이 아니라, 둥근 형질에 의해 가려진 것이다."</p>
+            </div>
+        </section>
+
+        <section id="slide13">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 첫 번째 원리: 우열의 원리</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <div class="grid md:grid-cols-2 gap-6 text-lg">
+                    <div><strong>우성 (Dominant)</strong>: 잡종 1대에서 나타나는 형질 (예: 둥근 모양).</div>
+                    <div><strong>열성 (Recessive)</strong>: 잡종 1대에서 나타나지 않는 형질 (예: 주름진 모양).</div>
+                </div>
+                <div class="mt-8 p-6 bg-lime-100 rounded-lg text-center">
+                    <h3 class="text-xl font-bold">우열의 원리</h3>
+                    <p class="text-lg mt-2">순종의 대립 형질을 교배했을 때, 잡종 1대에서는 우성 형질만 나타나는 현상.</p>
+                </div>
+                <p class="text-sm text-center mt-4 text-red-600">⚠️ 주의: 우성이 우수한 형질, 열성이 열등한 형질을 의미하는 것은 아닙니다!</p>
+            </div>
+        </section>
+
+        <section id="slide14">
+            <h2 class="text-3xl font-bold text-center mb-12">우열의 원리: 유전자형으로 이해하기</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
+                <img src="images/principle_of_dominance_diagram.png" alt="우열의 원리 도식" class="w-full rounded-lg">
+                <ul class="text-left mt-4 text-lg space-y-2">
+                    <li><strong>어버이(P)</strong>: 둥근 완두(RR) × 주름진 완두(rr)</li>
+                    <li><strong>생식세포</strong>: RR은 R만, rr는 r만 만듦.</li>
+                    <li><strong>잡종 1대(F1)</strong>: 수정 후 유전자형은 모두 Rr.</li>
+                    <li><strong>표현형</strong>: Rr에서는 우성인 R의 형질(둥글다)만 나타남.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="slide15">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 두 번째 실험: 잡종 1대의 자가 수분</h2>
+             <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                 <h3 class="text-2xl font-bold mb-2">잡종 1대(F1) 자가 수분</h3>
+                 <p class="text-xl mb-6">잡종 1대에서 얻은 둥근 완두(Rr)를 자가 수분시킴.</p>
+                 <img src="images/mendel_cross2.png" alt="잡종 1대 자가 수분" class="max-w-lg mx-auto rounded-lg">
+                 <p class="text-3xl font-bold mt-8">자손(F2, 잡종 2대)에서는 어떤 완두들이, 어떤 비율로 나올까?</p>
+            </div>
+        </section>
+
+        <section id="slide16">
+            <h2 class="text-3xl font-bold text-center mb-12">실험 결과: 잡종 2대에서는?</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                 <p class="text-3xl font-bold mb-6">결과: 둥근 완두와 주름진 완두가 약 <strong class="text-lime-600">3 : 1</strong>의 비율로 나타났다!</p>
+                 <img src="images/f2_generation_result.png" alt="잡종 2대 결과" class="max-w-lg mx-auto my-4">
+                 <p class="text-2xl font-bold my-4">사라졌던 열성 형질(주름진 완두)이 다시 나타남.</p>
+                 <p class="text-xl p-4 bg-lime-50 rounded-lg">멘델의 해석: 잡종 1대에 숨어 있던 열성 유전자가 잡종 2대에서 다시 드러난 것.</p>
+            </div>
+        </section>
+
+        <section id="slide17">
+            <h2 class="text-3xl font-bold text-center mb-12">과학사적 배경: 분리의 법칙과 감수 분열</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
+                <p class="text-xl mb-6">멘델은 유전자가 염색체에 있다는 사실을 몰랐지만, 그의 법칙은 <strong class="text-lime-600">감수 분열</strong> 과정으로 완벽하게 설명됩니다.</p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="images/meiosis_overview.png" alt="감수 분열 과정" class="w-full rounded-lg">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">감수 분열이란?</h3>
+                        <p class="text-lg text-left">생식세포(정자, 난자)를 만드는 특별한 세포 분열로, 분열 결과 염색체 수가 모세포의 절반으로 줄어듭니다 (2n → n).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide18">
+            <h2 class="text-3xl font-bold text-center mb-12">감수 분열과 유전자의 분리</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
+                <img src="images/law_of_segregation_meiosis.png" alt="감수분열과 유전자 분리" class="w-full rounded-lg">
+                <p class="text-xl mt-4"><strong>감수 1분열</strong>에서 쌍으로 존재하던 <strong class="text-lime-600">상동 염색체가 분리</strong>됩니다. 이때, 대립유전자(R과 r)도 함께 분리되어 서로 다른 딸세포로 들어갑니다.</p>
+                <p class="text-xl font-bold mt-4 p-4 bg-lime-100 rounded-lg">결과: 잡종 1대(Rr)는 감수 분열을 통해 R을 가진 생식세포와 r를 가진 생식세포를 <strong class="text-lime-700">1 : 1</strong>의 비율로 만듭니다.</p>
+            </div>
+        </section>
+        
+        <section id="slide19">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 두 번째 원리: 분리의 법칙</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <div class="p-6 bg-lime-100 rounded-lg text-center">
+                    <h3 class="text-2xl font-bold">분리의 법칙</h3>
+                    <p class="text-lg mt-2">생식세포를 만들 때, 쌍을 이루던 대립유전자가 분리되어 각각 다른 생식세포로 들어가는 현상.</p>
+                </div>
+                <p class="text-lg mt-6">이 원리 때문에 잡종 1대에서 사라졌던 열성 형질이 잡종 2대에서 다시 나타날 수 있습니다.</p>
+                 <p class="text-sm text-center mt-4 text-red-600">⚠️ 주의: 분리의 법칙은 잡종 2대의 표현형 비가 3:1이라는 '결과'가 아니라, 대립유전자가 분리된다는 '과정'을 의미합니다.</p>
+            </div>
+        </section>
+        
+        <section id="slide20">
+            <h2 class="text-3xl font-bold text-center mb-12">분리의 법칙: 유전자형으로 이해하기 (퍼넷 사각형)</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold text-center mb-4">잡종 1대(Rr)의 자가 수분 (Rr X Rr)</h3>
+                <div class="punnett-square">
+                    <div class="header"></div>
+                    <div class="header">R</div>
+                    <div class="header">r</div>
+                    <div class="header">R</div>
+                    <div class="genotype-RR">RR</div>
+                    <div class="genotype-Rr">Rr</div>
+                    <div class="header">r</div>
+                    <div class="genotype-Rr">Rr</div>
+                    <div class="genotype-rr">rr</div>
+                </div>
+                <div class="text-center mt-6 text-xl">
+                    <p><strong>유전자형의 비</strong>: RR : Rr : rr = <strong class="text-lime-600">1 : 2 : 1</strong></p>
+                    <p><strong>표현형의 비</strong>: 둥근 완두 : 주름진 완두 = <strong class="text-lime-600">3 : 1</strong></p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide21">
+            <h2 class="text-3xl font-bold text-center mb-12">멘델의 업적과 과학사적 의의</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">멘델의 위대한 발견 🏆</h3>
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li>유전 현상에 <strong class="text-lime-600">수학적/통계적 방법</strong>을 도입하여 규칙성을 최초로 발견함.</li>
+                    <li>부모의 형질이 섞이는 것이 아니라, <strong class="text-lime-600">'유전 인자'</strong>라는 단위로 전달됨을 제안함 (현대의 '유전자' 개념).</li>
+                    <li>우열의 원리, 분리의 법칙, 독립의 법칙을 통해 <strong class="text-lime-600">유전학의 기초</strong>를 세움.</li>
+                    <li>그의 연구는 사후에 재발견되어 현대 유전학의 출발점이 됨.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="slide22">
+            <h2 class="text-3xl font-bold text-center mb-12">탐구 활동: 분리의 법칙 확인하기 🎲</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">활동 목표</h3>
+                <p class="text-lg mb-6">유전 모의실험을 통해 자손의 유전 형질이 결정되는 과정을 설명할 수 있다.</p>
+                <h3 class="text-2xl font-bold mb-4">준비물</h3>
+                <p class="text-lg">검은 바둑알 40개(우성, A), 흰 바둑알 40개(열성, a), 주머니 2개(수술, 암술)</p>
+                <img src="images/go_stones_activity.png" alt="바둑알과 주머니" class="max-w-sm mx-auto mt-4 rounded-lg">
+            </div>
+        </section>
+        
+        <section id="slide23">
+            <h2 class="text-3xl font-bold text-center mb-12">탐구 활동 과정 (1)</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">1. 잡종 1대(Aa) 설정하기</h3>
+                <p class="text-lg">'수술' 주머니와 '암술' 주머니에 각각 <strong class="text-lime-600">검은 바둑알(A) 20개</strong>와 <strong class="text-lime-600">흰 바둑알(a) 20개</strong>를 넣는다.</p>
+                <p class="text-lg mt-4 p-4 bg-lime-50 rounded-lg">이는 잡종 1대(Aa)가 A와 a 생식세포를 1:1로 만드는 것을 의미한다.</p>
+            </div>
+        </section>
+        
+        <section id="slide24">
+            <h2 class="text-3xl font-bold text-center mb-12">탐구 활동 과정 (2)</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">2. 수정 모의실험 (잡종 2대 만들기)</h3>
+                <ul class="list-decimal list-inside space-y-3 text-lg">
+                    <li>각 주머니에서 바둑알을 하나씩 임의로 꺼내 짝을 짓는다 (이것이 자손의 유전자형).</li>
+                    <li>결과(AA, Aa, aa)를 기록하고, 꺼낸 바둑알은 다시 주머니에 넣는다.</li>
+                    <li>이 과정을 30회 이상 반복한다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="slide25">
+            <h2 class="text-3xl font-bold text-center mb-12">탐구 활동 결과 및 정리</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">결과 예측</h3>
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li><strong>유전자형의 비</strong>: AA : Aa : aa의 비율은 약 <strong class="text-lime-600">1 : 2 : 1</strong>에 가깝게 나오는가?</li>
+                    <li><strong>표현형의 비</strong>: (A가 우성일 때) 우성 표현형 : 열성 표현형의 비율은 약 <strong class="text-lime-600">3 : 1</strong>에 가깝게 나오는가?</li>
+                </ul>
+                <p class="text-xl font-bold mt-6 p-4 bg-lime-100 rounded-lg">결론: 이 모의실험은 대립유전자가 분리되어 무작위로 조합될 때, 멘델의 분리의 법칙에 따른 결과가 나타남을 보여준다.</p>
+            </div>
+        </section>
+
+        <section id="slide26">
+            <h2 class="text-3xl font-bold text-center mb-12">핵심 내용 정리 📝</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li><strong>우열의 원리</strong>: 순종의 대립 형질 교배 시, 잡종 1대에서는 우성 형질만 나타난다.</li>
+                    <li><strong>분리의 법칙</strong>: 생식세포 형성 시, 한 쌍의 대립유전자가 분리되어 서로 다른 생식세포로 들어간다.</li>
+                    <li><strong>결과</strong>: 분리의 법칙에 따라 잡종 2대에서는 우성과 열성이 약 <strong>3 : 1</strong>의 비율로 나타난다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="slide27">
+            <h2 class="text-3xl font-bold text-center mb-12">형성 평가 (Quiz 1) ✍️</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl font-bold mb-4">문제: 순종의 둥근 완두(RR)와 순종의 주름진 완두(rr)를 교배하여 얻은 잡종 1대(F1)를 자가 수분하여 잡종 2대(F2)를 얻었다. F2에서 나타나는 <strong>유전자형의 비(RR:Rr:rr)</strong>는?</p>
+                <div id="quiz1-options" class="space-y-3">
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">1. 1 : 1</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">2. 3 : 1</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="true">3. 1 : 2 : 1</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">4. 9 : 3 : 3 : 1</button>
+                </div>
+                <div id="quiz1-feedback" class="mt-4 text-lg font-bold"></div>
+            </div>
+        </section>
+        
+        <section id="slide28">
+            <h2 class="text-3xl font-bold text-center mb-12">형성 평가 (Quiz 2) ✍️</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl font-bold mb-4">문제: 멘델의 분리의 법칙이 나타나는 근본적인 원인은 세포 분열 과정 중 어떤 현상과 가장 관련이 깊은가?</p>
+                <div id="quiz2-options" class="space-y-3">
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">1. 체세포 분열 시 염색 분체의 분리</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="true">2. 감수 1분열 시 상동 염색체의 분리</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">3. 감수 2분열 시 염색 분체의 분리</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">4. 수정 시 정자와 난자의 결합</button>
+                </div>
+                <div id="quiz2-feedback" class="mt-4 text-lg font-bold"></div>
+            </div>
+        </section>
+
+        <section id="slide29">
+            <h2 class="text-3xl font-bold text-center mb-12">형성 평가 (Quiz 3) ✍️</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <p class="text-xl font-bold mb-4">문제: 유전자형이 Tt인 키 큰 완두와 tt인 키 작은 완두를 교배했을 때, 자손에서 키가 작은 완두가 나타날 확률은 얼마인가? (단, 키 큰 형질(T)이 키 작은 형질(t)에 대해 우성이다.)</p>
+                <div id="quiz3-options" class="space-y-3">
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">1. 0%</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">2. 25%</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="true">3. 50%</button>
+                    <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg">4. 100%</button>
+                </div>
+                <div id="quiz3-feedback" class="mt-4 text-lg font-bold"></div>
+            </div>
+        </section>
+
+        <section id="slide30">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-4">다음 학습 예고 📚</h2>
+                <p class="text-2xl text-slate-600">두 쌍 이상의 형질은 어떻게 함께 유전될까? - <strong class="text-lime-700">독립의 법칙</strong></p>
+                <p class="text-2xl text-slate-600 mt-2">사람의 유전은 어떻게 연구할까? - <strong class="text-lime-700">가계도 분석</strong></p>
+                <p class="text-xl mt-8">감사합니다.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const progressNav = document.getElementById('progress-nav');
+            let currentSectionIndex = 0;
+
+            // Create progress nav links
+            sections.forEach((section, index) => {
+                const link = document.createElement('a');
+                link.href = `#${section.id}`;
+                link.dataset.section = section.id;
+                link.className = 'w-3 h-3 bg-slate-300 rounded-full block';
+                link.title = `슬라이드 ${index + 1}`;
+                progressNav.appendChild(link);
+            });
+            const progressNavLinks = document.querySelectorAll('#progress-nav a');
+
+            function updateNav(index) {
+                progressNavLinks.forEach((link, i) => {
+                    link.classList.toggle('active', i === index);
+                });
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(sections).indexOf(entry.target);
+                        currentSectionIndex = index;
+                        updateNav(index);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            sections.forEach(section => observer.observe(section));
+            updateNav(0);
+
+            // GSAP Animations
+            gsap.registerPlugin(ScrollTrigger);
+            sections.forEach(section => {
+                gsap.fromTo(section.children[0], 
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+            });
+
+            // Fullscreen API Logic
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const enterIcon = document.getElementById('fullscreen-enter-icon');
+            const exitIcon = document.getElementById('fullscreen-exit-icon');
+
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        alert(`전체 화면 모드를 시작할 수 없습니다: ${err.message}`);
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+            function updateFullscreenIcon() {
+                if (document.fullscreenElement) {
+                    enterIcon.classList.add('hidden');
+                    exitIcon.classList.remove('hidden');
+                } else {
+                    enterIcon.classList.remove('hidden');
+                    exitIcon.classList.add('hidden');
+                }
+            }
+            fullscreenBtn.addEventListener('click', toggleFullScreen);
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
+
+            // Quiz Logic
+            function setupQuiz(quizId) {
+                const options = document.querySelectorAll(`#${quizId}-options .quiz-option`);
+                const feedback = document.getElementById(`${quizId}-feedback`);
+                
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        options.forEach(opt => {
+                            opt.classList.remove('selected', 'correct', 'incorrect');
+                            opt.disabled = true; 
+                        });
+                        
+                        option.classList.add('selected');
+                        
+                        if (option.dataset.correct) {
+                            option.classList.add('correct');
+                            feedback.textContent = "정답입니다! 👍";
+                            feedback.style.color = '#10b981';
+                        } else {
+                            option.classList.add('incorrect');
+                            feedback.textContent = "아쉽네요. 다시 생각해 보세요. 🤔";
+                            feedback.style.color = '#ef4444';
+                            document.querySelector(`#${quizId}-options .quiz-option[data-correct="true"]`).classList.add('correct');
+                        }
+                    });
+                });
+            }
+            setupQuiz('quiz1');
+            setupQuiz('quiz2');
+            setupQuiz('quiz3');
+        });
+    </script>
+</body>
+</html>
