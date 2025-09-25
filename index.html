@@ -153,51 +153,31 @@
                     </div>
                     <button class="mt-6 w-full bg-rose-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-rose-600 transition-colors">학습 시작</button>
                 </a>
-				
-				<div class="flex justify-center">
-    <button id="showCardBtn" class="bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-600">
-        심화 학습 보기
-    </button>
-</div>
-
-<div class="flex justify-center mt-4"> <a href="hidden_further_study.html" id="learningCard" class="hidden w-full max-w-md chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="mendel1">
-        <div class="flex-grow">
-            <div class="flex justify-between items-start mb-4">
-                <span class="text-5xl font-black text-purple-500">99</span>
-                <span class="status-icon"></span>
             </div>
-            <h2 class="text-2xl font-bold text-slate-800 mb-2">염색체 분리 심화</h2>
-            <p class="text-slate-500">염색체 분리가 일어나는 생화학적 과정을 알아봅니다.</p>
-        </div>
-        <button class="mt-6 w-full bg-purple-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-purple-600 transition-colors">학습 시작</button>
-    </a>
-</div>
 
+            <h2 class="section-title">심화 학습</h2>
 
-<script>
-    const showButton = document.getElementById('showCardBtn');
-    const learningCard = document.getElementById('learningCard');
-
-    showButton.addEventListener('click', () => {
-        learningCard.classList.toggle('hidden');
-    });
-</script>
-
-<script>
-    // HTML에서 id가 'showCardBtn'인 요소(버튼)를 찾습니다.
-    const showButton = document.getElementById('showCardBtn');
-    
-    // HTML에서 id가 'learningCard'인 요소(학습 카드)를 찾습니다.
-    const learningCard = document.getElementById('learningCard');
-
-    // '심화 학습 보기' 버튼에 클릭 이벤트 리스너를 추가합니다.
-    showButton.addEventListener('click', () => {
-        // 학습 카드의 클래스 리스트에서 'hidden' 클래스를 토글(있으면 제거, 없으면 추가)합니다.
-        learningCard.classList.toggle('hidden');
-    });
-</script>
+            <div class="flex justify-center">
+                <button id="showCardBtn" class="bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-600">
+                    심화 학습 보기
+                </button>
             </div>
-        </main>
+            
+            <div class="flex justify-center mt-4"> 
+                <a href="hidden_further_study.html" id="learningCard" class="hidden w-full max-w-md chapter-card bg-white p-8 rounded-2xl shadow-lg border-4 border-transparent flex flex-col" data-chapter="mendel1_deep">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-5xl font-black text-purple-500">99</span>
+                            <span class="status-icon"></span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">염색체 분리 심화</h2>
+                        <p class="text-slate-500">염색체 분리가 일어나는 생화학적 과정을 알아봅니다.</p>
+                    </div>
+                    <button class="mt-6 w-full bg-purple-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-purple-600 transition-colors">학습 시작</button>
+                </a>
+            </div>
+
+            </main>
         
         <footer class="text-center mt-16">
             <button id="reset-progress" class="bg-red-100 text-red-700 font-bold py-2 px-4 rounded-lg hover:bg-red-200 transition-colors text-sm">학습 기록 초기화</button>
@@ -206,11 +186,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 기존 변수 선언
             const chapterCards = document.querySelectorAll('.chapter-card');
             const fullscreenBtn = document.getElementById('fullscreen-btn');
             const enterIcon = document.getElementById('fullscreen-enter-icon');
             const exitIcon = document.getElementById('fullscreen-exit-icon');
+            const resetButton = document.getElementById('reset-progress');
 
+            // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+            //            요청하신 '심화 학습 보기' 버튼 관련 스크립트가 여기에 통합됩니다           
+            // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+            const showButton = document.getElementById('showCardBtn');
+            const learningCard = document.getElementById('learningCard');
+
+            showButton.addEventListener('click', () => {
+                learningCard.classList.toggle('hidden');
+            });
+            // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
+
+            // 기존 학습 기록 관련 함수 및 이벤트 리스너
             function updateProgressUI() {
                 const progress = JSON.parse(localStorage.getItem('learningProgress')) || {};
                 chapterCards.forEach(card => {
@@ -225,22 +220,18 @@
 
             chapterCards.forEach(card => {
                 card.addEventListener('click', (e) => {
-                    // 학습 시작 버튼을 누를 때만 진행률이 저장되도록 합니다.
                     if (e.target.tagName === 'BUTTON') {
                         const chapterName = card.dataset.chapter;
                         let progress = JSON.parse(localStorage.getItem('learningProgress')) || {};
                         progress[chapterName] = true;
                         localStorage.setItem('learningProgress', JSON.stringify(progress));
-                        // UI 업데이트는 페이지 이동 후 돌아왔을 때 보입니다.
                     } else {
-                        // 카드의 다른 부분을 클릭하면 기본 링크 이동만 수행합니다.
                         e.preventDefault();
                         window.location.href = card.href;
                     }
                 });
             });
 
-            const resetButton = document.getElementById('reset-progress');
             resetButton.addEventListener('click', () => {
                 if (confirm('모든 학습 기록을 초기화하시겠습니까?')) {
                     localStorage.removeItem('learningProgress');
@@ -250,7 +241,7 @@
             
             updateProgressUI();
 
-            // Fullscreen API Logic
+            // 기존 전체 화면 관련 함수 및 이벤트 리스너
             function toggleFullScreen() {
                 if (!document.fullscreenElement) {
                     document.documentElement.requestFullscreen().catch(err => {
