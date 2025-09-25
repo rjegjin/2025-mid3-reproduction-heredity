@@ -135,12 +135,12 @@
                     <p>생물이 가진 고유한 모양, 색깔, 성질 등.<br> (예: 완두 씨 모양)</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <img src="images/family_resemblance.jpg" alt="가족" class="w-full h-40 object-cover rounded-md mb-4">
+                    <img src="images/family_resemblance.webp" alt="가족" class="w-full h-40 object-cover rounded-md mb-4">
                     <h3 class="text-xl font-bold text-lime-700 mb-2">유전 (Heredity)</h3>
                     <p>부모의 형질이 자손에게 전달되는 현상.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <img src="images/allelic_traits_example.jpg" alt="대립 형질" class="w-full h-40 object-cover rounded-md mb-4">
+                    <img src="images/allelic_traits_example.png" alt="대립 형질" class="w-30 h-40 object-cover rounded-md mb-4">
                     <h3 class="text-xl font-bold text-lime-700 mb-2">대립 형질 (Allelic traits)</h3>
                     <p>하나의 형질에 대해 뚜렷이 대비되는 특징. (예: '둥근 씨' vs '주름진 씨')</p>
                 </div>
@@ -195,33 +195,54 @@
             </div>
         </section>
         
-        <section id="slide9">
-            <h2 class="text-3xl font-bold text-center mb-12">핵심 용어 (2): 유전자와 표현형</h2>
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
-                 <img src="images/dna_to_trait.jpg" alt="DNA에서 형질까지" class="w-full max-w-2xl mx-auto rounded-lg mb-8">
-                <div class="grid md:grid-cols-2 gap-6 text-lg text-left">
-                    <div><strong>유전자 (Gene)</strong>: 형질을 결정하는 정보 단위.</div>
-                    <div><strong>대립유전자 (Allele)</strong>: 하나의 형질을 결정하는 한 쌍의 유전자.</div>
-                    <div><strong>유전자형 (Genotype)</strong>: 대립유전자 조합을 기호로 나타낸 것 (예: RR, Rr, rr).</div>
-                    <div><strong>표현형 (Phenotype)</strong>: 겉으로 드러나는 형질 (예: 둥글다).</div>
-                </div>
+       <section id="slide9">
+    <h2 class="text-3xl font-bold text-center mb-12">핵심 용어 (2): 유전자와 표현형</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+            <h3 class="text-xl font-bold text-lime-700 mb-2">1. 유전자 (Gene)</h3>
+            <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-md p-2">
+                <img src="images/chromosome1.png" alt="유전자의 위치" class="w-full h-48 object-contain">
             </div>
-        </section>
-        
-        <section id="slide10">
-            <h2 class="text-3xl font-bold text-center mb-12">순종과 잡종의 유전자형</h2>
-            <div class="grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
-                 <img src="images/alleles_on_chromosomes.jpg" alt="염색체 위의 대립유전자" class="w-full max-w-md mx-auto rounded-lg md:col-span-2 mb-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <h3 class="text-2xl font-bold mb-4">순종 (Homozygote)</h3>
-                    <p class="text-lg">유전자 조합이 서로 같음 (예: RR, rr)</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <h3 class="text-2xl font-bold mb-4">잡종 (Heterozygote)</h3>
-                    <p class="text-lg">유전자 조합이 서로 다름 (예: Rr)</p>
-                </div>
+            <p class="mt-4"><strong>형질을 결정하는 정보의 기본 단위</strong>로, DNA의 특정 구간에 위치합니다.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+            <h3 class="text-xl font-bold text-lime-700 mb-2">2. 대립유전자 (Allele)</h3>
+            <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-md p-2">
+                <img src="images/homologus_chromosome.jpeg" alt="대립유전자" class="w-full h-48 object-contain">
             </div>
-        </section>
+            <p class="mt-4"><strong>하나의 형질을 결정하는 한 쌍의 유전자</strong>로, 상동 염색체의 같은 위치에 존재합니다.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+            <h3 class="text-xl font-bold text-lime-700 mb-2">3. 유전자형 (Genotype)</h3>
+             <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-md p-2">
+                <img src="images/alleles_on_chromosomes.jpg" alt="유전자형의 예" class="w-full h-48 object-contain">
+            </div>
+            <p class="mt-4">대립유전자의 조합을 기호로 나타낸 것 (예: <strong class="font-mono text-lg">RR, Rr, rr</strong>).</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+            <h3 class="text-xl font-bold text-lime-700 mb-2">4. 표현형 (Phenotype)</h3>
+            <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-md p-2">
+                <img src="images/pea_traits.jpg" alt="완두의 표현형" class="w-full h-48 object-cover rounded-md">
+            </div>
+            <p class="mt-4">유전자형에 의해 <strong>겉으로 드러나는 형질</strong> (예: 둥근 모양, 주름진 모양).</p>
+        </div>
+    </div>
+</section>
+
+<section id="slide10">
+    <h2 class="text-3xl font-bold text-center mb-12">순종과 잡종의 유전자형</h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
+         <img src="images/homozygote_heterozygote.jpg" alt="염색체 위의 대립유전자" class="w-full max-w-md mx-auto rounded-lg md:col-span-2 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+            <h3 class="text-2xl font-bold mb-4">순종 (Homozygote)</h3>
+            <p class="text-lg">유전자 조합이 서로 같음 (예: RR, rr)</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+            <h3 class="text-2xl font-bold mb-4">잡종 (Heterozygote)</h3>
+            <p class="text-lg">유전자 조합이 서로 다름 (예: Rr)</p>
+        </div>
+    </div>
+</section>
 
         <section id="slide11">
             <h2 class="text-3xl font-bold text-center mb-12">멘델의 첫 번째 실험: 한 쌍의 대립 형질 교배</h2>
