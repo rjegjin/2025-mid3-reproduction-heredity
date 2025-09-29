@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V. 생식과 유전 - 독립의 법칙 (인터랙티브)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        
+        /* --- Layout & Common --- */
+        .content-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 1.5rem;
+            position: relative;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* --- Navigation & Header --- */
+        #progress-nav {
+            position: fixed;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            #progress-nav { display: flex; flex-direction: column; gap: 0.75rem; }
+        }
+        #progress-nav a {
+            width: 0.75rem; height: 0.75rem; background-color: #cbd5e1;
+            border-radius: 9999px; display: block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #progress-nav a.active {
+            transform: scale(1.75); background-color: #84cc16;
+        }
+        header { z-index: 100; }
+
+        /* --- Punnett Square --- */
+        .punnett-table {
+            border-collapse: collapse;
+            font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+        }
+        .punnett-table th, .punnett-table td {
+            border: 2px solid #9ca3af;
+            width: clamp(50px, 10vw, 90px); height: clamp(50px, 10vw, 90px);
+            text-align: center; vertical-align: middle;
+            transition: all 0.3s ease;
+        }
+        .punnett-table th { background-color: #f1f5f9; font-weight: bold; }
+        .pea-yellow { background-color: #fef9c3; } /* yellow-100 */
+        .pea-green { background-color: #ecfccb; } /* lime-100 */
+        .pea-round { border-style: solid; }
+        .pea-wrinkled {
+            border-style: dashed; border-width: 2px;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239ca3af' fill-opacity='0.2'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* --- Quiz --- */
+        .quiz-option { transition: all 0.2s ease-in-out; }
+        .quiz-option.selected { transform: scale(1.05); border-width: 2px; }
+        .quiz-option.correct { background-color: #34d399; color: white; border-color: #059669; }
+        .quiz-option.incorrect { background-color: #f87171; color: white; border-color: #dc2626; }
+    </style>
+</head>
+<body>
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-lime-600 hover:text-lime-700 transition-colors">📜 멘델의 독립 법칙</a>
+            <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-lime-600 transition-colors" title="전체 화면">
+                <i id="fullscreen-icon" class="fas fa-expand fa-fw"></i>
+            </button>
+        </nav>
+    </header>
+
+    <nav id="progress-nav"></nav>
+
+    <main class="container mx-auto">
+        
+        <section id="s1" class="content-section text-center">
+            <div class="reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-600">V. 생식과 유전</h2>
+                <h1 class="text-5xl md:text-7xl font-black text-lime-600 my-4 tracking-tight">독립의 법칙</h1>
+                <p class="text-xl md:text-2xl text-slate-500">두 쌍의 대립 형질은 서로에게 어떤 영향을 줄까?</p>
+                <img src="images/mendel_in_garden.jpg" alt="멘델의 정원" class="max-w-md mx-auto rounded-lg shadow-xl mt-8">
+            </div>
+        </section>
+
+        <section id="s2" class="content-section">
+            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center text-lime-700">🎯 학습 목표</h2>
+                <ul class="text-xl list-disc list-inside space-y-3">
+                    <li><strong>독립의 법칙</strong>을 설명할 수 있다.</li>
+                    <li>두 쌍 이상의 대립 형질이 함께 유전될 때 나타나는 결과를 해석할 수 있다.</li>
+                    <li>멘델의 유전 실험이 지닌 과학적 의의를 설명할 수 있다.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="s3" class="content-section">
+            <div class="reveal max-w-4xl w-full grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-bold mb-4">🤔 도입 질문</h2>
+                    <p class="text-lg">완두의 씨 모양(둥글/주름)과 씨 색깔(황색/녹색)이 함께 유전될 때, 서로의 결과에 영향을 미칠까요?</p>
+                    <p class="mt-4 text-lg p-4 bg-lime-50 rounded-lg border-l-4 border-lime-400">마치 "주사위 A의 결과가 주사위 B의 결과에 영향을 주지 않는 것"처럼, 각 형질은 완전히 별개로 유전될 것이라 가설을 세울 수 있습니다.</p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://placehold.co/400x300/e2e8f0/64748b?text=두개의+주사위" alt="두 개의 주사위" class="rounded-lg shadow-md">
+                </div>
+            </div>
+        </section>
+
+        <section id="s4" class="content-section">
+             <div class="reveal max-w-5xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-8 text-center">🔬 멘델의 실험 설계</h2>
+                <div class="grid md:grid-cols-5 items-center text-center gap-4 text-lg">
+                    <div class="step p-4 bg-slate-100 rounded-lg">
+                        <p class="font-bold text-xl">1. 어버이 (P)</p>
+                        <p>순종 (둥글고 황색)</p>
+                        <p class="font-bold text-2xl my-2">X</p>
+                        <p>순종 (주름지고 녹색)</p>
+                    </div>
+                    <i class="fas fa-arrow-right text-3xl text-lime-500 hidden md:block"></i>
+                    <div class="step p-4 bg-slate-100 rounded-lg">
+                        <p class="font-bold text-xl">2. 자손 1대 (F1)</p>
+                        <p class="my-2">모두 <strong class="text-lime-600">둥글고 황색</strong></p>
+                        <p class="mt-2 text-base">(자가 수분)</p>
+                    </div>
+                    <i class="fas fa-arrow-right text-3xl text-lime-500 hidden md:block"></i>
+                    <div class="step p-4 bg-slate-100 rounded-lg">
+                        <p class="font-bold text-xl">3. 자손 2대 (F2)</p>
+                        <p class="my-2">표현형과 비율 분석</p>
+                        <p class="font-bold text-xl text-amber-600">9 : 3 : 3 : 1</p>
+                    </div>
+                </div>
+                <img src="images/1st_exp_breeding_P.jpg" alt="멘델의 교배 실험 과정" class="w-full max-w-3xl mx-auto mt-8 rounded-lg shadow-md">
+            </div>
+        </section>
+
+        <section id="s5" class="content-section">
+            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+                 <h2 class="text-3xl font-bold mb-6 text-center">📊 실험 결과 분석</h2>
+                 <p class="text-xl text-center mb-8">F1(RrYy)을 자가수분하여 얻은 F2 세대의 완두콩 556개를 분석했습니다.</p>
+                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 bg-yellow-100 rounded-lg"> <p class="text-2xl font-bold">315개</p> <p>둥글고 황색</p> </div>
+                    <div class="p-4 bg-lime-100 rounded-lg"> <p class="text-2xl font-bold">108개</p> <p>둥글고 녹색</p> </div>
+                    <div class="p-4 bg-yellow-100 rounded-lg"> <p class="text-2xl font-bold">101개</p> <p>주름지고 황색</p> </div>
+                    <div class="p-4 bg-lime-100 rounded-lg"> <p class="text-2xl font-bold">32개</p> <p>주름지고 녹색</p> </div>
+                 </div>
+                 <p class="text-center mt-8 text-3xl font-black">표현형의 비 ≈ <span class="text-lime-600">9 : 3 : 3 : 1</span></p>
+            </div>
+        </section>
+        
+        <section id="s6" class="content-section">
+            <div class="reveal max-w-4xl w-full">
+                <h2 class="text-3xl font-bold mb-8 text-center">📈 9:3:3:1 비율의 비밀</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-3">모양만 따로 보면?</h3>
+                        <p class="text-xl">(315+108) : (101+32) = 423 : 133</p>
+                        <p class="text-3xl font-bold text-lime-600 mt-2">≈ 3 : 1</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-3">색깔만 따로 보면?</h3>
+                        <p class="text-xl">(315+101) : (108+32) = 416 : 140</p>
+                        <p class="text-3xl font-bold text-lime-600 mt-2">≈ 3 : 1</p>
+                    </div>
+                </div>
+                <p class="reveal text-center mt-8 text-2xl font-bold bg-white p-6 rounded-xl shadow-lg">
+                    결론: 두 형질은 <span class="text-lime-600">분리의 법칙</span>을 각각 따르며, 서로에게 영향을 주지 않는다!
+                </p>
+            </div>
+        </section>
+
+        <section id="s7" class="content-section">
+            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
+                <img src="images/gametes1_med.jpeg" alt="생식세포 형성" class="rounded-lg shadow-md">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">🌱 4가지 종류의 생식세포</h2>
+                    <p class="text-lg">F1(RrYy)은 감수 분열을 통해 4종류의 생식세포를 만듭니다. 모양 유전자(R/r)와 색깔 유전자(Y/y)가 독립적으로 분리되기 때문입니다.</p>
+                    <p class="text-center text-2xl font-bold my-4 p-4 bg-lime-100 rounded-lg">RY, Ry, rY, ry</p>
+                    <p class="text-lg text-center">이 4종류는 <strong class="text-lime-600">1 : 1 : 1 : 1</strong>의 동일한 비율로 생성됩니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="s8" class="content-section flex-col">
+            <div class="max-w-5xl w-full text-center">
+                <h2 id="punnett-title" class="text-4xl font-bold mb-2 reveal">📜 독립의 법칙</h2>
+                <p class="text-xl mb-8 reveal">두 쌍 이상의 대립 형질이 함께 유전될 때, 각 형질은 서로 영향을 주지 않고 독립적으로 분리되어 유전되는 현상.</p>
+                <div id="punnett-container" class="bg-white p-6 rounded-xl shadow-2xl">
+                    <table class="punnett-table mx-auto">
+                        <thead><tr><th></th><th>RY</th><th>Ry</th><th>rY</th><th>ry</th></tr></thead>
+                        <tbody>
+                            <tr><th>RY</th><td class="punnett-cell pea-round pea-yellow">RRYY</td><td class="punnett-cell pea-round pea-yellow">RRYy</td><td class="punnett-cell pea-round pea-yellow">RrYY</td><td class="punnett-cell pea-round pea-yellow">RrYy</td></tr>
+                            <tr><th>Ry</th><td class="punnett-cell pea-round pea-yellow">RRYy</td><td class="punnett-cell pea-round pea-green">RRyy</td><td class="punnett-cell pea-round pea-yellow">RrYy</td><td class="punnett-cell pea-round pea-green">Rryy</td></tr>
+                            <tr><th>rY</th><td class="punnett-cell pea-round pea-yellow">RrYY</td><td class="punnett-cell pea-round pea-yellow">RrYy</td><td class="punnett-cell pea-wrinkled pea-yellow">rrYY</td><td class="punnett-cell pea-wrinkled pea-yellow">rrYy</td></tr>
+                            <tr><th>ry</th><td class="punnett-cell pea-round pea-yellow">RrYy</td><td class="punnett-cell pea-round pea-green">Rryy</td><td class="punnett-cell pea-wrinkled pea-yellow">rrYy</td><td class="punnett-cell pea-wrinkled pea-green">rryy</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="s9" class="content-section">
+            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center">🎬 영상으로 보는 감수분열과 독립법칙</h2>
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-md">
+                    <div id="youtube-player"></div>
+                </div>
+                <div class="flex justify-center gap-4 mt-4">
+                    <button id="play-btn" class="px-4 py-2 bg-lime-500 text-white rounded-lg hover:bg-lime-600"><i class="fas fa-play"></i> 20초부터 보기</button>
+                    <button id="pause-btn" class="px-4 py-2 bg-slate-500 text-white rounded-lg hover:bg-slate-600"><i class="fas fa-pause"></i> 일시정지</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="s10" class="content-section">
+            <div class="reveal max-w-2xl w-full bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">📝 개념 확인 퀴즈</h3>
+                <div class="quiz-container">
+                    <p class="text-xl font-bold mb-4">유전자형이 RrYy인 완두를 자가 수분하여 얻은 자손(F2) 중에서, 표현형이 '주름지고 황색(rrY_)'일 확률은 얼마일까요?</p>
+                    <div class="quiz-options space-y-3">
+                        <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="false">1. 1/16</button>
+                        <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="true">2. 3/16</button>
+                        <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="false">3. 9/16</button>
+                        <button class="quiz-option w-full text-left p-4 border rounded-lg text-lg" data-correct="false">4. 1/4</button>
+                    </div>
+                    <div class="quiz-feedback mt-4 text-lg font-bold h-6 text-center"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="s11" class="content-section text-center">
+            <div class="reveal">
+                <h2 class="text-4xl font-bold text-lime-700">🎉 학습 완료!</h2>
+                <p class="text-xl mt-4">독립의 법칙에 대한 학습을 모두 마쳤습니다. <br>이 페이지를 닫으면 학습 진행 상황이 자동으로 저장됩니다.</p>
+                <a href="index.html" class="mt-8 inline-block px-8 py-3 bg-lime-500 text-white font-bold rounded-lg shadow-md hover:bg-lime-600 transition">목차로 돌아가기</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // --- Side Navigation ---
+            const sections = document.querySelectorAll('.content-section');
+            const progressNav = document.getElementById('progress-nav');
+            
+            sections.forEach(section => {
+                const link = document.createElement('a');
+                link.href = `#${section.id}`;
+                progressNav.appendChild(link);
+            });
+            const navLinks = progressNav.querySelectorAll('a');
+
+            function updateNav(index) {
+                navLinks.forEach((link, i) => link.classList.toggle('active', i === index));
+            }
+
+            sections.forEach((section, index) => {
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: 'top center',
+                    end: 'bottom center',
+                    onToggle: self => self.isActive && updateNav(index)
+                });
+            });
+
+            // --- Fullscreen ---
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const fullscreenIcon = document.getElementById('fullscreen-icon');
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            });
+            document.addEventListener('fullscreenchange', () => {
+                const isFullscreen = !!document.fullscreenElement;
+                fullscreenIcon.classList.toggle('fa-expand', !isFullscreen);
+                fullscreenIcon.classList.toggle('fa-compress', isFullscreen);
+            });
+
+            // --- GSAP Animations ---
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                gsap.fromTo(el, { opacity: 0, y: 40 }, {
+                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                });
+            });
+            
+            const punnettCells = gsap.utils.toArray('.punnett-cell');
+            gsap.from(punnettCells, {
+                scale: 0.5, opacity: 0, stagger: 0.05, duration: 0.5,
+                scrollTrigger: { trigger: '#punnett-container', start: 'top 70%', toggleActions: 'play none none reverse' }
+            });
+
+            // --- Quiz Logic ---
+            const quizContainers = document.querySelectorAll('.quiz-container');
+            quizContainers.forEach(container => {
+                const options = container.querySelectorAll('.quiz-option');
+                const feedback = container.querySelector('.quiz-feedback');
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        if (option.parentElement.dataset.answered) return;
+                        option.parentElement.dataset.answered = 'true';
+                        
+                        option.classList.add('selected');
+                        if (option.dataset.correct === 'true') {
+                            option.classList.add('correct');
+                            feedback.textContent = "정답입니다! 👍 (비율 9:3:3:1에서 3에 해당)";
+                            feedback.style.color = '#10b981';
+                        } else {
+                            option.classList.add('incorrect');
+                            feedback.textContent = "아쉽네요. 정답은 3/16입니다.";
+                            feedback.style.color = '#ef4444';
+                            container.querySelector('[data-correct="true"]').classList.add('correct');
+                        }
+                    });
+                });
+            });
+
+            // --- LocalStorage for Progress Tracking ---
+            ScrollTrigger.create({
+                trigger: '#s11', // Final section
+                start: 'top center',
+                onEnter: () => {
+                    console.log('학습 완료! 진행 상황을 저장합니다.');
+                    localStorage.setItem('mendelLawOfIndependenceLearned', 'true');
+                }
+            });
+        });
+
+        // --- YouTube IFrame API ---
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '100%',
+                width: '100%',
+                videoId: 'CBezq1fFUEA', // A relevant video on meiosis/independent assortment
+                playerVars: { 'playsinline': 1, 'controls': 0, 'rel': 0 },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+        function onPlayerReady(event) {
+            const playBtn = document.getElementById('play-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            playBtn.addEventListener('click', () => { player.seekTo(20, true); player.playVideo(); });
+            pauseBtn.addEventListener('click', () => { player.pauseVideo(); });
+            
+            // Auto-pause when scrolling out of view
+            ScrollTrigger.create({
+                trigger: '#youtube-player',
+                start: 'top bottom',
+                end: 'bottom top',
+                onLeave: () => player.pauseVideo(),
+                onLeaveBack: () => player.pauseVideo()
+            });
+        }
+        
+        // Load YouTube API script
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+</body>
+</html>
