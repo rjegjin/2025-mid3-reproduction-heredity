@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V. 생식과 유전 - 독립의 법칙</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .slide {
+            display: none;
+            min-height: 80vh;
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .punnett-square {
+            border-collapse: collapse;
+            margin: auto;
+            font-size: 1.1rem;
+        }
+        .punnett-square th, .punnett-square td {
+            border: 2px solid #9ca3af;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .punnett-square th { background-color: #f3f4f6; }
+        .bg-round-yellow { background-color: #fef08a; } /* yellow-200 */
+        .bg-round-green { background-color: #d9f99d; } /* lime-200 */
+        .bg-wrinkled-yellow { background-color: #fde68a; } /* amber-200 */
+        .bg-wrinkled-green { background-color: #bef264; } /* lime-300 */
+
+        .quiz-option { transition: all 0.2s ease-in-out; }
+        .quiz-option.selected { transform: scale(1.05); border-width: 2px; }
+        .quiz-option.correct { background-color: #34d399; color: white; border-color: #059669; }
+        .quiz-option.incorrect { background-color: #f87171; color: white; border-color: #dc2626; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <div class="container mx-auto p-4 max-w-5xl">
+        <div id="presentation-container" class="bg-white rounded-2xl shadow-2xl p-6 md:p-10 relative">
+            
+            <!-- Slides will be injected here by JS -->
+
+            <!-- Navigation -->
+            <div class="absolute bottom-4 left-4 flex items-center">
+                <span id="slide-counter" class="text-lg font-semibold text-slate-600"></span>
+            </div>
+            <div class="absolute bottom-4 right-4 flex gap-3">
+                <button id="prev-btn" class="px-5 py-2 bg-slate-300 text-slate-700 rounded-lg hover:bg-slate-400 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-arrow-left"></i> 이전
+                </button>
+                <button id="next-btn" class="px-5 py-2 bg-lime-500 text-white rounded-lg hover:bg-lime-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    다음 <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slidesData = [
+            // Slide 1
+            {
+                type: 'title',
+                title: 'V. 생식과 유전',
+                subtitle: '2. 유전 (2) 멘델이 밝힌 유전 원리 ③',
+                main: '독립의 법칙',
+                image: 'images/mendel_in_garden.jpg'
+            },
+            // Slide 2
+            {
+                type: 'list',
+                title: '🎯 학습 목표',
+                items: [
+                    '<strong>독립의 법칙</strong>을 설명할 수 있다.',
+                    '두 쌍 이상의 대립 형질이 함께 유전될 때 나타나는 결과를 해석할 수 있다.',
+                    '멘델의 유전 실험이 지닌 과학적 의의를 설명할 수 있다.'
+                ]
+            },
+            // Slide 3
+            {
+                type: 'text_image',
+                title: '🤔 도입 질문: 두 가지 형질이 동시에 유전된다면?',
+                text: [
+                    "완두의 씨 모양(둥글다/주름지다)과 씨 색깔(황색/녹색)은 각각 유전됩니다.",
+                    "만약 이 두 가지 형질이 동시에 유전된다면, 서로에게 영향을 줄까요? 아니면 각각 따로 유전될까요?",
+                    "<br><strong>'흰색 주사위를 두 번 던져 모두 짝수가 나왔을 때, 파란색 주사위도 짝수가 나올 가능성이 높을까?'</strong>",
+                    "흰 주사위의 결과가 파란 주사위에 영향을 주지 않듯, 완두의 모양 유전과 색깔 유전은 서로 영향을 줄까요?"
+                ],
+                image: 'https://placehold.co/400x300/e2e8f0/64748b?text=주사위+이미지'
+            },
+            // Slide 4
+            {
+                type: 'text_image',
+                title: '🔬 멘델의 실험 설계',
+                text: [
+                    "<strong>• 실험 목적:</strong> 완두의 모양과 색깔, 즉 두 쌍의 대립 형질이 동시에 유전될 때 서로 영향을 주는지 알아보기 위한 실험.",
+                    "<strong>• 실험 과정:</strong>",
+                    "1. <strong>어버이(P):</strong> 순종 '둥글고 황색' 완두 × 순종 '주름지고 녹색' 완두 교배.",
+                    "2. <strong>자손 1대(F1):</strong> 얻어진 F1을 자가 수분.",
+                    "3. <strong>자손 2대(F2):</strong> 얻어진 F2의 표현형과 비율을 분석."
+                ],
+                image: 'images/1st_exp_breeding_P.jpg'
+            },
+            // Slide 5
+            {
+                type: 'text_image',
+                title: '📊 실험 결과 (1) - 자손 1대(F1)',
+                text: [
+                    "<strong>• 어버이(P):</strong> 순종 둥글고 황색 완두 × 순종 주름지고 녹색 완두",
+                    "<strong>• 교배 결과 (F1):</strong> <strong>모두 둥글고 황색인 완두</strong>만 나타났습니다.",
+                    "<br><strong>• 해석:</strong>",
+                    "씨의 모양에서는 '둥근 것'이 우성, 씨의 색깔에서는 '황색'이 우성입니다. <br>→ <strong>우열의 원리</strong>가 각 형질에 독립적으로 적용됩니다."
+                ],
+                image: 'images/law_of_segregation.jpg'
+            },
+            // Slide 6
+            {
+                type: 'text_image',
+                title: '🧬 유전자형으로 이해하기 (F1)',
+                text: [
+                    "• 둥근 모양 유전자: <strong>R</strong> / 주름진 모양 유전자: <strong>r</strong>",
+                    "• 황색 유전자: <strong>Y</strong> / 녹색 유전자: <strong>y</strong>",
+                    "<br>• 어버이(P) 유전자형: <strong>RRYY × rryy</strong>",
+                    "• 어버이가 만드는 생식세포: <strong>RY</strong> 와 <strong>ry</strong>",
+                    "• 자손 1대(F1) 유전자형: <strong>RrYy</strong>",
+                    "• 표현형은 우성인 '둥글고 황색'으로 나타납니다."
+                ],
+                image: 'images/homozygote_heterozygote.jpg'
+            },
+            // Slide 7
+            {
+                type: 'text_image',
+                title: '📊 실험 결과 (2) - 자손 2대(F2)',
+                 text: [
+                    "자손 1대(RrYy)를 자가수분하여 <strong>총 556개</strong>의 자손 2대 완두를 얻었습니다.",
+                    "• 둥글고 황색 완두 : 315개",
+                    "• 둥글고 녹색 완두 : 108개",
+                    "• 주름지고 황색 완두 : 101개",
+                    "• 주름지고 녹색 완두 : 32개",
+                    "<br><strong>표현형의 비율 ≈ 9 : 3 : 3 : 1</strong>"
+                ],
+                image: 'images/f2_generation_ratio.jpg'
+            },
+            // Slide 8
+            {
+                type: 'text_columns',
+                title: '📈 9:3:3:1 비율의 의미 (1) - 각 형질 따로 보기',
+                columns: [
+                    {
+                        title: '씨 모양으로만 분석',
+                        text: `• 둥근 완두: (315 + 108) = 423개
+                               <br>• 주름진 완두: (101 + 32) = 133개
+                               <br>→ 둥근 완두 : 주름진 완두 ≈ <strong>3 : 1</strong>`
+                    },
+                    {
+                        title: '씨 색깔로만 분석',
+                        text: `• 황색 완두: (315 + 101) = 416개
+                               <br>• 녹색 완두: (108 + 32) = 140개
+                               <br>→ 황색 완두 : 녹색 완두 ≈ <strong>3 : 1</strong>`
+                    }
+                ]
+            },
+            // Slide 9
+            {
+                type: 'text_image',
+                title: '💡 9:3:3:1 비율의 의미 (2) - 결론',
+                text: [
+                    "두 형질을 함께 유전시켜도 각각의 형질은 <strong>분리의 법칙</strong>에 따라 3:1의 비율을 그대로 유지했습니다.",
+                    "<br><strong>결론: 완두의 모양 유전과 색깔 유전은 서로 영향을 주지 않고 독립적으로 유전된다!</strong>"
+                ],
+                image: 'images/Meiosis_main_steps.svg'
+            },
+            // Slide 12
+            {
+                type: 'text_image',
+                title: '✅ 결론: 두 유전자는 다른 염색체에 있다! (독립)',
+                text: [
+                    "완두의 모양 유전자와 색깔 유전자는 서로 다른 상동 염색체에 위치합니다.",
+                    "감수 분열(생식세포 형성) 시, 각 염색체 쌍은 서로 영향을 주지 않고 독립적으로 분리됩니다.",
+                    "따라서 자손 1대(RrYy)는 <strong>네 종류의 생식세포</strong>를 만들 수 있습니다."
+                ],
+                image: 'images/homologus_chromosome.jpeg'
+            },
+            // Slide 13
+            {
+                type: 'text_image',
+                title: '🌱 자손 1대(RrYy)의 생식세포 형성 과정',
+                text: [
+                    "모양 유전자(R, r)와 색깔 유전자(Y, y)가 독립적으로 분리됩니다.",
+                    "결과적으로 네 종류의 생식세포가 만들어집니다.",
+                    "<div class='text-2xl font-bold text-center mt-4 p-4 bg-lime-100 rounded-lg'>RY, Ry, rY, ry</div>",
+                    "이 네 종류의 생식세포는 <strong>1 : 1 : 1 : 1</strong> 의 동일한 비율로 생성됩니다."
+                ],
+                image: 'images/gametes1_med.jpeg'
+            },
+             // Slide 14
+            {
+                type: 'definition',
+                title: '📜 원리 3: 독립의 법칙',
+                term: 'Law of Independent Assortment',
+                definition: '두 쌍 이상의 대립 형질이 함께 유전될 때, 각각의 형질을 결정하는 대립유전자들은 서로 영향을 주지 않고 독립적으로 분리되어 유전되는 현상.',
+                extra: '<strong>핵심 증거:</strong> 자손 2대(F2)에서 나타나는 표현형의 분리비 <strong>9 : 3 : 3 : 1</strong> 은 독립의 법칙을 증명하는 중요한 실험적 증거입니다.'
+            },
+            // Slide 15
+            {
+                type: 'punnett',
+                title: '⚃ 퍼넷 사각형으로 보는 자손 2대 (F2)의 조합'
+            },
+            // Slide 17
+            {
+                type: 'punnett_result',
+                title: '🎨 자손 2대(F2)의 표현형 분석',
+                text: [
+                    "• <span class='p-1 rounded bg-round-yellow'><strong>둥글고 황색 (R_Y_): 9개</strong></span>",
+                    "• <span class='p-1 rounded bg-round-green'><strong>둥글고 녹색 (R_yy): 3개</strong></span>",
+                    "• <span class='p-1 rounded bg-wrinkled-yellow'><strong>주름지고 황색 (rrY_): 3개</strong></span>",
+                    "• <span class='p-1 rounded bg-wrinkled-green'><strong>주름지고 녹색 (rryy): 1개</strong></span>",
+                    "<br><strong>결론: 표현형의 비는 9 : 3 : 3 : 1 로 나타납니다.</strong>"
+                ]
+            },
+             // Slide 18
+            {
+                type: 'text_image',
+                title: '🔬 독립의 법칙과 감수 분열',
+                text: [
+                    '독립의 법칙은 <strong>감수 분열</strong> 과정으로 설명할 수 있습니다.',
+                    '• <strong>감수 1분열 중기:</strong> 모양 유전자 쌍과 색깔 유전자 쌍이 <strong>독립적으로</strong> 세포 중앙에 배열됩니다.',
+                    '• <strong>감수 1분열 후기:</strong> 상동 염색체들이 <strong>독립적으로</strong> 분리되어 양극으로 이동합니다.',
+                    '이러한 무작위 배열과 분리 때문에 다양한 조합의 생식세포가 형성됩니다.'
+                ],
+                image: 'images/crossing-over-meiosis-diagram.png'
+            },
+            // Slide 20
+            {
+                type: 'table',
+                title: '📚 멘델 유전 법칙 종합 정리',
+                headers: ['원리', '핵심 내용', '관련 실험', '주요 비율'],
+                rows: [
+                    ['우열의 원리', '순종 대립 형질 교배 시, 잡종 1대에서 우성 형질만 나타남.', '한 쌍 교배', '-'],
+                    ['분리의 법칙', '생식세포 형성 시 대립유전자가 분리되어 다른 생식세포로 들어감.', '한 쌍 교배 후 자가수분', 'F2 표현형 3 : 1'],
+                    ['독립의 법칙', '두 쌍 이상의 형질이 유전될 때, 각 형질은 서로 영향을 주지 않고 독립적으로 유전됨.', '두 쌍 교배 후 자가수분', 'F2 표현형 9 : 3 : 3 : 1']
+                ]
+            },
+            // Slide 21
+            {
+                type: 'list',
+                title: '💡 멘델 유전 연구의 과학적 의의',
+                items: [
+                    '<strong>과학적 탐구 방법 사용:</strong> 가설을 세우고 실험을 통해 검증하는 방식을 사용.',
+                    '<strong>통계적 분석:</strong> 많은 수의 자손을 얻어 결과를 통계적으로 분석하여 규칙성을 발견.',
+                    '<strong>유전학의 기초 마련:</strong> 유전 현상을 설명하는 기본 원리(유전 인자, 우열, 분리, 독립)를 최초로 제시.'
+                ]
+            },
+            // Slide 22
+            {
+                type: 'quiz',
+                title: '📝 개념 확인 퀴즈 (1)',
+                question: "2쌍 이상의 대립 유전자가 서로 영향을 미치지 않고 각각 분리의 법칙에 따라 유전되는 원리를 ( ① )의 법칙이라고 한다. 이 법칙을 증명하는 자손 2대의 표현형 분리비는 ( ② ) 이다.",
+                options: [
+                    "① 독립 ② 3:1",
+                    "① 분리 ② 9:3:3:1",
+                    "① 독립 ② 9:3:3:1",
+                    "① 우열 ② 3:1"
+                ],
+                answer: 2 // index of correct answer
+            },
+            // Slide 23
+            {
+                type: 'quiz',
+                title: '📝 개념 확인 퀴즈 (2)',
+                question: "유전자형이 RrYy인 완두를 자가 수분하여 얻은 자손(F2) 중에서, 표현형이 '둥글고 녹색'일 확률은 얼마일까요?",
+                options: ["1/16", "3/16", "9/16", "1/4"],
+                answer: 1
+            },
+            // Slide 29
+            {
+                type: 'list',
+                title: '📋 학습 내용 요약',
+                items: [
+                    '멘델은 두 쌍의 대립 형질(모양, 색깔) 유전 실험을 통해 <strong>독립의 법칙</strong>을 발견했다.',
+                    '두 형질이 독립적으로 유전될 때, 자손 1대(RrYy)는 4종류의 생식세포(RY, Ry, rY, ry)를 <strong>1:1:1:1의 비율</strong>로 만든다.',
+                    '그 결과, 자손 2대에서는 표현형이 <strong>9 : 3 : 3 : 1</strong> 이라는 일정한 비율로 나타난다.',
+                    '독립의 법칙은 유전자가 <strong>서로 다른 상동 염색체</strong>에 있을 때 성립하며, 이는 감수 분열 과정으로 설명된다.'
+                ]
+            },
+            // Slide 30
+            {
+                type: 'final',
+                title: '👏 마무리',
+                text: '<strong>다음 시간 예고:</strong> 사람의 유전 연구 방법과 다양한 유전 현상 (가계도 분석, 혈액형 유전, 색맹 유전 등)',
+                closing: '감사합니다.'
+            }
+        ];
+
+        let currentSlide = 0;
+        const presentationContainer = document.getElementById('presentation-container');
+        const slideCounter = document.getElementById('slide-counter');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function createPunnettSquare(colored = false) {
+            const gametes = ['RY', 'Ry', 'rY', 'ry'];
+            let table = '<table class="punnett-square"><thead><tr><th></th>';
+            gametes.forEach(g => table += `<th>${g}</th>`);
+            table += '</tr></thead><tbody>';
+
+            const colorMap = {
+                'RRYY': 'bg-round-yellow', 'RRYy': 'bg-round-yellow', 'RrYY': 'bg-round-yellow', 'RrYy': 'bg-round-yellow',
+                'RRyy': 'bg-round-green', 'Rryy': 'bg-round-green',
+                'rrYY': 'bg-wrinkled-yellow', 'rrYy': 'bg-wrinkled-yellow',
+                'rryy': 'bg-wrinkled-green'
+            };
+
+            gametes.forEach(rowGamete => {
+                table += `<tr><th>${rowGamete}</th>`;
+                gametes.forEach(colGamete => {
+                    const genotype = [colGamete[0], rowGamete[0]].sort().join('') + [colGamete[1], rowGamete[1]].sort().join('');
+                    const colorClass = colored ? colorMap[genotype] : '';
+                    table += `<td class="${colorClass}">${genotype}</td>`;
+                });
+                table += '</tr>';
+            });
+            table += '</tbody></table>';
+            return table;
+        }
+
+
+        function renderSlides() {
+            let content = '';
+            slidesData.forEach((slide, index) => {
+                let slideContent = '';
+                switch(slide.type) {
+                    case 'title':
+                        slideContent = `<h2 class="text-3xl font-bold text-slate-500">${slide.title}</h2>
+                                      <h3 class="text-2xl text-slate-500">${slide.subtitle}</h3>
+                                      <h1 class="text-6xl font-black text-lime-600 my-4">${slide.main}</h1>
+                                      <img src="${slide.image}" class="max-w-md mx-auto rounded-lg shadow-lg mt-8">`;
+                        break;
+                    case 'list':
+                        slideContent = `<h2 class="text-4xl font-bold mb-8">${slide.title}</h2>
+                                      <ul class="text-2xl list-disc list-inside space-y-4 text-left">
+                                          ${slide.items.map(item => `<li>${item}</li>`).join('')}
+                                      </ul>`;
+                        break;
+                    case 'text_image':
+                        slideContent = `<h2 class="text-4xl font-bold mb-8 text-center">${slide.title}</h2>
+                                       <div class="grid md:grid-cols-2 gap-8 items-center w-full">
+                                           <div class="text-xl space-y-3">${slide.text.join('<br>')}</div>
+                                           <img src="${slide.image}" class="rounded-lg shadow-md mx-auto">
+                                       </div>`;
+                        break;
+                    case 'text_columns':
+                         slideContent = `<h2 class="text-4xl font-bold mb-8 text-center">${slide.title}</h2>
+                                         <div class="grid md:grid-cols-2 gap-8 w-full">
+                                            ${slide.columns.map(col => `<div class="bg-slate-100 p-6 rounded-lg">
+                                                <h3 class="text-2xl font-bold mb-4">${col.title}</h3>
+                                                <p class="text-xl">${col.text}</p>
+                                            </div>`).join('')}
+                                         </div>`;
+                         break;
+                    case 'definition':
+                         slideContent = `<h2 class="text-4xl font-bold mb-8 text-center">${slide.title}</h2>
+                                         <div class="w-full max-w-3xl bg-lime-50 p-8 rounded-xl border-l-8 border-lime-500">
+                                             <p class="text-xl text-slate-600">${slide.term}</p>
+                                             <p class="text-2xl font-semibold my-2">${slide.definition}</p>
+                                             <p class="text-lg mt-4">${slide.extra}</p>
+                                         </div>`;
+                         break;
+                    case 'punnett':
+                        slideContent = `<h2 class="text-4xl font-bold mb-8 text-center">${slide.title}</h2>
+                                        ${createPunnettSquare(false)}`;
+                        break;
+                    case 'punnett_result':
+                        slideContent = `<h2 class="text-4xl font-bold mb-8 text-center">${slide.title}</h2>
+                                       <div class="grid md:grid-cols-2 gap-8 w-full items-center">
+                                            ${createPunnettSquare(true)}
+                                           <div class="text-xl space-y-3">${slide.text.join('<br>')}</div>
+                                       </div>`;
+                        break;
+                    case 'table':
+                        slideContent = `<h2 class="text-4xl font-bold mb-8 text-center">${slide.title}</h2>
+                                        <table class="w-full text-left border-collapse">
+                                            <thead><tr class="bg-slate-200">
+                                                ${slide.headers.map(h => `<th class="p-3 border border-slate-300">${h}</th>`).join('')}
+                                            </tr></thead>
+                                            <tbody>
+                                                ${slide.rows.map(row => `<tr>${row.map(cell => `<td class="p-3 border border-slate-300">${cell}</td>`).join('')}</tr>`).join('')}
+                                            </tbody>
+                                        </table>`;
+                        break;
+                    case 'quiz':
+                        slideContent = `<h2 class="text-4xl font-bold mb-6">${slide.title}</h2>
+                                      <p class="text-xl mb-6 w-full max-w-3xl">${slide.question}</p>
+                                      <div id="quiz-${index}-options" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
+                                          ${slide.options.map((opt, i) => `<button class="quiz-option p-4 border rounded-lg text-lg text-left" data-index="${i}">${opt}</button>`).join('')}
+                                      </div>
+                                      <div id="quiz-${index}-feedback" class="mt-4 text-xl font-bold h-8"></div>`;
+                        break;
+                     case 'final':
+                        slideContent = `<h2 class="text-4xl font-bold mb-8">${slide.title}</h2>
+                                        <p class="text-2xl mb-12">${slide.text}</p>
+                                        <p class="text-3xl font-bold">${slide.closing}</p>`;
+                        break;
+
+                }
+                content += `<div class="slide p-4 w-full" id="slide-${index}">${slideContent}</div>`;
+            });
+            presentationContainer.insertAdjacentHTML('afterbegin', content);
+        }
+
+        function showSlide(index) {
+            document.querySelectorAll('.slide').forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            slideCounter.textContent = `${index + 1} / ${slidesData.length}`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slidesData.length - 1;
+            
+            // Re-init quiz if it's a quiz slide
+            const slideData = slidesData[index];
+            if (slideData.type === 'quiz') {
+                setupQuiz(index, slideData.answer);
+            }
+        }
+        
+        function setupQuiz(index, correctIndex) {
+            const optionsContainer = document.getElementById(`quiz-${index}-options`);
+            const feedback = document.getElementById(`quiz-${index}-feedback`);
+            
+            // Clone and replace to remove old event listeners
+            const newOptionsContainer = optionsContainer.cloneNode(true);
+            optionsContainer.parentNode.replaceChild(newOptionsContainer, optionsContainer);
+            
+            const options = newOptionsContainer.querySelectorAll('.quiz-option');
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => {
+                        opt.disabled = true;
+                        opt.classList.remove('selected');
+                    });
+                    
+                    option.classList.add('selected');
+                    const selectedIndex = parseInt(option.dataset.index);
+
+                    if (selectedIndex === correctIndex) {
+                        option.classList.add('correct');
+                        feedback.textContent = "정답입니다! 👍";
+                        feedback.style.color = '#10b981';
+                    } else {
+                        option.classList.add('incorrect');
+                        feedback.textContent = "아쉽네요. 다시 한번 생각해 보세요.";
+                        feedback.style.color = '#ef4444';
+                        // Show correct answer
+                        options[correctIndex].classList.add('correct');
+                    }
+                }, { once: true }); // Ensure listener fires only once
+            });
+        }
+
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slidesData.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            }
+        });
+
+        // Initial render
+        renderSlides();
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
