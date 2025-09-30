@@ -51,23 +51,37 @@
 
         /* --- Punnett Square --- */
         .punnett-table {
-            border-collapse: collapse;
-            font-size: clamp(0.8rem, 2.5vw, 1.2rem);
-        }
-        .punnett-table th, .punnett-table td {
-            border: 2px solid #9ca3af;
-            width: clamp(50px, 10vw, 90px); height: clamp(50px, 10vw, 90px);
-            text-align: center; vertical-align: middle;
-            transition: all 0.3s ease;
-        }
-        .punnett-table th { background-color: #f1f5f9; font-weight: bold; }
-        .pea-yellow { background-color: #fef9c3; } /* yellow-100 */
-        .pea-green { background-color: #ecfccb; } /* lime-100 */
-        .pea-round { border-style: solid; }
-        .pea-wrinkled {
-            border-style: dashed; border-width: 2px;
-            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239ca3af' fill-opacity='0.2'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-        }
+    border-collapse: collapse;
+    font-size: clamp(0.75rem, 2vw, 1.1rem);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.punnett-table th, .punnett-table td {
+    border: 2px solid #9ca3af;
+    width: clamp(50px, 10vw, 90px); height: clamp(50px, 10vw, 90px);
+    text-align: center; vertical-align: middle;
+    position: relative;
+}
+.punnett-table th { background-color: #f1f5f9; font-weight: bold; }
+.punnett-cell span {
+    font-weight: 700;
+    position: relative;
+    z-index: 2; /* 배경 패턴 위에 텍스트가 오도록 함 */
+}
+
+.pea-yellow { background-color: #fef9c3; } /* yellow-100 */
+.pea-green { background-color: #ecfccb; } /* lime-100 */
+
+.pea-round { 
+    border-style: solid;
+}
+.pea-wrinkled {
+    border-style: dashed;
+    border-color: #64748b; /* 점선 색상 지정 */
+    border-width: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' xmlns='[http://www.w3.org/2000/svg'%3E%3Cg](http://www.w3.org/2000/svg'%3E%3Cg) fill='%239ca3af' fill-opacity='0.3'%3E%3Cpath d='M7 0h1L0 8V7zM8 7v1H7z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
         
         /* --- Quiz --- */
         .quiz-option { transition: all 0.2s ease-in-out; }
