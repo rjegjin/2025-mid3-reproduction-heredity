@@ -1,5 +1,6 @@
 @echo off
 chcp 65001 > nul
+setlocal enabledelayedexpansion
 
 :: PowerShell을 이용해 GUI 입력 상자를 띄우고, 입력된 메시지를 변수에 저장
 set "commitMessage="
@@ -22,7 +23,8 @@ git add . || goto :error
 
 echo.
 echo [3/4] Running git commit...
-git commit -m "%commitMessage%" || goto :error
+:: %commitMessage%를 !commitMessage!로 변경하여 특수 문자를 안전하게 처리
+git commit -m "!commitMessage!" || goto :error
 
 echo.
 echo [4/4] Running git push...
