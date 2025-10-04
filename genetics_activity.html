@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V. 생식과 유전 - 모의 활동으로 알아보는 유전 현상</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        
+        .content-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 1.5rem;
+            position: relative;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        #progress-nav {
+            position: fixed;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            #progress-nav { display: flex; flex-direction: column; gap: 0.75rem; }
+        }
+        #progress-nav a {
+            width: 0.75rem; height: 0.75rem; background-color: #cbd5e1;
+            border-radius: 9999px; display: block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #progress-nav a.active {
+            transform: scale(1.75); background-color: #f43f5e;
+        }
+        header { z-index: 100; }
+        .interactive-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .interactive-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .quiz-option:hover {
+             background-color: #fef2f2;
+        }
+        .quiz-option.selected { transform: scale(1.02); border-width: 2px; }
+        .quiz-option.correct { background-color: #34d399; color: white; border-color: #059669; }
+        .quiz-option.incorrect { background-color: #f87171; color: white; border-color: #dc2626; }
+
+        .coin {
+            width: 100px; height: 100px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 3rem; font-weight: 900;
+            cursor: pointer; transition: transform 0.8s; transform-style: preserve-3d;
+            background-color: #fde047; border: 5px solid #facc15; position: relative;
+        }
+        .coin-face {
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .coin-back { transform: rotateY(180deg); }
+        .coin-container.flipping .coin { transform: rotateY(1860deg); }
+        
+        /* 가계도 SVG 스타일 */
+        .pedigree-symbol-svg {
+            stroke: #1e293b; stroke-width: 2; fill: white; transition: fill 0.3s;
+        }
+        .pedigree-symbol-svg.affected { fill: #60a5fa; }
+        .pedigree-text {
+            font-size: 14px; font-family: monospace; fill: #1e293b;
+        }
+        .pedigree-genotype-text {
+            font-size: 16px; font-weight: bold; fill: #ef4444; opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .pedigree-line {
+            stroke: #1e293b; stroke-width: 2;
+        }
+        
+        /* 가계도 분석 단계 스타일 */
+        .analysis-step { display: none; }
+        .analysis-step.active { display: block; }
+        .nav-arrow {
+            cursor: pointer; background-color: #e5e7eb; border-radius: 9999px;
+            width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center;
+            transition: background-color 0.2s;
+        }
+        .nav-arrow:hover { background-color: #d1d5db; }
+        .nav-arrow.disabled {
+            cursor: not-allowed; background-color: #f3f4f6; color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#s1" class="text-xl md:text-2xl font-bold text-rose-600 hover:text-rose-700 transition-colors">🎲 모의 활동으로 알아보는 유전</a>
+            <div class="flex items-center gap-2">
+                 <p class="hidden md:block text-sm text-slate-500">
+                    <i class="fas fa-keyboard"></i> 키보드 화살표로 이동하세요
+                </p>
+                <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-rose-600 transition-colors" title="전체 화면">
+                    <i id="fullscreen-icon" class="fas fa-expand fa-fw"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <nav id="progress-nav"></nav>
+
+    <main class="container mx-auto">
+        
+        <section id="s1" class="content-section text-center">
+            <div class="reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-600">V. 생식과 유전</h2>
+                <h1 class="text-5xl md:text-7xl font-black text-rose-600 my-4 tracking-tight">모의 활동으로 알아보는 유전 현상</h1>
+                <p class="text-xl md:text-2xl text-slate-500">동전을 던져 확인하는 유전의 확률적 원리</p>
+                 <img src="images/litter_of_puppies.webp" alt="강아지 가족" class="max-w-md mx-auto rounded-lg shadow-xl mt-8">
+            </div>
+        </section>
+
+        <section id="s2" class="content-section">
+            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center text-rose-700">🎯 오늘의 탐험 목표</h2>
+                <ul class="text-xl list-disc list-inside space-y-3">
+                    <li>사람의 유전 형질에 대한 <strong class="text-rose-600">가계도를 분석</strong>하여 우열 관계와 유전자형을 추리할 수 있다.</li>
+                    <li>모의 활동을 통해 자녀가 부모의 유전 형질을 물려받는 과정을 <strong class="text-rose-600">확률적으로 설명</strong>할 수 있다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="s3" class="content-section">
+            <div class="reveal max-w-4xl w-full text-center">
+                <h2 class="text-4xl font-bold mb-6">🤔 생각 열기: 나는 부모님과 왜 다를까?</h2>
+                <p class="text-xl mb-8">부모님 두 분 다 쌍꺼풀이 있는데, 나만 없는 경우가 있습니다. 왜 이런 일이 생길까요? 오늘 활동을 통해 그 비밀을 파헤쳐 봅시다!</p>
+                <img src="images/family_resemblance.webp" alt="세대를 거친 가족" class="max-w-2xl mx-auto rounded-lg shadow-md">
+            </div>
+        </section>
+
+        <section id="s4" class="content-section">
+            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center">활동 1: 가계도 분석 - 핵심 열쇠 찾기</h2>
+                <p class="text-xl text-center mb-6">사람의 유전은 직접 실험할 수 없어 <strong class="text-rose-500">가계도</strong>를 분석하는 것이 기본입니다. 여기서 가장 중요한 '치트키'는 바로 이것입니다!</p>
+                <div class="bg-amber-100 p-6 rounded-lg text-center border-l-4 border-amber-400">
+                     <p class="text-2xl font-black text-amber-800">"부모에게 없던 형질이 자손에게 뿅! 나타나면, 그 형질은 열성이다!"</p>
+                </div>
+                 <p class="text-center mt-4 text-slate-600">이 규칙 하나만 기억하면 가계도 분석의 절반은 끝난 것입니다.</p>
+            </div>
+        </section>
+
+        <section id="s5" class="content-section">
+            <div class="reveal max-w-5xl w-full bg-white p-10 rounded-2xl shadow-lg">
+                <h3 class="text-3xl font-bold mb-6 text-center">🔍 심층 탐구: 가계도 완벽 분석법 (귓불 모양)</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="w-full">
+                        <svg id="pedigree-svg" viewBox="0 0 400 250" class="w-full h-auto">
+                            <text x="10" y="45" class="pedigree-text">I</text>
+                            <text x="10" y="165" class="pedigree-text">II</text>
+                            
+                            <rect id="p1-symbol" x="110" y="20" width="40" height="40" class="pedigree-symbol-svg affected"></rect>
+                            <text x="130" y="45" text-anchor="middle" class="pedigree-text">1</text>
+                            <circle id="p2-symbol" cx="250" cy="40" r="20" class="pedigree-symbol-svg affected"></circle>
+                            <text x="250" y="45" text-anchor="middle" class="pedigree-text">2</text>
+                            <line x1="150" y1="40" x2="230" y2="40" class="pedigree-line"></line>
+                            <line x1="190" y1="40" x2="190" y2="90" class="pedigree-line"></line>
+                            <text id="p1-geno" x="130" y="80" text-anchor="middle" class="pedigree-genotype-text"></text>
+                            <text id="p2-geno" x="250" y="80" text-anchor="middle" class="pedigree-genotype-text"></text>
+
+                            <line x1="80" y1="90" x2="300" y2="90" class="pedigree-line"></line>
+                            <circle id="c1-symbol" cx="80" cy="120" r="20" class="pedigree-symbol-svg affected"></circle>
+                            <text x="80" y="125" text-anchor="middle" class="pedigree-text">3</text>
+                            <line x1="80" y1="90" x2="80" y2="100" class="pedigree-line"></line>
+                            <rect id="c2-symbol" x="170" y="100" width="40" height="40" class="pedigree-symbol-svg"></rect>
+                            <text x="190" y="125" text-anchor="middle" class="pedigree-text">4</text>
+                             <line x1="190" y1="90" x2="190" y2="100" class="pedigree-line"></line>
+                            <rect id="c3-symbol" x="280" y="100" width="40" height="40" class="pedigree-symbol-svg affected"></rect>
+                            <text x="300" y="125" text-anchor="middle" class="pedigree-text">5</text>
+                            <line x1="300" y1="90" x2="300" y2="100" class="pedigree-line"></line>
+                            
+                            <text id="c1-geno" x="80" y="160" text-anchor="middle" class="pedigree-genotype-text"></text>
+                            <text id="c2-geno" x="190" y="160" text-anchor="middle" class="pedigree-genotype-text"></text>
+                            <text id="c3-geno" x="300" y="160" text-anchor="middle" class="pedigree-genotype-text"></text>
+                        </svg>
+                         <p class="text-center text-sm mt-4 text-slate-500">■/●: 분리형(우성), □/○: 부착형(열성)</p>
+                    </div>
+
+                    <div class="relative h-48 flex items-center justify-center">
+                        <div id="step-container" class="w-full">
+                            <div id="step1" class="analysis-step active">
+                                <h4 class="font-bold text-xl mb-2">▶ Step 1: 우열 관계 판단</h4>
+                                <p>1세대 부모(1, 2)는 모두 <strong class="text-blue-500">분리형 귓불</strong>인데, 2세대 자녀(4)에게서 <strong class="text-red-500">부착형 귓불</strong>이 나타났습니다. '부모에게 없던 형질 = 열성' 규칙에 따라 <strong class="text-red-500">부착형이 열성(e)</strong>, <strong class="text-blue-500">분리형이 우성(E)</strong>입니다.</p>
+                            </div>
+                             <div id="step2" class="analysis-step">
+                                <h4 class="font-bold text-xl mb-2">▶ Step 2: 열성 유전자형부터 채우기</h4>
+                                <p>열성 형질인 부착형 귓불(4)은 유전자형이 반드시 <strong class="text-red-500">ee</strong>여야 합니다. 이것이 분석의 가장 확실한 시작점입니다!</p>
+                            </div>
+                             <div id="step3" class="analysis-step">
+                                <h4 class="font-bold text-xl mb-2">▶ Step 3: 부모와 자녀 유전자형 추리</h4>
+                                <p>자녀(4)가 'ee'이므로, e 유전자를 부모(1, 2)에게서 하나씩 물려받았을 것입니다. 부모는 모두 우성(분리형)이므로 유전자형은 <strong class="text-red-500">Ee</strong>가 됩니다. 자녀(3, 5)는 우성이지만 부모에게 e를 물려받을 수 있으므로 <strong class="text-red-500">E?</strong> 입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center items-center gap-4 mt-4">
+                        <button id="prev-step" class="nav-arrow disabled"><i class="fas fa-chevron-left"></i></button>
+                        <span id="step-indicator" class="text-lg font-bold">1 / 3</span>
+                        <button id="next-step" class="nav-arrow"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="s6" class="content-section">
+            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center">활동 2: 나의 유전자형 가정하기</h2>
+                <p class="text-xl mb-4">이제 여러분의 유전자형을 직접 정해봅시다. 오늘 활동에서는 두 가지 형질을 다룹니다.</p>
+                <ul class="text-lg list-disc list-inside space-y-2">
+                    <li><strong class="text-rose-500">보조개:</strong> 있음(우성, A) / 없음(열성, a)</li>
+                    <li><strong class="text-rose-500">귓불 모양:</strong> 분리형(우성, B) / 부착형(열성, b)</li>
+                </ul>
+                <p class="text-xl mt-4">어머니와 아버지 역할을 정하고, 각자 두 형질에 대한 유전자형을 <strong class="text-rose-600">잡종(Aa, Bb)</strong>으로 가정하여 활동지에 적어보세요. (예: 어머니 AaBb, 아버지 AaBb)</p>
+            </div>
+        </section>
+        
+        <section id="s7" class="content-section">
+            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center">활동 3: 생식세포 동전 만들기</h2>
+                <p class="text-xl mb-4 text-center">이제 유전자형에 따라 생식세포를 만들어 봅시다. 동전 2개를 준비하세요. 하나는 보조개(A/a), 다른 하나는 귓불(B/b) 유전자를 나타냅니다.</p>
+                <div class="grid md:grid-cols-2 gap-8 items-center mt-8">
+                    <div class="text-center">
+                        <h3 class="font-bold text-2xl mb-4">어머니의 동전</h3>
+                        <div class="flex justify-center gap-4">
+                            <div class="coin-container"><div class="coin"><div class="coin-face">A</div><div class="coin-face coin-back">a</div></div></div>
+                            <div class="coin-container"><div class="coin"><div class="coin-face">B</div><div class="coin-face coin-back">b</div></div></div>
+                        </div>
+                         <p class="mt-2 text-sm text-slate-500">동전의 앞면에는 대문자, 뒷면에는 소문자를 적으세요.</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-bold text-2xl mb-4">아버지의 동전</h3>
+                         <div class="flex justify-center gap-4">
+                            <div class="coin-container"><div class="coin"><div class="coin-face">A</div><div class="coin-face coin-back">a</div></div></div>
+                            <div class="coin-container"><div class="coin"><div class="coin-face">B</div><div class="coin-face coin-back">b</div></div></div>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-500">마찬가지로 앞/뒷면에 대립 유전자를 표시합니다.</p>
+                    </div>
+                </div>
+                <p class="text-center mt-8 text-lg bg-rose-50 p-4 rounded-lg">이것은 감수분열 시 대립 유전자가 나뉘어 각각 다른 생식세포로 들어가는 <strong class="text-rose-600">분리의 법칙</strong>을 모의하는 것입니다.</p>
+            </div>
+        </section>
+
+        <section id="s8" class="content-section flex-col">
+            <h2 class="text-3xl font-bold mb-8 text-center">활동 4: 동전 던지기로 자녀 만들기!</h2>
+            <div class="reveal w-full max-w-4xl bg-white p-8 rounded-xl shadow-lg text-center">
+                <p class="text-xl mb-6">이제 동전을 던져 확률적으로 자녀의 유전자형을 결정해 봅시다. '동전 던지기 시작!' 버튼을 누르세요.</p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div id="mother-gamete" class="p-4 border-2 border-dashed rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4">어머니의 난자</h3>
+                        <div class="flex justify-center gap-4">
+                            <div class="coin-container"><div class="coin" id="mother-coin1">?</div></div>
+                            <div class="coin-container"><div class="coin" id="mother-coin2">?</div></div>
+                        </div>
+                        <p class="mt-4 text-2xl font-bold text-pink-500" id="mother-result">&nbsp;</p>
+                    </div>
+                     <div id="father-gamete" class="p-4 border-2 border-dashed rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4">아버지의 정자</h3>
+                        <div class="flex justify-center gap-4">
+                            <div class="coin-container"><div class="coin" id="father-coin1">?</div></div>
+                            <div class="coin-container"><div class="coin" id="father-coin2">?</div></div>
+                        </div>
+                        <p class="mt-4 text-2xl font-bold text-blue-500" id="father-result">&nbsp;</p>
+                    </div>
+                </div>
+                <button id="toss-button" class="mt-8 px-8 py-3 bg-rose-500 text-white font-bold rounded-lg shadow-md hover:bg-rose-600 transition text-xl interactive-btn">동전 던지기 시작!</button>
+                 <div class="mt-8 p-6 bg-green-100 rounded-lg">
+                    <h3 class="text-2xl font-bold">첫 번째 자녀의 유전자형</h3>
+                    <p id="child-genotype" class="text-4xl font-black text-green-700 mt-2">&nbsp;</p>
+                     <p id="child-phenotype" class="text-xl font-bold text-green-800 mt-2">&nbsp;</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="s9" class="content-section">
+            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center">활동 5: 결과 분석 및 정리</h2>
+                <div class="text-xl space-y-6">
+                    <div>
+                        <h3 class="font-bold text-2xl mb-2">1. 자녀의 형질이 부모와 다른 까닭은?</h3>
+                        <p>부모에게서 물려받는 <strong class="text-rose-600">유전자의 조합이 확률적으로 결정</strong>되기 때문입니다. 부모가 모두 우성 형질을 나타내더라도(Aa), 자녀에게는 열성 유전자(a)만 물려주어 열성 형질(aa)이 나타날 수 있습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-2xl mb-2">2. 이 활동은 어떤 유전 원리를 모의했나요?</h3>
+                        <p>감수분열 시 대립 유전자가 나뉘고(<strong class="text-rose-600">분리의 법칙</strong>), 수정 과정에서 다시 만나 쌍을 이루는 과정을 모의했습니다. 이 모든 과정이 <strong class="text-rose-600">확률</strong>에 따라 이루어짐을 직접 확인했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="s10" class="content-section">
+            <div class="reveal max-w-4xl w-full text-center">
+                <h2 class="text-4xl font-bold mb-8">🔬 심화: 유전학의 응용</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-3">DNA 지문</h3>
+                        <p class="text-lg">사람마다 다른 DNA 서열 차이를 이용해 개인을 식별하는 기술입니다. 친자 확인이나 범인 식별에 사용됩니다.</p>
+                         <img src="images/southern_blot.webp" alt="DNA 지문 분석 결과" class="w-full h-40 object-cover rounded-md mt-4">
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-3">맞춤형 의학</h3>
+                        <p class="text-lg">개인의 유전 정보를 분석하여 질병을 예방하고, 개인에게 가장 잘 맞는 약물을 처방하는 등 미래 의학의 핵심 분야입니다.</p>
+                        <img src="images/RNA_seq.jpg" alt="유전자 염기서열 분석" class="w-full h-40 object-cover rounded-md mt-4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="s11" class="content-section">
+            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-3xl font-bold mb-6 text-center">📝 최종 점검 퀴즈</h3>
+                
+                <div class="quiz-container mb-8">
+                    <p class="text-xl font-bold mb-4">1. 부모에게 없던 형질이 자손에게 나타났을 때, 이 자손의 형질은 무엇인가요?</p>
+                    <div class="quiz-options grid grid-cols-2 gap-4">
+                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">우성</button>
+                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="true">열성</button>
+                    </div>
+                    <div class="quiz-feedback mt-4 text-lg font-bold h-6 text-center"></div>
+                </div>
+
+                <div class="quiz-container mb-8">
+                    <p class="text-xl font-bold mb-4">2. 유전자형이 RrYy인 완두를 자가 교배하여 자손(F2)을 얻었습니다. 이 자손 중 유전자형이 RrYy일 확률은 얼마일까요? (단, R과 Y는 서로 다른 염색체에 존재합니다)</p>
+                    <div class="quiz-options grid grid-cols-2 gap-4">
+                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">1/16</button>
+                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">2/16 (1/8)</button>
+                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="true">4/16 (1/4)</button>
+                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">9/16</button>
+                    </div>
+                    <div class="quiz-feedback mt-4 text-lg font-bold h-6 text-center"></div>
+                </div>
+
+                <div class="quiz-container">
+    <p class="text-xl font-bold mb-4">3. 아래는 어떤 유전병에 대한 가계도입니다. ㉮의 유전자형으로 옳은 것은? (단, 유전병 유전자는 A와 a로 결정됩니다.)</p>
+    <div class="text-center my-4">
+        <svg viewBox="0 0 300 220" class="w-full max-w-xs mx-auto">
+            <text x="5" y="35" class="pedigree-text">I</text>
+            <text x="5" y="105" class="pedigree-text">II</text>
+            <text x="5" y="175" class="pedigree-text">III</text>
+
+            <rect x="80" y="20" width="30" height="30" class="pedigree-symbol-svg"></rect>
+            <circle cx="150" cy="35" r="15" class="pedigree-symbol-svg"></circle>
+            <line x1="110" y1="35" x2="135" y2="35" class="pedigree-line"></line>
+            <line x1="122.5" y1="35" x2="122.5" y2="60" class="pedigree-line"></line>
+
+            <line x1="122.5" y1="60" x2="122.5" y2="75" class="pedigree-line"></line>
+            <circle cx="122.5" cy="90" r="15" class="pedigree-symbol-svg affected"></circle>
+            <text x="122.5" y="120" text-anchor="middle" class="pedigree-text" font-size="12">(㉮의 어머니)</text>
+            
+            <rect x="190" y="75" width="30" height="30" class="pedigree-symbol-svg"></rect>
+             <text x="205" y="120" text-anchor="middle" class="pedigree-text" font-size="12">(㉮의 아버지)</text>
+
+            <line x1="137.5" y1="90" x2="190" y2="90" class="pedigree-line"></line>
+            <line x1="163.75" y1="90" x2="163.75" y2="120" class="pedigree-line"></line>
+
+            <line x1="163.75" y1="120" x2="163.75" y2="140" class="pedigree-line"></line>
+            <rect id="ga-symbol" x="148.75" y="140" width="30" height="30" class="pedigree-symbol-svg"></rect>
+            <text x="163.75" y="185" font-weight="bold" font-size="16" text-anchor="middle">㉮</text>
+        </svg>
+        <p class="text-center text-sm mt-2 text-slate-500">□/○: 정상, ■/●(파란색): 유전병</p>
+    </div>
+    <div class="quiz-options grid grid-cols-2 gap-4">
+        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">AA</button>
+        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="true">Aa</button>
+        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">aa</button>
+        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">알 수 없음</button>
+    </div>
+    <div class="quiz-feedback mt-4 text-lg font-bold h-6 text-center"></div>
+</div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // --- Side Navigation & Animations ---
+            const sections = document.querySelectorAll('.content-section');
+            const progressNav = document.getElementById('progress-nav');
+            let currentSectionIndex = 0;
+            
+            sections.forEach((section, index) => {
+                const link = document.createElement('a');
+                link.href = `#${section.id}`;
+                progressNav.appendChild(link);
+
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: 'top center',
+                    end: 'bottom center',
+                    onToggle: self => {
+                        if (self.isActive) {
+                            currentSectionIndex = index;
+                            progressNav.querySelectorAll('a').forEach((navLink, navIndex) => {
+                                navLink.classList.toggle('active', navIndex === index);
+                            });
+                        }
+                    }
+                });
+
+                gsap.fromTo(section.querySelector('.reveal'), 
+                    { opacity: 0, y: 40 }, 
+                    {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+                        scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' }
+                    }
+                );
+            });
+            
+            // --- Keyboard Navigation ---
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                let nextIndex;
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    nextIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
+                    sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    nextIndex = Math.max(currentSectionIndex - 1, 0);
+                    sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // --- Fullscreen ---
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const fullscreenIcon = document.getElementById('fullscreen-icon');
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            });
+            document.addEventListener('fullscreenchange', () => {
+                const isFullscreen = !!document.fullscreenElement;
+                fullscreenIcon.classList.toggle('fa-expand', !isFullscreen);
+                fullscreenIcon.classList.toggle('fa-compress', isFullscreen);
+            });
+            
+            // --- Pedigree Analysis Interaction ---
+            const prevBtn = document.getElementById('prev-step');
+            const nextBtn = document.getElementById('next-step');
+            const stepContainer = document.getElementById('step-container');
+            const steps = stepContainer.querySelectorAll('.analysis-step');
+            const stepIndicator = document.getElementById('step-indicator');
+            const genotypeTexts = {
+                c2: document.getElementById('c2-geno'),
+                p1: document.getElementById('p1-geno'),
+                p2: document.getElementById('p2-geno'),
+                c1: document.getElementById('c1-geno'),
+                c3: document.getElementById('c3-geno')
+            };
+            const genotypeValues = { c2: 'ee', p1: 'Ee', p2: 'Ee', c1: 'E?', c3: 'E?' };
+
+            let currentStep = 1;
+            const totalSteps = steps.length;
+
+            function updateStepView() {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('active', index + 1 === currentStep);
+                });
+
+                Object.values(genotypeTexts).forEach(textEl => textEl.style.opacity = '0');
+
+                if (currentStep >= 2) {
+                    genotypeTexts.c2.textContent = genotypeValues.c2;
+                    genotypeTexts.c2.style.opacity = '1';
+                }
+                if (currentStep >= 3) {
+                    genotypeTexts.p1.textContent = genotypeValues.p1;
+                    genotypeTexts.p2.textContent = genotypeValues.p2;
+                    genotypeTexts.c1.textContent = genotypeValues.c1;
+                    genotypeTexts.c3.textContent = genotypeValues.c3;
+                    genotypeTexts.p1.style.opacity = '1';
+                    genotypeTexts.p2.style.opacity = '1';
+                    genotypeTexts.c1.style.opacity = '1';
+                    genotypeTexts.c3.style.opacity = '1';
+                }
+
+                stepIndicator.textContent = `${currentStep} / ${totalSteps}`;
+                prevBtn.classList.toggle('disabled', currentStep === 1);
+                nextBtn.classList.toggle('disabled', currentStep === totalSteps);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStepView();
+                }
+            });
+            nextBtn.addEventListener('click', () => {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepView();
+                }
+            });
+            updateStepView(); 
+
+
+            // --- Coin Toss Simulation ---
+            const tossButton = document.getElementById('toss-button');
+            const [motherCoin1, motherCoin2, fatherCoin1, fatherCoin2] = ['mother-coin1', 'mother-coin2', 'father-coin1', 'father-coin2'].map(id => document.getElementById(id));
+            const motherResult = document.getElementById('mother-result');
+            const fatherResult = document.getElementById('father-result');
+            const childGenotypeEl = document.getElementById('child-genotype');
+            const childPhenotypeEl = document.getElementById('child-phenotype');
+
+            tossButton.addEventListener('click', () => {
+                if(tossButton.disabled) return;
+                
+                const coins = [motherCoin1, motherCoin2, fatherCoin1, fatherCoin2];
+                coins.forEach(c => c.parentElement?.classList.add('flipping'));
+                tossButton.disabled = true;
+                tossButton.textContent = "던지는 중...";
+
+                setTimeout(() => {
+                    const mAllele1 = Math.random() < 0.5 ? 'A' : 'a';
+                    const mAllele2 = Math.random() < 0.5 ? 'B' : 'b';
+                    const fAllele1 = Math.random() < 0.5 ? 'A' : 'a';
+                    const fAllele2 = Math.random() < 0.5 ? 'B' : 'b';
+
+                    motherCoin1.textContent = mAllele1;
+                    motherCoin2.textContent = mAllele2;
+                    fatherCoin1.textContent = fAllele1;
+                    fatherCoin2.textContent = fAllele2;
+
+                    motherResult.textContent = `난자: ${mAllele1}${mAllele2}`;
+                    fatherResult.textContent = `정자: ${fAllele1}${fAllele2}`;
+                    
+                    const sortAlleles = (a1, a2) => (a1.toUpperCase() === a2.toLowerCase()) ? [a1.toUpperCase(), a2.toLowerCase()].join('') : [a1,a2].sort().reverse().join('');
+                    
+                    const finalAllele1 = sortAlleles(mAllele1, fAllele1);
+                    const finalAllele2 = sortAlleles(mAllele2, fAllele2);
+
+                    childGenotypeEl.textContent = `${finalAllele1} ${finalAllele2}`;
+
+                    let phenotype1 = finalAllele1.includes('A') ? "보조개 있음" : "보조개 없음";
+                    let phenotype2 = finalAllele2.includes('B') ? "분리형 귓불" : "부착형 귓불";
+                    childPhenotypeEl.textContent = `[ 표현형: ${phenotype1}, ${phenotype2} ]`;
+
+                    coins.forEach(c => c.parentElement?.classList.remove('flipping'));
+                    tossButton.disabled = false;
+                    tossButton.textContent = "다시 던지기";
+                }, 1000);
+            });
+
+            // --- Quiz Logic ---
+            const quizContainers = document.querySelectorAll('.quiz-container');
+            quizContainers.forEach(container => {
+                const options = container.querySelectorAll('.quiz-option');
+                const feedback = container.querySelector('.quiz-feedback');
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        if (option.parentElement.dataset.answered) return;
+                        option.parentElement.dataset.answered = 'true';
+                        
+                        option.classList.add('selected');
+                        if (option.dataset.correct === 'true') {
+                            option.classList.add('correct');
+                            feedback.textContent = "정답입니다! 👍";
+                            feedback.style.color = '#10b981';
+                        } else {
+                            option.classList.add('incorrect');
+                            feedback.textContent = "아쉽네요. 정답을 확인해 보세요.";
+                            feedback.style.color = '#ef4444';
+                            container.querySelector('[data-correct="true"]').classList.add('correct');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
