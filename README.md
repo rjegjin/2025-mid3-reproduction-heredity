@@ -27,10 +27,9 @@
 * **주요 파일:**
     * `*.html`: 각 차시별 학습 내용을 담고 있는 웹 프레젠테이션 파일입니다.
     * `/images`: 수업 자료에 사용되는 모든 이미지 에셋이 저장된 폴더입니다.
-    * `ASSET_LIST.md`: `images` 폴더에 있는 모든 이미지의 목록과 미리보기를 제공하는 문서입니다.
     * `image_manifest.json`: 이미지 파일 이름과 고유 ID를 매핑하는 JSON 파일로, 스크립트에서 사용됩니다.
-
-* **Python 스크립트:**
+    * `ASSET_LIST.md`: `images` 폴더에 있는 모든 이미지의 목록과 미리보기를 제공하는 문서입니다. (자동 생성)
+    * **Python 스크립트:**
     * `create_initial_manifest.py`: `images` 폴더를 스캔하여 `image_manifest.json` 파일의 초기 버전을 생성합니다.
     * `sync_assets.py`: `image_manifest.json`을 기준으로 `ASSET_LIST.md` 파일을 자동으로 업데이트하여 이미지 목록을 최신 상태로 유지합니다.
     * `inject_asset_ids.py`: `image_manifest.json`의 정보를 사용하여 HTML 파일 내의 이미지 태그에 고유 ID를 주입합니다.
