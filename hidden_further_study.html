@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Molecular Regulation of Chromosome Segregation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+   Molecular Regulation of Chromosome Segregation
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+  </script>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
         html { scroll-behavior: smooth; }
         body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #1e293b; }
         section {
@@ -94,174 +99,389 @@
             text-align: center;
             margin-top: 1rem;
         }
-    </style>
-</head>
-<body class="bg-slate-100 text-slate-800">
-
-    <nav id="progress-nav"></nav>
-
-    <header class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-40">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl md:text-2xl font-bold text-sky-800 hover:text-sky-700 transition-colors">🏠 The Molecular Biology of Chromosome Segregation</a>
-        </nav>
-    </header>
-
-
-    <main class="container mx-auto">
-
-        <section id="slide1">
-            <div class="text-center">
-                <h1 class="title">Molecular Regulation of Chromosome Segregation</h1>
-                <h2 class="subtitle mt-4">A Symphony of Cohesin, Shugoshin, and the Ubiquitin System</h2>
-                <p class="mt-8 text-xl max-w-3xl mx-auto text-slate-600">
-                    The faithful segregation of genetic material during cell division is an absolute prerequisite for life's continuity. 
+  </style>
+ </head>
+ <body class="bg-slate-100 text-slate-800">
+  <nav id="progress-nav">
+  </nav>
+  <header class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a class="text-xl md:text-2xl font-bold text-sky-800 hover:text-sky-700 transition-colors" href="index.html">
+     🏠 The Molecular Biology of Chromosome Segregation
+    </a>
+   </nav>
+  </header>
+  <main class="container mx-auto">
+   <section id="slide1">
+    <div class="text-center">
+     <h1 class="title">
+      Molecular Regulation of Chromosome Segregation
+     </h1>
+     <h2 class="subtitle mt-4">
+      A Symphony of Cohesin, Shugoshin, and the Ubiquitin System
+     </h2>
+     <p class="mt-8 text-xl max-w-3xl mx-auto text-slate-600">
+      The faithful segregation of genetic material during cell division is an absolute prerequisite for life's continuity. 
                     At the heart of this intricate process lies a sophisticated machinery of molecules that capture, protect, and release chromosomes with exquisite timing. 
                     This presentation delves into the roles of these key players.
-                </p>
-                 <div class="mt-12">
-                    <img src="images/chromosome1.png" alt="Chromosome structure from DNA to mitotic chromosome" class="max-w-3xl mx-auto rounded-lg">
-                </div>
-            </div>
-        </section>
-        
-        <section id="slide2">
-            <h3 class="section-title">🧬 1. Cohesin: The Genome's Handcuffs and Architect</h3>
-            <div class="content-box max-w-6xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h4 class="content-title">Structure and Function of the Cohesin Ring</h4>
-                        <p class="text-lg">During S phase, newly replicated <strong>sister chromatids</strong> are physically tethered by a ring-shaped protein complex called Cohesin. This cohesion is critical for establishing proper kinetochore-microtubule attachments and is maintained until anaphase.</p>
-                        <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
-                            <li><strong>Core Structure:</strong> <strong>SMC1</strong> and <strong>SMC3</strong> form long coiled-coil arms, which are connected into a ring by a 'clasp' subunit, <strong>Scc1 (Rad21)</strong>.</li>
-                            <li><strong>Loading:</strong> The <strong>Scc2/Scc4 (NIPBL)</strong> complex uses ATP to load Cohesin rings onto DNA.</li>
-                            <li><strong>Dual Roles:</strong> Beyond its handcuff function, Cohesin acts as an architect by extruding DNA loops, which contributes to <strong>chromosome condensation</strong> and <strong>gene expression regulation</strong>.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <img src="images/41467_2023_42980_Fig7_HTML.webp" alt="Cohesin complex structure" class="w-full rounded-lg shadow-lg">
-                        <p class="figure-caption">Model of the Cohesin ring (red) physically entrapping sister chromatids (blue, tan) at the α-satellite DNA-rich centromeric region.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="slide3">
-            <h3 class="section-title">🔬 2. Mitosis: The Exquisite Two-Step Release of Cohesin</h3>
-            <div class="content-box max-w-6xl mx-auto">
-                <h4 class="content-title text-center mb-8">A Mechanism for Timely Chromosome Liberation</h4>
-                <div class="grid lg:grid-cols-2 gap-12 items-start">
-                    <div>
-                        <h4 class="content-title">Step 1: The Prophase Pathway</h4>
-                        <p class="text-lg">To facilitate chromosome condensation, most Cohesin is removed from chromosome arms during prophase. This process is driven by the <strong>Wapl</strong> protein, which is activated by phosphorylation of Cohesin by kinases like <strong>Plk1</strong> and <strong>Aurora B</strong>. Critically, Cohesin at the centromeres is protected from this pathway, maintaining sister chromatid cohesion at this vital location.</p>
-                         <img src="images/cohesin_cut_each_phase.png" alt="Prophase pathway illustration" class="w-full rounded-lg shadow-lg mt-4">
-                         <p class="figure-caption">The prophase pathway, where Wapl-mediated activity removes cohesin from chromosome arms.</p>
-                    </div>
-                    <div>
-                        <h4 class="content-title">Step 2: Anaphase Onset</h4>
-                        <p class="text-lg">Once all chromosomes are perfectly aligned, the <strong>Spindle Assembly Checkpoint (SAC)</strong> is silenced. This activates the <strong>Anaphase-Promoting Complex/Cyclosome (APC/C)</strong>, an E3 Ubiquitin Ligase. The APC/C targets an inhibitor protein called <strong>Securin</strong> for destruction, thereby liberating the protease <strong>Separase</strong>. This "molecular scissor" then cleaves the Scc1 subunit of the remaining centromeric Cohesin, triggering the synchronous separation of all sister chromatids.</p>
-                        <img src="images/gr1_lrg.jpg" alt="Separase cutting Scc1 to initiate anaphase" class="w-full rounded-lg shadow-lg mt-4">
-                        <p class="figure-caption">At the metaphase-to-anaphase transition, Separase cleaves centromeric Cohesin, initiating sister chromatid separation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="slide4">
-            <h3 class="section-title">⚙️ 3. Meiosis: A Specialized Strategy for Sexual Reproduction</h3>
-            <div class="content-box max-w-6xl mx-auto">
-                 <div class="grid lg:grid-cols-5 gap-8 items-center">
-                    <div class="lg:col-span-3">
-                        <h4 class="content-title">Two Divisions after One Replication</h4>
-                        <p class="text-lg">Organisms that reproduce sexually undergo <strong>meiosis</strong> to produce gametes with half the number of chromosomes. Its defining feature is <span class="text-danger">two consecutive rounds of division</span> following a single round of DNA replication.</p>
-                        <ul class="list-disc list-inside space-y-3 mt-4 text-lg">
-                            <li><strong>Meiosis I:</strong> <strong>Homologous chromosomes</strong>—one from each parent—are segregated. This is the reductional division (2n → n).</li>
-                            <li><strong>Meiosis II:</strong> <strong>Sister chromatids</strong> are segregated in a manner similar to mitosis (n → n).</li>
-                            <li><strong>Meiotic Cohesin:</strong> Meiosis utilizes a specialized Cohesin subunit called <strong>Rec8</strong> in place of Scc1.</li>
-                        </ul>
-                    </div>
-                    <div class="lg:col-span-2">
-                        <img src="images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg" alt="Comparison of Mitosis and Meiosis" class="w-full rounded-lg shadow-lg">
-                        <p class="figure-caption">Comparison of chromosome behavior in (A) Mitosis and (B) Meiosis.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="slide5">
-            <h3 class="section-title">🛡️ 4. Shugoshin: The Guardian of Centromeric Cohesion in Meiosis I</h3>
-            <div class="content-box max-w-6xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h4 class="content-title">The Secret Weapon of Meiosis I</h4>
-                        <p class="text-lg">For homologous chromosomes to segregate while sister chromatids remain joined, centromeric cohesion must be preserved during Anaphase I. This crucial task is performed by <strong>Shugoshin (SGO1, Japanese for 'guardian spirit')</strong>.</p>
-                        <h4 class="content-title mt-6">Molecular Mechanism of Action</h4>
-                        <p class="text-lg">SGO1 protects centromeric Cohesin by recruiting the phosphatase <strong>PP2A</strong>. PP2A removes phosphates from the meiotic Cohesin subunit Rec8, thereby preventing Separase from recognizing and cleaving it. This ensures that only Cohesin on the chromosome arms is cleaved in Anaphase I, allowing homologs to separate while sisters stay firmly connected at their centromeres.</p>
-                    </div>
-                    <div>
-                        <img src="images/cohesin_cut_each_phase.png" alt="Shugoshin protects centromeric cohesin" class="w-full rounded-lg shadow-lg">
-                        <p class="figure-caption">Shugoshin (Sgo1) shields centromeric cohesin from Separase during Anaphase I, preventing premature sister chromatid separation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="slide6">
-            <h3 class="section-title">🎲 5. Generating Genetic Diversity & Completing Division</h3>
-            <div class="content-box max-w-6xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h4 class="content-title">Recombination via Crossing Over</h4>
-                        <p class="text-lg">During Prophase I, homologous chromosomes pair up (forming a synaptonemal complex) and exchange genetic segments in a process called <strong>crossing over</strong>. This shuffles parental alleles into new combinations, creating a vast reservoir of <strong>genetic diversity</strong>, which is the raw material for evolution.</p>
-                        <h4 class="content-title mt-6">Finishing the Job: Meiosis II</h4>
-                        <p class="text-lg">At the onset of Meiosis II, the protective function of Shugoshin is inactivated. The APC/C is reactivated, leading to the cleavage of centromeric Rec8 by Separase. This finally allows sister chromatids to segregate, completing the formation of four unique haploid gametes.</p>
-                    </div>
-                    <div>
-                        <img src="images/crossing-over-meiosis-diagram.png" alt="Chromosomal crossing over" class="w-full rounded-lg shadow-lg">
-                        <p class="figure-caption">The exchange of genetic material between homologous chromosomes creates new combinations of alleles on the chromatids.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="slide7">
-            <h3 class="section-title">🏥 6. Clinical Relevance: When Molecular Machinery Fails</h3>
-            <div class="content-box max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-start">
-                    <div>
-                        <h4 class="content-title">Cohesinopathies</h4>
-                        <p class="text-lg">These are a group of genetic disorders caused by mutations in Cohesin or its regulators (e.g., NIPBL). <strong>Cornelia de Lange Syndrome</strong> is the most prominent example, characterized by severe developmental delays and distinct facial and limb malformations. This highlights Cohesin's critical roles beyond segregation, including gene expression.</p>
-                    </div>
-                     <div>
-                        <h4 class="content-title">Chromosome Instability & Cancer</h4>
-                        <p class="text-lg">Defects in Cohesin, SAC proteins (e.g., Mad2), the APC/C, or Separase can lead to chromosome mis-segregation. The resulting <strong>aneuploidy</strong> (abnormal chromosome number) is a hallmark of cancer, contributing to tumorigenesis by causing the loss of tumor suppressors or the amplification of oncogenes.</p>
-                    </div>
-                </div>
-                <div class="mt-12 text-center">
-                    <img src="images/chromosome2.jpg" alt="Human Karyotype showing aneuploidy" class="max-w-2xl mx-auto rounded-lg shadow-lg">
-                    <p class="figure-caption">A normal human male karyotype (46, XY). Errors in meiosis can lead to aneuploid conditions like Down Syndrome (Trisomy 21).</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="slide8">
-            <div class="text-center">
-                <h3 class="section-title">📜 Conclusion: The Artistry of Precision Control</h3>
-                <div class="content-box max-w-4xl mx-auto text-left">
-                    <p class="text-xl mb-6">Cell division is not a mere splitting in two, but a symphony orchestrated by a multitude of molecular machines like Cohesin, Separase, APC/C, and Shugoshin, which interact through biochemical reactions such as phosphorylation, ubiquitination, and proteolysis with exquisite spatiotemporal control.</p>
-                    <ul class="list-disc list-inside space-y-4 text-lg">
-                        <li><strong>Cohesin</strong> establishes sister chromatid cohesion in S phase and is removed in a stepwise manner during M phase.</li>
-                        <li>In <strong>mitosis</strong>, Cohesin removal is governed by the Wapl-dependent pathway and the APC/C-Separase axis.</li>
-                        <li>In <strong>meiosis</strong>, the <strong>Shugoshin-PP2A</strong> complex uniquely protects centromeric Cohesin during Meiosis I to ensure the faithful segregation of homologous chromosomes.</li>
-                        <li>Failures in this precise regulatory network are the fundamental cause of severe human diseases, including cancer and congenital disorders, making these pathways prime targets for therapeutic intervention.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+     </p>
+     <div class="mt-12">
+      <img alt="Chromosome structure from DNA to mitotic chromosome" class="max-w-3xl mx-auto rounded-lg" data-asset-id="hidden_further_study_img_1" src="images/chromosome1.png">
+     </div>
+    </div>
+   </section>
+   <section id="slide2">
+    <h3 class="section-title">
+     🧬 1. Cohesin: The Genome's Handcuffs and Architect
+    </h3>
+    <div class="content-box max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+       <h4 class="content-title">
+        Structure and Function of the Cohesin Ring
+       </h4>
+       <p class="text-lg">
+        During S phase, newly replicated
+        <strong>
+         sister chromatids
+        </strong>
+        are physically tethered by a ring-shaped protein complex called Cohesin. This cohesion is critical for establishing proper kinetochore-microtubule attachments and is maintained until anaphase.
+       </p>
+       <ul class="list-disc list-inside space-y-2 mt-4 text-lg">
+        <li>
+         <strong>
+          Core Structure:
+         </strong>
+         <strong>
+          SMC1
+         </strong>
+         and
+         <strong>
+          SMC3
+         </strong>
+         form long coiled-coil arms, which are connected into a ring by a 'clasp' subunit,
+         <strong>
+          Scc1 (Rad21)
+         </strong>
+         .
+        </li>
+        <li>
+         <strong>
+          Loading:
+         </strong>
+         The
+         <strong>
+          Scc2/Scc4 (NIPBL)
+         </strong>
+         complex uses ATP to load Cohesin rings onto DNA.
+        </li>
+        <li>
+         <strong>
+          Dual Roles:
+         </strong>
+         Beyond its handcuff function, Cohesin acts as an architect by extruding DNA loops, which contributes to
+         <strong>
+          chromosome condensation
+         </strong>
+         and
+         <strong>
+          gene expression regulation
+         </strong>
+         .
+        </li>
+       </ul>
+      </div>
+      <div>
+       <img alt="Cohesin complex structure" class="w-full rounded-lg shadow-lg" data-asset-id="hidden_further_study_img_2" src="images/41467_2023_42980_Fig7_HTML.webp">
+       <p class="figure-caption">
+        Model of the Cohesin ring (red) physically entrapping sister chromatids (blue, tan) at the &alpha;-satellite DNA-rich centromeric region.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="slide3">
+    <h3 class="section-title">
+     🔬 2. Mitosis: The Exquisite Two-Step Release of Cohesin
+    </h3>
+    <div class="content-box max-w-6xl mx-auto">
+     <h4 class="content-title text-center mb-8">
+      A Mechanism for Timely Chromosome Liberation
+     </h4>
+     <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+       <h4 class="content-title">
+        Step 1: The Prophase Pathway
+       </h4>
+       <p class="text-lg">
+        To facilitate chromosome condensation, most Cohesin is removed from chromosome arms during prophase. This process is driven by the
+        <strong>
+         Wapl
+        </strong>
+        protein, which is activated by phosphorylation of Cohesin by kinases like
+        <strong>
+         Plk1
+        </strong>
+        and
+        <strong>
+         Aurora B
+        </strong>
+        . Critically, Cohesin at the centromeres is protected from this pathway, maintaining sister chromatid cohesion at this vital location.
+       </p>
+       <img alt="Prophase pathway illustration" class="w-full rounded-lg shadow-lg mt-4" data-asset-id="hidden_further_study_img_6" src="images/cohesin_cut_each_phase.png">
+       <p class="figure-caption">
+        The prophase pathway, where Wapl-mediated activity removes cohesin from chromosome arms.
+       </p>
+      </div>
+      <div>
+       <h4 class="content-title">
+        Step 2: Anaphase Onset
+       </h4>
+       <p class="text-lg">
+        Once all chromosomes are perfectly aligned, the
+        <strong>
+         Spindle Assembly Checkpoint (SAC)
+        </strong>
+        is silenced. This activates the
+        <strong>
+         Anaphase-Promoting Complex/Cyclosome (APC/C)
+        </strong>
+        , an E3 Ubiquitin Ligase. The APC/C targets an inhibitor protein called
+        <strong>
+         Securin
+        </strong>
+        for destruction, thereby liberating the protease
+        <strong>
+         Separase
+        </strong>
+        . This "molecular scissor" then cleaves the Scc1 subunit of the remaining centromeric Cohesin, triggering the synchronous separation of all sister chromatids.
+       </p>
+       <img alt="Separase cutting Scc1 to initiate anaphase" class="w-full rounded-lg shadow-lg mt-4" data-asset-id="hidden_further_study_img_4" src="images/gr1_lrg.jpg">
+       <p class="figure-caption">
+        At the metaphase-to-anaphase transition, Separase cleaves centromeric Cohesin, initiating sister chromatid separation.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="slide4">
+    <h3 class="section-title">
+     ⚙️ 3. Meiosis: A Specialized Strategy for Sexual Reproduction
+    </h3>
+    <div class="content-box max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-5 gap-8 items-center">
+      <div class="lg:col-span-3">
+       <h4 class="content-title">
+        Two Divisions after One Replication
+       </h4>
+       <p class="text-lg">
+        Organisms that reproduce sexually undergo
+        <strong>
+         meiosis
+        </strong>
+        to produce gametes with half the number of chromosomes. Its defining feature is
+        <span class="text-danger">
+         two consecutive rounds of division
+        </span>
+        following a single round of DNA replication.
+       </p>
+       <ul class="list-disc list-inside space-y-3 mt-4 text-lg">
+        <li>
+         <strong>
+          Meiosis I:
+         </strong>
+         <strong>
+          Homologous chromosomes
+         </strong>
+         &mdash;one from each parent&mdash;are segregated. This is the reductional division (2n &rarr; n).
+        </li>
+        <li>
+         <strong>
+          Meiosis II:
+         </strong>
+         <strong>
+          Sister chromatids
+         </strong>
+         are segregated in a manner similar to mitosis (n &rarr; n).
+        </li>
+        <li>
+         <strong>
+          Meiotic Cohesin:
+         </strong>
+         Meiosis utilizes a specialized Cohesin subunit called
+         <strong>
+          Rec8
+         </strong>
+         in place of Scc1.
+        </li>
+       </ul>
+      </div>
+      <div class="lg:col-span-2">
+       <img alt="Comparison of Mitosis and Meiosis" class="w-full rounded-lg shadow-lg" data-asset-id="hidden_further_study_img_5" src="images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg">
+       <p class="figure-caption">
+        Comparison of chromosome behavior in (A) Mitosis and (B) Meiosis.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="slide5">
+    <h3 class="section-title">
+     🛡️ 4. Shugoshin: The Guardian of Centromeric Cohesion in Meiosis I
+    </h3>
+    <div class="content-box max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+       <h4 class="content-title">
+        The Secret Weapon of Meiosis I
+       </h4>
+       <p class="text-lg">
+        For homologous chromosomes to segregate while sister chromatids remain joined, centromeric cohesion must be preserved during Anaphase I. This crucial task is performed by
+        <strong>
+         Shugoshin (SGO1, Japanese for 'guardian spirit')
+        </strong>
+        .
+       </p>
+       <h4 class="content-title mt-6">
+        Molecular Mechanism of Action
+       </h4>
+       <p class="text-lg">
+        SGO1 protects centromeric Cohesin by recruiting the phosphatase
+        <strong>
+         PP2A
+        </strong>
+        . PP2A removes phosphates from the meiotic Cohesin subunit Rec8, thereby preventing Separase from recognizing and cleaving it. This ensures that only Cohesin on the chromosome arms is cleaved in Anaphase I, allowing homologs to separate while sisters stay firmly connected at their centromeres.
+       </p>
+      </div>
+      <div>
+       <img alt="Shugoshin protects centromeric cohesin" class="w-full rounded-lg shadow-lg" data-asset-id="hidden_further_study_img_6" src="images/cohesin_cut_each_phase.png">
+       <p class="figure-caption">
+        Shugoshin (Sgo1) shields centromeric cohesin from Separase during Anaphase I, preventing premature sister chromatid separation.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="slide6">
+    <h3 class="section-title">
+     🎲 5. Generating Genetic Diversity & Completing Division
+    </h3>
+    <div class="content-box max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+       <h4 class="content-title">
+        Recombination via Crossing Over
+       </h4>
+       <p class="text-lg">
+        During Prophase I, homologous chromosomes pair up (forming a synaptonemal complex) and exchange genetic segments in a process called
+        <strong>
+         crossing over
+        </strong>
+        . This shuffles parental alleles into new combinations, creating a vast reservoir of
+        <strong>
+         genetic diversity
+        </strong>
+        , which is the raw material for evolution.
+       </p>
+       <h4 class="content-title mt-6">
+        Finishing the Job: Meiosis II
+       </h4>
+       <p class="text-lg">
+        At the onset of Meiosis II, the protective function of Shugoshin is inactivated. The APC/C is reactivated, leading to the cleavage of centromeric Rec8 by Separase. This finally allows sister chromatids to segregate, completing the formation of four unique haploid gametes.
+       </p>
+      </div>
+      <div>
+       <img alt="Chromosomal crossing over" class="w-full rounded-lg shadow-lg" data-asset-id="hidden_further_study_img_7" src="images/crossing-over-meiosis-diagram.png">
+       <p class="figure-caption">
+        The exchange of genetic material between homologous chromosomes creates new combinations of alleles on the chromatids.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="slide7">
+    <h3 class="section-title">
+     🏥 6. Clinical Relevance: When Molecular Machinery Fails
+    </h3>
+    <div class="content-box max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
+       <h4 class="content-title">
+        Cohesinopathies
+       </h4>
+       <p class="text-lg">
+        These are a group of genetic disorders caused by mutations in Cohesin or its regulators (e.g., NIPBL).
+        <strong>
+         Cornelia de Lange Syndrome
+        </strong>
+        is the most prominent example, characterized by severe developmental delays and distinct facial and limb malformations. This highlights Cohesin's critical roles beyond segregation, including gene expression.
+       </p>
+      </div>
+      <div>
+       <h4 class="content-title">
+        Chromosome Instability & Cancer
+       </h4>
+       <p class="text-lg">
+        Defects in Cohesin, SAC proteins (e.g., Mad2), the APC/C, or Separase can lead to chromosome mis-segregation. The resulting
+        <strong>
+         aneuploidy
+        </strong>
+        (abnormal chromosome number) is a hallmark of cancer, contributing to tumorigenesis by causing the loss of tumor suppressors or the amplification of oncogenes.
+       </p>
+      </div>
+     </div>
+     <div class="mt-12 text-center">
+      <img alt="Human Karyotype showing aneuploidy" class="max-w-2xl mx-auto rounded-lg shadow-lg" data-asset-id="hidden_further_study_img_8" src="images/chromosome2.jpg">
+      <p class="figure-caption">
+       A normal human male karyotype (46, XY). Errors in meiosis can lead to aneuploid conditions like Down Syndrome (Trisomy 21).
+      </p>
+     </div>
+    </div>
+   </section>
+   <section id="slide8">
+    <div class="text-center">
+     <h3 class="section-title">
+      📜 Conclusion: The Artistry of Precision Control
+     </h3>
+     <div class="content-box max-w-4xl mx-auto text-left">
+      <p class="text-xl mb-6">
+       Cell division is not a mere splitting in two, but a symphony orchestrated by a multitude of molecular machines like Cohesin, Separase, APC/C, and Shugoshin, which interact through biochemical reactions such as phosphorylation, ubiquitination, and proteolysis with exquisite spatiotemporal control.
+      </p>
+      <ul class="list-disc list-inside space-y-4 text-lg">
+       <li>
+        <strong>
+         Cohesin
+        </strong>
+        establishes sister chromatid cohesion in S phase and is removed in a stepwise manner during M phase.
+       </li>
+       <li>
+        In
+        <strong>
+         mitosis
+        </strong>
+        , Cohesin removal is governed by the Wapl-dependent pathway and the APC/C-Separase axis.
+       </li>
+       <li>
+        In
+        <strong>
+         meiosis
+        </strong>
+        , the
+        <strong>
+         Shugoshin-PP2A
+        </strong>
+        complex uniquely protects centromeric Cohesin during Meiosis I to ensure the faithful segregation of homologous chromosomes.
+       </li>
+       <li>
+        Failures in this precise regulatory network are the fundamental cause of severe human diseases, including cancer and congenital disorders, making these pathways prime targets for therapeutic intervention.
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+  </main>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             const progressNav = document.getElementById('progress-nav');
             
@@ -296,6 +516,6 @@
                 });
             });
         });
-    </script>
-</body>
+  </script>
+ </body>
 </html>

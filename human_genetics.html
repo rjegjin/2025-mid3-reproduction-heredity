@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V. 생식과 유전 - 사람의 유전 연구 방법 (개정판)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+   V. 생식과 유전 - 사람의 유전 연구 방법 (개정판)
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
         
@@ -50,227 +55,402 @@
         .quiz-option.selected { transform: scale(1.02); border-width: 2px; }
         .quiz-option.correct { background-color: #34d399; color: white; border-color: #059669; }
         .quiz-option.incorrect { background-color: #f87171; color: white; border-color: #dc2626; }
-    </style>
-</head>
-<body>
-    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0">
-        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="text-xl md:text-2xl font-bold text-violet-600 hover:text-violet-700 transition-colors">🧬 사람의 유전 연구 탐험</a>
-            <button id="fullscreen-btn" class="p-2 text-slate-500 hover:text-violet-600 transition-colors" title="전체 화면">
-                <i id="fullscreen-icon" class="fas fa-expand fa-fw"></i>
-            </button>
-        </nav>
-    </header>
-
-    <nav id="progress-nav"></nav>
-
-    <main class="container mx-auto">
-        
-        <section id="s1" class="content-section text-center">
-            <div class="reveal">
-                <h1 class="text-5xl md:text-7xl font-black text-violet-600 my-4 tracking-tight">🕵️‍♂️ 사람의 유전, 어떻게 연구할까?</h1>
-                <p class="text-xl md:text-2xl text-slate-500">가족의 비밀부터 최첨단 과학까지</p>
-                <img src="images/family_resemblance.webp" alt="세대를 거친 가족" class="max-w-md mx-auto rounded-lg shadow-xl mt-8">
-            </div>
-        </section>
-
-        <section id="s2" class="content-section">
-            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center text-violet-700">🎯 오늘의 탐험 목표</h2>
-                <ul class="text-xl list-disc list-inside space-y-3">
-                    <li>사람 유전 연구의 <strong class="text-violet-600">어려움</strong>과 그 <strong class="text-violet-600">해결책</strong>을 설명할 수 있다.</li>
-                    <li><strong class="text-violet-600">가계도 분석</strong>을 통해 유전 패턴을 추리할 수 있다.</li>
-                    <li>다양한 <strong class="text-violet-600">유전 현상</strong>(다인자, 복대립, 반성 유전)을 구분할 수 있다.</li>
-                    <li>최신 <strong class="text-violet-600">유전 연구 기술</strong>에는 무엇이 있는지 이해한다.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="s3" class="content-section">
-            <div class="reveal max-w-4xl w-full text-center">
-                <h2 class="text-4xl font-bold mb-6">🤔 왜 우리는 모두 다를까?</h2>
-                <p class="text-xl mb-8">쌍꺼풀, 보조개, 귓불 모양... 우리를 특별하게 만드는 이 '형질'들은 부모님에게서 물려받은 유전자 정보의 조합으로 나타납니다.</p>
-                <img src="images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg" alt="사람의 다양한 대립 형질" class="max-w-2xl mx-auto rounded-lg shadow-md">
-            </div>
-        </section>
-
-        <section id="s4" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center">사람 유전 연구의 어려움 (feat. 사람은 완두콩이 아니다!)</h2>
-                <ul class="text-xl list-disc list-inside space-y-4">
-                    <li><strong class="text-red-500">긴 세대와 적은 자손:</strong> 결과를 보려면 수십 년이 걸리고, 통계적으로 분석하기엔 자손 수가 너무 적어요.</li>
-                    <li><strong class="text-red-500">통제 불가능한 교배:</strong> 연구를 위해 마음대로 결혼시킬 수 없는 윤리적 문제가 있어요.</li>
-                    <li><strong class="text-red-500">복잡한 상호작용:</strong> 여러 유전자(다인자 유전)와 환경이 함께 작용하는 형질(키, 피부색 등)이 많아요.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="s5" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center">🌳 연구 방법 1: 가계도 분석</h2>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <p class="text-xl">특정 형질이 집안 대대로 어떻게 나타나는지 추적하는 '유전 탐정'의 지도입니다. 이를 통해 형질의 우열 관계, 가족의 유전자형, 미래 자손의 형질 발현 확률 등을 예측할 수 있습니다.</p>
-                    <div class="text-center">
-                        <img src="images/family_tree.png" alt="가계도 예시" class="rounded-lg shadow-md mx-auto">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="s6" class="content-section">
-            <div class="reveal max-w-3xl w-full bg-yellow-100 p-8 rounded-xl shadow-2xl text-center border-4 border-yellow-400">
-                <h3 class="text-4xl font-bold mb-4">가계도 분석의 절대 법칙! 💥</h3>
-                <p class="text-5xl font-black my-6">"부모에게 없던 형질이 자손에게 나타나면, 그 형질은 열성이다!"</p>
-                <p class="text-2xl">이는 부모가 겉으로 드러나지 않는 열성 유전자(Aa)를 숨기고 있다가, 자손에게 열성 유전자(a)만 물려주었을 때(aa) 나타나는 현상입니다.</p>
-            </div>
-        </section>
-
-        <section id="s7" class="content-section">
-            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg text-center">
-                 <h3 class="text-3xl font-bold mb-6">가계도 분석 실전 훈련 👂</h3>
-                 <p class="text-xl mb-4">Q. 부모님은 모두 <strong class="text-blue-500">분리형 귓불</strong>인데, 나는 <strong class="text-red-500">부착형 귓불</strong>입니다. 부모님의 유전자형은?</p>
-                 <p class="text-2xl font-bold p-4 bg-green-100 rounded-lg">A: 나에게 없던 형질이 나타났으므로, 부착형은 열성(aa)입니다. 나는 부모님께 a를 하나씩 받았으므로, 부모님은 모두 <strong class="text-violet-600">Aa</strong>입니다.</p>
-            </div>
-        </section>
-
-        <section id="s8" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center">🧑‍🤝‍🧑 연구 방법 2: 쌍둥이 연구</h2>
-                <p class="text-xl">특정 형질이 <strong class="text-blue-600">유전</strong> 때문인지, <strong class="text-green-600">환경</strong> 때문인지 알아내는 가장 강력한 방법입니다. 유전자가 100% 동일한 <strong class="text-blue-600">일란성 쌍둥이</strong>와 형제자매 수준인 <strong class="text-green-600">이란성 쌍둥이</strong>의 특정 형질 일치율을 비교하여 분석합니다.</p>
-            </div>
-        </section>
-        
-        <section id="s9" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center">그 외의 연구 방법들</h2>
-                <div class="grid md:grid-cols-2 gap-6 text-xl">
-                    <div class="p-4 bg-slate-100 rounded-lg">
-                        <h3 class="font-bold">📊 집단 통계 조사</h3>
-                        <p>수많은 사람을 대상으로 특정 유전 형질의 분포를 조사하여 통계적으로 분석합니다. (예: 한국인의 혈액형 비율)</p>
-                    </div>
-                    <div class="p-4 bg-slate-100 rounded-lg">
-                        <h3 class="font-bold">🔬 염색체 및 DNA 직접 분석</h3>
-                        <p>현대 기술로 염색체의 수나 모양(핵형 분석), DNA 염기 서열을 직접 확인하여 유전병 진단이나 친자 확인 등에 사용합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="s10" class="content-section">
-            <div class="reveal max-w-4xl w-full text-center">
-                <h2 class="text-4xl font-bold mb-8">🔬 심화: 유전 탐정의 최첨단 도구들</h2>
-                <p class="text-xl">오늘날 과학자들은 DNA와 단백질을 직접 분석하여 유전의 비밀을 더욱 깊이 파헤치고 있습니다. 몇 가지 핵심 기술을 살펴볼까요?</p>
-            </div>
-        </section>
-
-        <section id="s11" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-3xl font-bold mb-4">기술 1: 유전자 양의 실시간 측정 (qPCR)</h3>
-                    <p class="text-xl">특정 DNA가 처음부터 얼마나 있었는지 '실시간'으로 확인하는 기술입니다. DNA를 증폭시키면서 형광 물질을 이용해 양을 측정하는데, 형광이 빨리 강해질수록 처음 DNA 양이 많았다는 것을 의미합니다. 바이러스 감염 여부뿐만 아니라, 특정 유전자가 얼마나 많이 활동하는지 정량적으로 분석할 때 매우 중요합니다.</p>
-                </div>
-                <div class="text-center">
-                    <img src=images/qpcr_curves-1.jpg alt="qPCR 증폭 곡선 그래프" class="rounded-lg shadow-md">
-                </div>
-            </div>
-        </section>
-
-        <section id="s12" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
-                 <div class="text-center">
-                    <img src="images/RNA_seq.jpg" alt="RNA 시퀀싱 과정" class="rounded-lg shadow-md">
-                </div>
-                <div>
-                    <h3 class="text-3xl font-bold mb-4">기술 2: 유전자 활동량 분석 (RNA-Seq)</h3>
-                    <p class="text-xl">우리 몸의 세포들은 상황에 따라 사용하는 유전자가 다릅니다. RNA 시퀀싱(RNA-Seq)은 특정 세포에서 어떤 유전자가 얼마나 활발하게 활동하는지(발현되는지) RNA를 분석하여 알아내는 최신 기술입니다. 암세포와 정상세포의 차이를 밝히는 데 중요하게 사용됩니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="s13" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-3xl font-bold mb-4">기술 3: 단백질 분석 (SDS-PAGE)</h3>
-                    <p class="text-xl">유전 정보(DNA)는 결국 단백질을 만들어냅니다. SDS-PAGE는 전기장 속에서 단백질을 크기별로 분리하여 어떤 종류의 단백질이 있는지 확인하는 기술입니다. 유전자에 문제가 생겨 비정상적인 단백질이 만들어졌는지 확인할 수 있습니다.</p>
-                </div>
-                <div class="text-center">
-                    <img src="images/SDS_page.jpg" alt="SDS-PAGE 젤 결과" class="rounded-lg shadow-md">
-                </div>
-            </div>
-        </section>
-        
-        <section id="s14" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center">사람의 유전 현상 (1)</h2>
-                 <div class="grid md:grid-cols-2 gap-6 text-xl">
-                    <div>
-                        <h3 class="font-bold text-violet-600">단일인자 유전</h3>
-                        <p>한 쌍의 유전자가 하나의 형질을 결정. (예: 귓불 모양, 멘델의 법칙을 따름)</p>
-                    </div>
-                    <div>
-                         <h3 class="font-bold text-violet-600">다인자 유전</h3>
-                        <p>여러 쌍의 유전자가 하나의 형질에 관여. (예: 키, 피부색, 환경의 영향을 받음)</p>
-                    </div>
-                 </div>
-            </div>
-        </section>
-
-        <section id="s15" class="content-section">
-            <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center">사람의 유전 현상 (2): ABO식 혈액형</h2>
-                <ul class="text-xl list-disc list-inside space-y-2">
-                    <li><strong class="text-violet-600">복대립 유전:</strong> 하나의 형질에 3개 이상의 대립 유전자(A, B, O)가 관여. (하지만 한 사람은 2개만 가짐!)</li>
-                    <li><strong class="text-violet-600">우열 관계:</strong> A와 B는 O에 대해 우성, A와 B 사이는 우열 없음(공동 우성).</li>
-                    <li><strong class="text-red-500">결론:</strong> 복대립 유전은 단일인자 유전의 특수한 경우입니다.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="s16" class="content-section">
-            <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold mb-6 text-center">사람의 유전 현상 (3): 반성 유전</h2>
-                <p class="text-xl mb-4">유전자가 성염색체(주로 X염색체)에 있어 성별에 따라 형질 발현 빈도가 다른 유전입니다. (예: 적록 색맹)</p>
-                <div class="grid md:grid-cols-2 gap-6 text-xl">
-                    <p><strong class="text-blue-600">남자(XY)</strong>는 X가 하나뿐이라 유전자가 있으면 바로 발현됩니다.</p>
-                    <p><strong class="text-pink-600">여자(XX)</strong>는 X가 두 개라, 하나가 정상이면 발현되지 않을 수 있습니다(보인자).</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="s17" class="content-section">
-            <div class="reveal max-w-2xl w-full bg-white p-8 rounded-2xl shadow-lg">
-                <h3 class="text-2xl font-bold mb-4 text-center">📝 최종 점검 퀴즈</h3>
-                <div class="quiz-container">
-                    <p class="text-xl font-bold mb-4">A형(AO) 아버지와 B형(BO) 어머니 사이에서 태어날 수 <strong class="text-red-500">없는</strong> 혈액형은?</p>
-                    <div class="quiz-options grid grid-cols-2 gap-4">
-                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">A형</button>
-                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">B형</button>
-                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">AB형</button>
-                        <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="true">모두 태어날 수 있다</button>
-                    </div>
-                    <div class="quiz-feedback mt-4 text-lg font-bold h-6 text-center"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="s18" class="content-section text-center">
-            <div class="reveal max-w-3xl w-full">
-                <h2 class="text-4xl font-bold text-violet-700">마무리: 유전, 생명의 설계도를 읽다</h2>
-                <p class="text-xl mt-6">사람의 유전 연구는 과거의 가계도 분석부터 현재의 DNA 시퀀싱까지, 다양한 방법으로 생명의 근본적인 원리를 밝혀내고 있습니다. 이를 통해 우리는 자신을 더 깊이 이해하고 질병을 정복할 열쇠를 찾아가고 있습니다.</p>
-            </div>
-        </section>
-
-        <section id="s19" class="content-section text-center">
-            <div class="reveal">
-                <h2 class="text-5xl font-bold mb-8">궁금한 점이 있나요?</h2>
-                <p class="text-3xl">경청해주셔서 감사합니다.</p>
-            </div>
-        </section>
-
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+  </style>
+ </head>
+ <body>
+  <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0">
+   <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a class="text-xl md:text-2xl font-bold text-violet-600 hover:text-violet-700 transition-colors" href="index.html">
+     🧬 사람의 유전 연구 탐험
+    </a>
+    <button class="p-2 text-slate-500 hover:text-violet-600 transition-colors" id="fullscreen-btn" title="전체 화면">
+     <i class="fas fa-expand fa-fw" id="fullscreen-icon">
+     </i>
+    </button>
+   </nav>
+  </header>
+  <nav id="progress-nav">
+  </nav>
+  <main class="container mx-auto">
+   <section class="content-section text-center" id="s1">
+    <div class="reveal">
+     <h1 class="text-5xl md:text-7xl font-black text-violet-600 my-4 tracking-tight">
+      🕵️&zwj;&male;️ 사람의 유전, 어떻게 연구할까?
+     </h1>
+     <p class="text-xl md:text-2xl text-slate-500">
+      가족의 비밀부터 최첨단 과학까지
+     </p>
+     <img alt="세대를 거친 가족" class="max-w-md mx-auto rounded-lg shadow-xl mt-8" data-asset-id="human_genetics_img_1" src="images/family_resemblance.webp">
+    </div>
+   </section>
+   <section class="content-section" id="s2">
+    <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center text-violet-700">
+      🎯 오늘의 탐험 목표
+     </h2>
+     <ul class="text-xl list-disc list-inside space-y-3">
+      <li>
+       사람 유전 연구의
+       <strong class="text-violet-600">
+        어려움
+       </strong>
+       과 그
+       <strong class="text-violet-600">
+        해결책
+       </strong>
+       을 설명할 수 있다.
+      </li>
+      <li>
+       <strong class="text-violet-600">
+        가계도 분석
+       </strong>
+       을 통해 유전 패턴을 추리할 수 있다.
+      </li>
+      <li>
+       다양한
+       <strong class="text-violet-600">
+        유전 현상
+       </strong>
+       (다인자, 복대립, 반성 유전)을 구분할 수 있다.
+      </li>
+      <li>
+       최신
+       <strong class="text-violet-600">
+        유전 연구 기술
+       </strong>
+       에는 무엇이 있는지 이해한다.
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="content-section" id="s3">
+    <div class="reveal max-w-4xl w-full text-center">
+     <h2 class="text-4xl font-bold mb-6">
+      🤔 왜 우리는 모두 다를까?
+     </h2>
+     <p class="text-xl mb-8">
+      쌍꺼풀, 보조개, 귓불 모양... 우리를 특별하게 만드는 이 '형질'들은 부모님에게서 물려받은 유전자 정보의 조합으로 나타납니다.
+     </p>
+     <img alt="사람의 다양한 대립 형질" class="max-w-2xl mx-auto rounded-lg shadow-md" data-asset-id="human_genetics_img_2" src="images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg">
+    </div>
+   </section>
+   <section class="content-section" id="s4">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center">
+      사람 유전 연구의 어려움 (feat. 사람은 완두콩이 아니다!)
+     </h2>
+     <ul class="text-xl list-disc list-inside space-y-4">
+      <li>
+       <strong class="text-red-500">
+        긴 세대와 적은 자손:
+       </strong>
+       결과를 보려면 수십 년이 걸리고, 통계적으로 분석하기엔 자손 수가 너무 적어요.
+      </li>
+      <li>
+       <strong class="text-red-500">
+        통제 불가능한 교배:
+       </strong>
+       연구를 위해 마음대로 결혼시킬 수 없는 윤리적 문제가 있어요.
+      </li>
+      <li>
+       <strong class="text-red-500">
+        복잡한 상호작용:
+       </strong>
+       여러 유전자(다인자 유전)와 환경이 함께 작용하는 형질(키, 피부색 등)이 많아요.
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="content-section" id="s5">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center">
+      🌳 연구 방법 1: 가계도 분석
+     </h2>
+     <div class="grid md:grid-cols-2 gap-8 items-center">
+      <p class="text-xl">
+       특정 형질이 집안 대대로 어떻게 나타나는지 추적하는 '유전 탐정'의 지도입니다. 이를 통해 형질의 우열 관계, 가족의 유전자형, 미래 자손의 형질 발현 확률 등을 예측할 수 있습니다.
+      </p>
+      <div class="text-center">
+       <img alt="가계도 예시" class="rounded-lg shadow-md mx-auto" data-asset-id="human_genetics_img_3" src="images/family_tree.png">
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s6">
+    <div class="reveal max-w-3xl w-full bg-yellow-100 p-8 rounded-xl shadow-2xl text-center border-4 border-yellow-400">
+     <h3 class="text-4xl font-bold mb-4">
+      가계도 분석의 절대 법칙! 💥
+     </h3>
+     <p class="text-5xl font-black my-6">
+      "부모에게 없던 형질이 자손에게 나타나면, 그 형질은 열성이다!"
+     </p>
+     <p class="text-2xl">
+      이는 부모가 겉으로 드러나지 않는 열성 유전자(Aa)를 숨기고 있다가, 자손에게 열성 유전자(a)만 물려주었을 때(aa) 나타나는 현상입니다.
+     </p>
+    </div>
+   </section>
+   <section class="content-section" id="s7">
+    <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg text-center">
+     <h3 class="text-3xl font-bold mb-6">
+      가계도 분석 실전 훈련 👂
+     </h3>
+     <p class="text-xl mb-4">
+      Q. 부모님은 모두
+      <strong class="text-blue-500">
+       분리형 귓불
+      </strong>
+      인데, 나는
+      <strong class="text-red-500">
+       부착형 귓불
+      </strong>
+      입니다. 부모님의 유전자형은?
+     </p>
+     <p class="text-2xl font-bold p-4 bg-green-100 rounded-lg">
+      A: 나에게 없던 형질이 나타났으므로, 부착형은 열성(aa)입니다. 나는 부모님께 a를 하나씩 받았으므로, 부모님은 모두
+      <strong class="text-violet-600">
+       Aa
+      </strong>
+      입니다.
+     </p>
+    </div>
+   </section>
+   <section class="content-section" id="s8">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center">
+      🧑&zwj;🤝&zwj;🧑 연구 방법 2: 쌍둥이 연구
+     </h2>
+     <p class="text-xl">
+      특정 형질이
+      <strong class="text-blue-600">
+       유전
+      </strong>
+      때문인지,
+      <strong class="text-green-600">
+       환경
+      </strong>
+      때문인지 알아내는 가장 강력한 방법입니다. 유전자가 100% 동일한
+      <strong class="text-blue-600">
+       일란성 쌍둥이
+      </strong>
+      와 형제자매 수준인
+      <strong class="text-green-600">
+       이란성 쌍둥이
+      </strong>
+      의 특정 형질 일치율을 비교하여 분석합니다.
+     </p>
+    </div>
+   </section>
+   <section class="content-section" id="s9">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center">
+      그 외의 연구 방법들
+     </h2>
+     <div class="grid md:grid-cols-2 gap-6 text-xl">
+      <div class="p-4 bg-slate-100 rounded-lg">
+       <h3 class="font-bold">
+        📊 집단 통계 조사
+       </h3>
+       <p>
+        수많은 사람을 대상으로 특정 유전 형질의 분포를 조사하여 통계적으로 분석합니다. (예: 한국인의 혈액형 비율)
+       </p>
+      </div>
+      <div class="p-4 bg-slate-100 rounded-lg">
+       <h3 class="font-bold">
+        🔬 염색체 및 DNA 직접 분석
+       </h3>
+       <p>
+        현대 기술로 염색체의 수나 모양(핵형 분석), DNA 염기 서열을 직접 확인하여 유전병 진단이나 친자 확인 등에 사용합니다.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s10">
+    <div class="reveal max-w-4xl w-full text-center">
+     <h2 class="text-4xl font-bold mb-8">
+      🔬 심화: 유전 탐정의 최첨단 도구들
+     </h2>
+     <p class="text-xl">
+      오늘날 과학자들은 DNA와 단백질을 직접 분석하여 유전의 비밀을 더욱 깊이 파헤치고 있습니다. 몇 가지 핵심 기술을 살펴볼까요?
+     </p>
+    </div>
+   </section>
+   <section class="content-section" id="s11">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
+     <div>
+      <h3 class="text-3xl font-bold mb-4">
+       기술 1: 유전자 양의 실시간 측정 (qPCR)
+      </h3>
+      <p class="text-xl">
+       특정 DNA가 처음부터 얼마나 있었는지 '실시간'으로 확인하는 기술입니다. DNA를 증폭시키면서 형광 물질을 이용해 양을 측정하는데, 형광이 빨리 강해질수록 처음 DNA 양이 많았다는 것을 의미합니다. 바이러스 감염 여부뿐만 아니라, 특정 유전자가 얼마나 많이 활동하는지 정량적으로 분석할 때 매우 중요합니다.
+      </p>
+     </div>
+     <div class="text-center">
+      <img alt="qPCR 증폭 곡선 그래프" class="rounded-lg shadow-md" data-asset-id="human_genetics_img_4" src="images/qpcr_curves-1.jpg">
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s12">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
+     <div class="text-center">
+      <img alt="RNA 시퀀싱 과정" class="rounded-lg shadow-md" data-asset-id="human_genetics_img_5" src="images/RNA_seq.jpg">
+     </div>
+     <div>
+      <h3 class="text-3xl font-bold mb-4">
+       기술 2: 유전자 활동량 분석 (RNA-Seq)
+      </h3>
+      <p class="text-xl">
+       우리 몸의 세포들은 상황에 따라 사용하는 유전자가 다릅니다. RNA 시퀀싱(RNA-Seq)은 특정 세포에서 어떤 유전자가 얼마나 활발하게 활동하는지(발현되는지) RNA를 분석하여 알아내는 최신 기술입니다. 암세포와 정상세포의 차이를 밝히는 데 중요하게 사용됩니다.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s13">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg grid md:grid-cols-2 gap-8 items-center">
+     <div>
+      <h3 class="text-3xl font-bold mb-4">
+       기술 3: 단백질 분석 (SDS-PAGE)
+      </h3>
+      <p class="text-xl">
+       유전 정보(DNA)는 결국 단백질을 만들어냅니다. SDS-PAGE는 전기장 속에서 단백질을 크기별로 분리하여 어떤 종류의 단백질이 있는지 확인하는 기술입니다. 유전자에 문제가 생겨 비정상적인 단백질이 만들어졌는지 확인할 수 있습니다.
+      </p>
+     </div>
+     <div class="text-center">
+      <img alt="SDS-PAGE 젤 결과" class="rounded-lg shadow-md" data-asset-id="human_genetics_img_6" src="images/SDS_page.jpg">
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s14">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center">
+      사람의 유전 현상 (1)
+     </h2>
+     <div class="grid md:grid-cols-2 gap-6 text-xl">
+      <div>
+       <h3 class="font-bold text-violet-600">
+        단일인자 유전
+       </h3>
+       <p>
+        한 쌍의 유전자가 하나의 형질을 결정. (예: 귓불 모양, 멘델의 법칙을 따름)
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold text-violet-600">
+        다인자 유전
+       </h3>
+       <p>
+        여러 쌍의 유전자가 하나의 형질에 관여. (예: 키, 피부색, 환경의 영향을 받음)
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s15">
+    <div class="reveal max-w-3xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-4 text-center">
+      사람의 유전 현상 (2): ABO식 혈액형
+     </h2>
+     <ul class="text-xl list-disc list-inside space-y-2">
+      <li>
+       <strong class="text-violet-600">
+        복대립 유전:
+       </strong>
+       하나의 형질에 3개 이상의 대립 유전자(A, B, O)가 관여. (하지만 한 사람은 2개만 가짐!)
+      </li>
+      <li>
+       <strong class="text-violet-600">
+        우열 관계:
+       </strong>
+       A와 B는 O에 대해 우성, A와 B 사이는 우열 없음(공동 우성).
+      </li>
+      <li>
+       <strong class="text-red-500">
+        결론:
+       </strong>
+       복대립 유전은 단일인자 유전의 특수한 경우입니다.
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="content-section" id="s16">
+    <div class="reveal max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+     <h2 class="text-3xl font-bold mb-6 text-center">
+      사람의 유전 현상 (3): 반성 유전
+     </h2>
+     <p class="text-xl mb-4">
+      유전자가 성염색체(주로 X염색체)에 있어 성별에 따라 형질 발현 빈도가 다른 유전입니다. (예: 적록 색맹)
+     </p>
+     <div class="grid md:grid-cols-2 gap-6 text-xl">
+      <p>
+       <strong class="text-blue-600">
+        남자(XY)
+       </strong>
+       는 X가 하나뿐이라 유전자가 있으면 바로 발현됩니다.
+      </p>
+      <p>
+       <strong class="text-pink-600">
+        여자(XX)
+       </strong>
+       는 X가 두 개라, 하나가 정상이면 발현되지 않을 수 있습니다(보인자).
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="content-section" id="s17">
+    <div class="reveal max-w-2xl w-full bg-white p-8 rounded-2xl shadow-lg">
+     <h3 class="text-2xl font-bold mb-4 text-center">
+      📝 최종 점검 퀴즈
+     </h3>
+     <div class="quiz-container">
+      <p class="text-xl font-bold mb-4">
+       A형(AO) 아버지와 B형(BO) 어머니 사이에서 태어날 수
+       <strong class="text-red-500">
+        없는
+       </strong>
+       혈액형은?
+      </p>
+      <div class="quiz-options grid grid-cols-2 gap-4">
+       <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">
+        A형
+       </button>
+       <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">
+        B형
+       </button>
+       <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="false">
+        AB형
+       </button>
+       <button class="quiz-option p-4 border rounded-lg text-lg" data-correct="true">
+        모두 태어날 수 있다
+       </button>
+      </div>
+      <div class="quiz-feedback mt-4 text-lg font-bold h-6 text-center">
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="content-section text-center" id="s18">
+    <div class="reveal max-w-3xl w-full">
+     <h2 class="text-4xl font-bold text-violet-700">
+      마무리: 유전, 생명의 설계도를 읽다
+     </h2>
+     <p class="text-xl mt-6">
+      사람의 유전 연구는 과거의 가계도 분석부터 현재의 DNA 시퀀싱까지, 다양한 방법으로 생명의 근본적인 원리를 밝혀내고 있습니다. 이를 통해 우리는 자신을 더 깊이 이해하고 질병을 정복할 열쇠를 찾아가고 있습니다.
+     </p>
+    </div>
+   </section>
+   <section class="content-section text-center" id="s19">
+    <div class="reveal">
+     <h2 class="text-5xl font-bold mb-8">
+      궁금한 점이 있나요?
+     </h2>
+     <p class="text-3xl">
+      경청해주셔서 감사합니다.
+     </p>
+    </div>
+   </section>
+  </main>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
             
             const sections = document.querySelectorAll('.content-section');
@@ -377,6 +557,6 @@
                 });
             });
         });
-    </script>
-</body>
+  </script>
+ </body>
 </html>
