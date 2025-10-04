@@ -1,1 +1,880 @@
-test
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
+
+| HTML 파일 | 자산 ID (Asset ID) | 이미지 파일 경로 |
+|:---|:---|:---|
+| `fert_egg.html` | `fert_egg_img_1` | `images/Schematic-drawings-of-chronological-chick-embryo-development.png` |
+| `fert_egg.html` | `fert_egg_img_2` | `images/gametes1_med.jpeg` |
+| `fert_egg.html` | `fert_egg_img_3` | `images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png` |
+| `fert_egg.html` | `fert_egg_img_4` | `images/Cell_Cleavage.png` |
+| `fert_egg.html` | `fert_egg_img_5` | `images/uterus_implantation.jpg` |
+| `fert_egg.html` | `fert_egg_img_6` | `images/fetus_11_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_7` | `images/fetus_21_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_8` | `images/fetus_37_weeks.jpg` |
+| `fert_egg.html` | `fert_egg_img_9` | `images/Human_embryonic_fetus_development.jpg` |
+| `fert_egg.html` | `fert_egg_img_10` | `images/52554-Fetal-Development-Tear-Pad-English_media-01.avif` |
+| `fert_egg.html` | `fert_egg_img_11` | `images/fetal-growth-4-40-weeks-260nw-551553100.webp` |
+| `fert_egg.html` | `fert_egg_img_12` | `images/cleamodcell.gif` |
+| `genetics_activity.html` | `genetics_activity_img_1` | `images/litter_of_puppies.webp` |
+| `genetics_activity.html` | `genetics_activity_img_2` | `images/family_resemblance.webp` |
+| `genetics_activity.html` | `genetics_activity_img_3` | `images/southern_blot.webp` |
+| `genetics_activity.html` | `genetics_activity_img_4` | `images/RNA_seq.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_1` | `images/chromosome1.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_2` | `images/41467_2023_42980_Fig7_HTML.webp` |
+| `hidden_further_study.html` | `hidden_further_study_img_3` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_4` | `images/gr1_lrg.jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_5` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `hidden_further_study.html` | `hidden_further_study_img_6` | `images/cohesin_cut_each_phase.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_7` | `images/crossing-over-meiosis-diagram.png` |
+| `hidden_further_study.html` | `hidden_further_study_img_8` | `images/chromosome2.jpg` |
+| `human_genetics.html` | `human_genetics_img_1` | `images/family_resemblance.webp` |
+| `human_genetics.html` | `human_genetics_img_2` | `images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg` |
+| `human_genetics.html` | `human_genetics_img_3` | `images/family_tree.png` |
+| `human_genetics.html` | `human_genetics_img_4` | `images/qpcr_curves-1.jpg` |
+| `human_genetics.html` | `human_genetics_img_5` | `images/RNA_seq.jpg` |
+| `human_genetics.html` | `human_genetics_img_6` | `images/SDS_page.jpg` |
+| `meiosis.html` | `meiosis_img_1` | `images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg` |
+| `meiosis.html` | `meiosis_img_2` | `images/gametes1_med.jpeg` |
+| `meiosis.html` | `meiosis_img_3` | `images/Meiosis_main_steps.svg` |
+| `meiosis.html` | `meiosis_img_4` | `images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg` |
+| `meiosis.html` | `meiosis_img_5` | `images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg` |
+| `meiosis.html` | `meiosis_img_6` | `images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp` |
+| `mendel1.html` | `mendel1_img_1` | `images/mendel_and_peas.jpg` |
+| `mendel1.html` | `mendel1_img_2` | `images/target_illustration.jpg` |
+| `mendel1.html` | `mendel1_img_3` | `images/litter_of_puppies.webp` |
+| `mendel1.html` | `mendel1_img_4` | `images/natural-eye-colour-chart-683x1024.png` |
+| `mendel1.html` | `mendel1_img_5` | `images/family_resemblance.webp` |
+| `mendel1.html` | `mendel1_img_6` | `images/allelic_traits_example.png` |
+| `mendel1.html` | `mendel1_img_7` | `images/paint_mixing.jpg` |
+| `mendel1.html` | `mendel1_img_8` | `images/mendel_in_garden.jpg` |
+| `mendel1.html` | `mendel1_img_9` | `images/pea_plant_lifecycle.jpg` |
+| `mendel1.html` | `mendel1_img_10` | `images/self_pollination_diagram.png` |
+| `mendel1.html` | `mendel1_img_11` | `images/chromosome1.png` |
+| `mendel1.html` | `mendel1_img_12` | `images/allele.webp` |
+| `mendel1.html` | `mendel1_img_13` | `images/genotype.png` |
+| `mendel1.html` | `mendel1_img_14` | `images/genotype_phenotype_eye_color.png` |
+| `mendel1.html` | `mendel1_img_15` | `images/homozygote_heterozygote.jpg` |
+| `mendel1.html` | `mendel1_img_16` | `images/1st_exp_breeding_P.jpg` |
+| `mendel1.html` | `mendel1_img_17` | `images/f1_generation.jpg` |
+| `mendel1.html` | `mendel1_img_18` | `images/dominant_recessive_concept.jpg` |
+| `mendel1.html` | `mendel1_img_19` | `images/dominance_principle_diagram.jpg` |
+| `mendel1.html` | `mendel1_img_20` | `images/f1_self_pollination.jpg` |
+| `mendel1.html` | `mendel1_img_21` | `images/f2_generation_ratio.jpg` |
+| `mendel1.html` | `mendel1_img_22` | `images/meiosis_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_23` | `images/law_of_segregation.jpg` |
+| `mendel1.html` | `mendel1_img_24` | `images/go_stones_in_bags.jpg` |
+| `mendel1.html` | `mendel1_img_25` | `images/setting_up_experiment.jpg` |
+| `mendel1.html` | `mendel1_img_26` | `images/drawing_lots.jpg` |
+| `mendel1.html` | `mendel1_img_27` | `images/bar_chart_results.jpg` |
+| `mendel1.html` | `mendel1_img_28` | `images/summary_mind_map.jpg` |
+| `mendel1.html` | `mendel1_img_29` | `images/next_lesson_preview.jpg` |
+| `mendel2.html` | `mendel2_img_1` | `images/mendel_in_garden.jpg` |
+| `mendel2.html` | `mendel2_img_2` | `images/1st_exp_breeding_P.jpg` |
+| `mendel2.html` | `mendel2_img_3` | `images/gametes1_med.jpeg` |
+| `mitosis.html` | `mitosis_img_1` | `images/DNA_animation.gif` |
+| `mitosis.html` | `mitosis_img_2` | `images/circular_genome_ecoli.jpg` |
+| `mitosis.html` | `mitosis_img_3` | `images/cell_division.png` |
+| `mitosis.html` | `mitosis_img_4` | `images/cell_division_2.png` |
+| `mitosis.html` | `mitosis_img_5` | `images/1-fixation.jpg` |
+| `mitosis.html` | `mitosis_img_6` | `images/2-maceration.png` |
+| `mitosis.html` | `mitosis_img_7` | `images/3-staining.jpg` |
+| `mitosis.html` | `mitosis_img_8` | `images/4-separation.jpg` |
+
