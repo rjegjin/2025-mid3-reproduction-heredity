@@ -1,0 +1,52 @@
+/* 1_intro.html specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+#progress-nav a { transition: all 0.3s ease; }
+#progress-nav a.active {
+    transform: scale(1.5);
+    background-color: #0ea5e9; /* Sky blue */
+}
+.comparison-table td, .comparison-table th {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    text-align: center;
+}
+.comparison-table th {
+    background-color: #f3f4f6;
+}
+.choice-btn {
+    transition: all 0.2s ease-in-out;
+}
+.choice-btn:hover {
+    transform: scale(1.05);
+    border-color: #0ea5e9;
+}
+.choice-btn.selected {
+    background-color: #0ea5e9;
+    color: white;
+    border-color: #0ea5e9;
+}
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+.reveal-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+.reveal-item.visible {
+    opacity: 1;
+    max-height: 100px; /* 충분한 높이 */
+}

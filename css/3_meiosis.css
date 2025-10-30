@@ -1,0 +1,43 @@
+/* 3_meiosis.html specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+#progress-nav a { transition: all 0.3s ease; }
+#progress-nav a.active {
+    transform: scale(1.5);
+    background-color: #4f46e5;
+}
+.comparison-table td, .comparison-table th {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: center;
+}
+.phase-button {
+    transition: all 0.2s ease-in-out;
+}
+.phase-button.active {
+    background-color: #4f46e5; /* indigo-600 */
+    color: white;
+    font-weight: 700;
+    transform: scale(1.05);
+}
+#player-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+#player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

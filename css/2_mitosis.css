@@ -1,0 +1,48 @@
+/* 2_mitosis.html specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+.phase-button.active {
+    background-color: #10b981;
+    color: white;
+    font-weight: 700;
+    transform: scale(1.05);
+}
+#progress-nav a { transition: all 0.3s ease; }
+#progress-nav a.active {
+    transform: scale(1.5);
+    background-color: #10b981;
+}
+#player-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+#player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.comparison-table td, .comparison-table th {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: center;
+}
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+.modal-overlay {
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}

@@ -1,0 +1,28 @@
+/* 4_fert_egg.html specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+#progress-nav a { transition: all 0.3s ease; }
+#progress-nav a.active {
+    transform: scale(1.5);
+    background-color: #f59e0b; /* Amber */
+}
+.comparison-table td, .comparison-table th {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: center;
+}
+.comparison-table th {
+    background-color: #f3f4f6;
+}
+.quiz-option { transition: background-color 0.2s; }
+.quiz-option.selected { background-color: #f59e0b; color: white; }
+.quiz-option.correct { background-color: #10b981; color: white; }
+.quiz-option.incorrect { background-color: #ef4444; color: white; }

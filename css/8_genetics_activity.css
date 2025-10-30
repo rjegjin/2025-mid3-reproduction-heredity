@@ -1,0 +1,90 @@
+/* 8_genetics_activity.html specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1.5rem;
+    position: relative;
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+#progress-nav {
+    position: fixed;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: none;
+}
+@media (min-width: 1024px) {
+    #progress-nav { display: flex; flex-direction: column; gap: 0.75rem; }
+}
+#progress-nav a {
+    width: 0.75rem; height: 0.75rem; background-color: #cbd5e1;
+    border-radius: 9999px; display: block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#progress-nav a.active {
+    transform: scale(1.75); background-color: #f43f5e;
+}
+.interactive-btn {
+    transition: all 0.2s ease-in-out;
+}
+.interactive-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.quiz-option:hover {
+     background-color: #fef2f2;
+}
+.quiz-option.selected { transform: scale(1.02); border-width: 2px; }
+.quiz-option.correct { background-color: #34d399; color: white; border-color: #059669; }
+.quiz-option.incorrect { background-color: #f87171; color: white; border-color: #dc2626; }
+
+.coin {
+    width: 100px; height: 100px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; font-size: 3rem; font-weight: 900;
+    cursor: pointer; transition: transform 0.8s; transform-style: preserve-3d;
+    background-color: #fde047; border: 5px solid #facc15; position: relative;
+}
+.coin-face {
+    position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+    display: flex; align-items: center; justify-content: center;
+}
+.coin-back { transform: rotateY(180deg); }
+.coin-container.flipping .coin { transform: rotateY(1860deg); }
+
+/* 가계도 SVG 스타일 */
+.pedigree-symbol-svg {
+    stroke: #1e293b; stroke-width: 2; fill: white; transition: fill 0.3s;
+}
+.pedigree-symbol-svg.affected { fill: #60a5fa; }
+.pedigree-text {
+    font-size: 14px; font-family: monospace; fill: #1e293b;
+}
+.pedigree-genotype-text {
+    font-size: 16px; font-weight: bold; fill: #ef4444; opacity: 0;
+    transition: opacity 0.5s;
+}
+.pedigree-line {
+    stroke: #1e293b; stroke-width: 2;
+}
+
+/* 가계도 분석 단계 스타일 */
+.analysis-step { display: none; }
+.analysis-step.active { display: block; }
+.nav-arrow {
+    cursor: pointer; background-color: #e5e7eb; border-radius: 9999px;
+    width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s;
+}
+.nav-arrow:hover { background-color: #d1d5db; }
+.nav-arrow.disabled {
+    cursor: not-allowed; background-color: #f3f4f6; color: #9ca3af;
+}

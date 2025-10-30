@@ -1,0 +1,77 @@
+/* 6_mendel2.html specific styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+/* --- Layout & Common --- */
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1.5rem;
+    position: relative;
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* --- Navigation & Header --- */
+#progress-nav {
+    position: fixed;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: none;
+}
+@media (min-width: 1024px) {
+    #progress-nav { display: flex; flex-direction: column; gap: 0.75rem; }
+}
+#progress-nav a {
+    width: 0.75rem; height: 0.75rem; background-color: #cbd5e1;
+    border-radius: 9999px; display: block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#progress-nav a.active {
+    transform: scale(1.75); background-color: #84cc16;
+}
+
+/* --- Punnett Square --- */
+.punnett-table {
+    border-collapse: collapse;
+    font-size: clamp(0.75rem, 2vw, 1.1rem);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.punnett-table th, .punnett-table td {
+    border: 2px solid #9ca3af;
+    width: clamp(50px, 10vw, 90px); height: clamp(50px, 10vw, 90px);
+    text-align: center; vertical-align: middle;
+    position: relative;
+}
+.punnett-table th { background-color: #f1f5f9; font-weight: bold; }
+.punnett-cell span {
+    font-weight: 700;
+    position: relative;
+    z-index: 2; /* 배경 패턴 위에 텍스트가 오도록 함 */
+}
+
+.pea-yellow { background-color: #fef9c3; } /* yellow-100 */
+.pea-green { background-color: #ecfccb; } /* lime-100 */
+
+.pea-round { 
+    border-style: solid;
+}
+.pea-wrinkled {
+    border-style: dashed;
+    border-color: #64748b; /* 점선 색상 지정 */
+    border-width: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239ca3af' fill-opacity='0.3'%3E%3Cpath d='M7 0h1L0 8V7zM8 7v1H7z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+        
+/* --- Quiz --- */
+.quiz-option { transition: all 0.2s ease-in-out; }
+.quiz-option.selected { transform: scale(1.05); border-width: 2px; }
+.quiz-option.correct { background-color: #34d399; color: white; border-color: #059669; }
+.quiz-option.incorrect { background-color: #f87171; color: white; border-color: #dc2626; }
