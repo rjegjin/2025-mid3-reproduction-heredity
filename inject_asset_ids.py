@@ -3,7 +3,8 @@ import os
 from bs4 import BeautifulSoup
 
 # --- 설정 ---
-MANIFEST_FILE = "image_manifest.json"
+ROOT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+MANIFEST_FILE = os.path.join(ROOT_DIRECTORY, "image_manifest.json")
 # --- 설정 끝 ---
 
 def inject_ids_into_html():
@@ -23,39 +24,53 @@ def inject_ids_into_html():
         return
 
     # 2. Manifest에 명시된 모든 HTML 파일을 순회
-    for html_file, assets in manifest.items():
+    for html_file_name, assets in manifest.items():
+        html_file = os.path.join(ROOT_DIRECTORY, html_file_name)
         if not os.path.exists(html_file):
             print(f"⚠️ 경고: '{html_file}' 파일을 찾을 수 없어 건너뜁니다.")
             continue
         
         try:
             with open(html_file, 'r', encoding='utf-8') as f:
-                soup = BeautifulSoup(f, 'html.parser')
+                content = f.read()
+                
+            # 조각(Fragment)임을 고려하여 파싱
+            soup = BeautifulSoup(content, 'html.parser')
 
             injected_count = 0
             
             # src 경로를 키로, asset_id를 값으로 하는 역방향 맵 생성
-            # 예: {"images/1-fixation.jpg": "mitosis_lab_fixation"}
             src_to_id_map = {path: asset_id for asset_id, path in assets.items()}
 
             for img_tag in soup.find_all('img'):
                 src = img_tag.get('src')
                 if src and src in src_to_id_map:
                     asset_id = src_to_id_map[src]
-                    # data-asset-id가 없거나, 있더라도 값이 다르면 업데이트
                     if img_tag.get('data-asset-id') != asset_id:
                         img_tag['data-asset-id'] = asset_id
                         injected_count += 1
             
             if injected_count > 0:
+                # <html>, <body> 태그 없이 순수 내용만 추출
+                # BeautifulSoup은 fragment 파싱 시 자동으로 html/body를 만들 수 있으므로
+                # 원래 입력에 해당 태그가 없었다면 제거하고 저장
+                output = str(soup)
+                if "<html" not in content.lower() and "<html>" in output.lower():
+                    if soup.body:
+                        output = "".join([str(item) for item in soup.body.contents])
+                    else:
+                        output = str(soup)
+
                 with open(html_file, 'w', encoding='utf-8') as f:
-                    f.write(str(soup.prettify(formatter='html5')))
-                print(f"  - '{html_file}' 파일에 {injected_count}개의 'data-asset-id'를 주입/업데이트했습니다.")
+                    f.write(output)
+                print(f"  - '{html_file_name}' 파일에 {injected_count}개의 'data-asset-id'를 주입/업데이트했습니다.")
             else:
-                 print(f"  - '{html_file}' 파일은 이미 모든 ID가 주입되어 있습니다.")
+                 print(f"  - '{html_file_name}' 파일은 이미 모든 ID가 주입되어 있습니다.")
 
         except Exception as e:
-            print(f"❌ '{html_file}' 파일 처리 중 오류 발생: {e}")
+            print(f"❌ '{html_file_name}' 파일 처리 중 오류 발생: {e}")
+
+    print("\n✅ 모든 작업이 완료되었습니다.")
 
     print("\n✅ 모든 작업이 완료되었습니다.")
 

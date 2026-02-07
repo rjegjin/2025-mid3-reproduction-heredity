@@ -3,10 +3,10 @@ import os
 from bs4 import BeautifulSoup
 
 # --- 설정 ---
-# 스캔할 HTML 파일이 있는 폴더 (현재 폴더를 의미)
-ROOT_DIRECTORY = "." 
+# 스캔할 HTML 파일이 있는 폴더 (스크립트가 있는 현재 폴더)
+ROOT_DIRECTORY = os.path.dirname(os.path.abspath(__file__)) 
 # 생성될 파일명
-OUTPUT_FILE = "image_manifest.json" 
+OUTPUT_FILE = os.path.join(ROOT_DIRECTORY, "image_manifest.json") 
 # --- 설정 끝 ---
 
 def create_manifest():
