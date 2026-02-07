@@ -1,51 +1,76 @@
-# 2025학년도 중학교 3학년 과학 - 생식과 유전 🧬
+# 2025학년도 중학교 3학년 과학: 생식과 유전 🧬
+> **"하나의 세포에서 시작된 신비로운 여정, 아름다운 대화형 콘텐츠로 탐험하세요."**
 
-이 저장소는 2025학년도 중학교 3학년 과학 수업의 'V. 생식과 유전' 단원을 위한 교육 자료 및 기술적 자산을 관리하는 공간입니다. 웹 기반의 프레젠테이션 형식으로 제작되어 학생들이 더욱 흥미롭게 학습할 수 있도록 구성되었습니다.
-
----
-
-## 📚 학습 목차 (Table of Contents)
-
-각 링크를 클릭하면 해당 단원의 학습 내용을 웹 브라우저에서 바로 확인할 수 있습니다.
-
-1.  **[인트로 (Intro)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/intro.html)**: 단원 전체에 대한 소개와 학습 목표를 안내합니다.
-2.  **[1. 체세포 분열 (Mitosis)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/mitosis.html)**: 생장과 재생의 기반이 되는 체세포 분열의 과정과 그 의의를 학습합니다.
-3.  **[2. 생식세포 분열 (Meiosis)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/meiosis.html)**: 유성 생식의 핵심인 감수 분열 과정과 염색체 수 변화를 이해합니다.
-4.  **[3. 수정과 발생 (Fertilization & Development)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/fert_egg.html)**: 생식세포의 결합을 통한 수정 과정과 초기 배아의 발생 과정을 살펴봅니다.
-5.  **[4. 멘델의 유전 원리 (Mendel's Laws I)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/mendel1.html)**: 완두콩 실험을 통해 유전학의 기초가 된 멘델의 유전 원리를 탐구합니다.
-6.  **[5. 멘델의 유전 원리 심화 (Mendel's Laws II)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/mendel2.html)**: 여러 형질의 유전과 중간 유전 등 심화된 유전 원리를 학습합니다.
-7.  **[6. 사람의 유전 (Human Genetics)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/human_genetics.html)**: 사람에게 나타나는 다양한 유전 형질과 가계도 분석 방법을 알아봅니다.
-8.  **[활동: 유전 시뮬레이션 (Genetics Activity)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/genetics_activity.html)**: 가상의 자손을 만들어보며 유전 원리를 직접 체험하는 활동 자료입니다.
-9.  **[심화 학습 (Further Study)](https://rjegjin.github.io/2025-mid3-reproduction-heredity/hidden_further_study.html)**: 본 단원과 관련된 심화 내용을 다룹니다.
+이 저장소는 중학교 3학년 과학 'V. 생식과 유전' 단원을 위해 제작된 프리미엄 교육 플랫폼입니다. 단순한 지식 전달을 넘어, 학생들이 생명의 경이로움을 시각적·상호작용적으로 경험할 수 있도록 현대적인 웹 기술을 결합하여 구축되었습니다.
 
 ---
 
-## 🛠️ 기술적 구성 (For Developers)
+## ✨ 주요 특징 (Key Features)
 
-이 프로젝트는 수업 자료의 효율적인 관리를 위해 몇 가지 자동화 스크립트를 포함하고 있습니다.
+### 🎨 감성적인 UI/UX 디자인
+- **프리미엄 타이포그래피**: 고가독성 서체와 여유로운 레이아웃으로 학습 몰입도 극대화.
+- **인터랙티브 애니메이션**: GSAP 기반의 부드러운 섹션 전환 및 등장 효과.
+- **반응형 App Shell**: 모든 장치에서 최적화된 화면을 제공하는 SPA(Single Page Application) 구조.
 
-* **주요 파일:**
-    * `*.html`: 각 차시별 학습 내용을 담고 있는 웹 프레젠테이션 파일입니다.
-    * `/images`: 수업 자료에 사용되는 모든 이미지 에셋이 저장된 폴더입니다.
-    * `ASSET_LIST.md`: `images` 폴더에 있는 모든 이미지의 목록과 미리보기를 제공하는 문서입니다.
-    * `image_manifest.json`: 이미지 파일 이름과 고유 ID를 매핑하는 JSON 파일로, 스크립트에서 사용됩니다.
+### 🔬 인터랙티브 학습 콘텐츠
+- **실시간 퀴즈 및 피드백**: 개념 확인 퀴즈와 상세한 해설 모달 제공.
+- **생생한 시각 자료**: 실제 세포 분열 영상, 유전 시뮬레이션, 가계도 분석 도구 포함.
+- **진행률 추적**: 로컬 스토리지를 활용하여 학생 스스로 학습 상태 관리.
 
-* **Python 스크립트:**
-    * `create_initial_manifest.py`: `images` 폴더를 스캔하여 `image_manifest.json` 파일의 초기 버전을 생성합니다.
-    * `sync_assets.py`: `image_manifest.json`을 기준으로 `ASSET_LIST.md` 파일을 자동으로 업데이트하여 이미지 목록을 최신 상태로 유지합니다.
-    * `inject_asset_ids.py`: `image_manifest.json`의 정보를 사용하여 HTML 파일 내의 이미지 태그에 고유 ID를 주입합니다.
+### 🛠️ 엔지니어링 최적화
+- **SPA 아키텍처**: 페이지 새로고침 없는 부드러운 콘텐츠 전환 (Native JS Routing).
+- **자동화 워크플로우**: Python 스크립트를 이용한 자산(Image) 관리 및 ID 주입 자동화.
+- **경량화된 구조**: 중복 코드를 제거하고 콘텐츠를 조각(Fragment)화하여 유지보수성 향상.
 
-### 워크플로우 (Workflow)
+---
 
-1.  새로운 이미지를 `images` 폴더에 추가합니다.
-2.  `create_initial_manifest.py`를 실행하여 새로운 이미지를 `image_manifest.json`에 등록합니다.
-3.  `sync_assets.py`를 실행하여 `ASSET_LIST.md`를 업데이트합니다.
-4.  `inject_asset_ids.py`를 실행하여 HTML 파일에 이미지 ID를 반영합니다.
+## 📚 학습 목차 (Curriculum)
+
+1.  **[01. 세포 분열의 필연성](#1_intro)**: 성장의 근본 원리와 효율적인 물질 교환 이해.
+2.  **[02. 체세포 분열](#2_mitosis)**: 복제와 복구, 우리 몸이 만들어지는 정교한 과정.
+3.  **[03. 감수 분열](#3_meiosis)**: 유전적 다양성을 만드는 생식세포 형성의 비밀.
+4.  **[04. 수정과 발생](#4_fert_egg)**: 수정란에서 온전한 개체로 피어나는 신비로운 여정.
+5.  **[05. 멘델의 유전 원리 (1)](#5_mendel1)**: 완두콩 실험으로 풀어낸 유전의 기본 법칙.
+6.  **[06. 독립의 법칙](#6_mendel2)**: 여러 형질이 독립적으로 전달되는 고귀한 규칙.
+7.  **[07. 사람의 유전](#7_human_genetics)**: 가계도 분석을 통해 추적하는 우리 가족의 역사.
+8.  **[08. 유전 시뮬레이션](#8_genetics_activity)**: 확률이 만드는 생명의 다양성 직접 체험하기.
+9.  **[심화 학습](#hidden_further_study)**: 분자 생물학적 관점에서의 세포 분열 조절.
+
+---
+
+## 🚀 시작하기 (Getting Started)
+
+본 프로젝트는 보안 정책(CORS)으로 인해 로컬 서버 환경에서 실행해야 모든 기능이 정상 작동합니다.
+
+### 1. 로컬에서 실행하기 (Python)
+터미널에서 프로젝트 폴더로 이동 후 아래 명령어를 입력하세요.
+```powershell
+python -m http.server 8080
+```
+이후 브라우저에서 **`http://localhost:8080`**으로 접속합니다.
+
+### 2. 기술 스택
+- **Frontend**: HTML5, Tailwind CSS, JavaScript (Vanilla ES6+), GSAP (Animation)
+- **Automation**: Python 3.x, BeautifulSoup4
+
+---
+
+## 🛠️ 개발자 가이드 (For Developers)
+
+### 폴더 구조
+- `/css`: 공통 디자인 시스템(`common.css`) 및 페이지별 스타일.
+- `/js`: 메인 컨트롤러(`main.js`) 및 페이지별 로직.
+- `/images`: 학습용 이미지 및 애니메이션 에셋.
+- `*.html`: 각 차시별 콘텐츠 조각(Fragment).
+
+### 자산 관리 자동화
+새로운 이미지를 추가하거나 HTML을 수정할 때 아래 스크립트를 사용하세요.
+1. `python create_initial_manifest.py`: 이미지 목록 갱신 및 `image_manifest.json` 생성.
+2. `python inject_asset_ids.py`: HTML 내 `<img>` 태그에 고유 `data-asset-id` 주입.
 
 ---
 
 ## 💡 프로젝트 목표
+이 프로젝트는 기술이 교육의 질을 어떻게 높일 수 있는지 보여주는 사례입니다. 학생들에게는 **'공부하고 싶은 콘텐츠'**를, 교사에게는 **'관리가 용이한 시스템'**을 제공하는 것을 목표로 합니다.
 
-* 웹 기반의 시각적 자료를 통해 학생들의 학습 흥미와 참여도를 높입니다.
-* Git을 활용하여 수업 자료를 체계적으로 버전 관리하고, 여러 장치에서 일관된 작업을 유지합니다.
-* Python 스크립트를 통한 자동화로 이미지 자산 관리를 효율화합니다.
+© 2025 Science Education Project. All Rights Reserved.
