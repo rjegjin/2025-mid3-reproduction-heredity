@@ -1,0 +1,138 @@
+/* presentation_mode.css - Add-on for Slide & Quiz features */
+
+/* 슬라이드 모드 컨테이너 (기존 레이아웃 간섭 최소화) */
+body.presentation-mode {
+    overflow: hidden; /* 스크롤 방지 */
+}
+
+body.presentation-mode main {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+/* 개별 슬라이드 제어 */
+body.presentation-mode section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(20px);
+    z-index: 0;
+    
+    /* 중앙 정렬 강제 */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* 내용이 넘치면 스크롤 허용 */
+}
+
+body.presentation-mode section.active-slide {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 10;
+}
+
+/* 퀴즈 스타일 (기존 스타일과 독립적) */
+.quiz-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 90%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .quiz-options {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.quiz-btn {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-btn:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.quiz-btn.correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #15803d;
+}
+
+.quiz-btn.wrong {
+    background: #fee2e2;
+    border-color: #ef4444;
+    color: #b91c1c;
+    animation: shake 0.4s;
+}
+
+.quiz-feedback {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    min-height: 1.8rem;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 하단 컨트롤 바 */
+#slide-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+#slide-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #475569;
+    padding: 5px 10px;
+}
+
+#slide-controls span {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #334155;
+}

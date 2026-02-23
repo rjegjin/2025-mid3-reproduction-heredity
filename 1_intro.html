@@ -1,3 +1,6 @@
+<!-- Add-on: Presentation Mode CSS -->
+<link rel="stylesheet" href="css/presentation_mode.css">
+
 <main class="container mx-auto p-4 md:p-8">
     
     <section id="title" class="text-center">
@@ -35,7 +38,7 @@
         <h2 class="text-4xl font-bold text-center mb-12">생각 열기 2</h2>
         <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
             <p class="text-5xl font-bold text-slate-700">우리 몸의 세포는<br>왜 이렇게 작을까?</p>
-            <p class="mt-4 text-xl text-slate-500">우리 몸은 아주 크지만, 몸을 이루는 세포는 눈에 보이지 않을 정도로 작습니다. 왜 그럴까요?</p>
+            <p class="mt-4 text-xl text-slate-500">우리 몸은 아주 크지만, 몸을 이루는 세포는 눈에 보이지 않을 정도로 작습니다.  왜 그럴까요?</p>
         </div>
     </section>
     
@@ -108,7 +111,7 @@
             <summary class="font-bold text-2xl list-none text-center">
                 핵심 이유 알아보기 <span class="text-sky-500 group-open:hidden">(클릭)</span>
             </summary>
-            <p class="text-2xl text-center mt-8">세포는 부피 당 표면적의 비율을 높게 유지하여<br/><strong class="text-sky-600">물질 교환을 효율적으로 수행하기 위해</strong> 분열합니다.<br/>따라서 세포는 무작정 커지지 않고 분열하여 그 수를 늘립니다.</p>
+            <p class="text-2xl text-center mt-8">세포는 부피 당 표면적의 비율을 높게 유지하여<br/><strong class="text-sky-600"> 물질 교환을 효율적으로 수행하기 위해</strong> 분열합니다.<br/>따라서 세포는 무작정 커지지 않고 분열하여 그 수를 늘립니다.</p>
         </details>
     </section>
 
@@ -127,10 +130,25 @@
         <div id="summary-reveal" class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 cursor-pointer">
             <ul class="list-disc list-inside space-y-3 text-xl">
                 <li class="reveal-item">세포 분열의 두 가지 핵심 목적은 <strong class="text-sky-600">생장</strong>과 <strong class="text-sky-600">효율적인 물질 교환</strong>입니다.</li>
-                <li class="reveal-item">세포가 커질수록 부피에 대한 표면적의 비가 <strong class="text-red-500">작아져</strong> 물질 교환에 불리해집니다.</li>
-                <li class="reveal-item">따라서 몸집이 큰 생물은 세포 크기가 큰 것이 아니라 <strong class="text-sky-600">세포 수가 많은 것</strong>입니다.</li>
+                <li class="reveal-item">세포가 커질수록 부피에 대한 표면적의 비가 <strong class="text-red-500">작아져</strong>  물질 교환에 불리해집니다.</li>
+                <li class="reveal-item">따라서 몸집이 큰 생물은 세포 크기가 큰 것이 아니라 <strong class="text-sky-600">세포 수 가 많은 것</strong>입니다.</li>
             </ul>
              <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
+        </div>
+    </section>
+
+    <!-- [NEW] Interactive Quiz Section (Add-on) -->
+    <section id="final-quiz" class="text-center">
+        <h2 class="text-4xl font-bold mb-8">🎯 최종 확인 퀴즈</h2>
+        <div class="quiz-container">
+            <p class="text-2xl mb-6">세포가 커질수록 <strong>부피에 대한 표면적의 비율</strong>은 어떻게 변할까요?</p>
+            <div class="quiz-options">
+                <button class="quiz-btn" data-correct="false">커진다</button>
+                <button class="quiz-btn" data-correct="true">작아진다</button>
+                <button class="quiz-btn" data-correct="false">변하지 않는다</button>
+                <button class="quiz-btn" data-correct="false">알 수 없다</button>
+            </div>
+            <div class="quiz-feedback"></div>
         </div>
     </section>
 
@@ -141,3 +159,6 @@
         </div>
     </section>
 </main>
+
+<!-- Add-on: Slide Engine Script -->
+<script src="js/slide_engine.js"></script>
