@@ -1,164 +1,382 @@
 <!-- Add-on: Presentation Mode CSS -->
-<link rel="stylesheet" href="css/presentation_mode.css">
-
+<link href="css/presentation_mode.css" rel="stylesheet"/>
 <main class="container mx-auto p-4 md:p-8">
-    
-    <section id="title" class="text-center">
-        <div class="bg-sky-50 rounded-2xl p-8">
-            <h2 class="text-4xl md:text-5xl font-bold mb-2">V. 생식과 유전: 세포 분열이 필요한 까닭</h2>
-            <p class="text-2xl md:text-3xl text-slate-600">생물의 성장과 효율적인 물질 교환을 위한 세포의 전략</p>
-        </div>
-    </section>
-
-    <section id="objectives">
-        <h2 class="text-4xl font-bold text-center mb-12">학습 목표</h2>
-        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
-            <ul class="list-disc list-inside space-y-3 text-xl">
-                <li>세포 분열의 필요성을 설명할 수 있다.</li>
-                <li>세포 분열이 개체의 <strong class="text-sky-600">생장</strong>과 어떤 관계가 있는지 설명할 수 있다.</li>
-                <li>세포 크기가 커질 때 <strong class="text-sky-600">표면적과 부피</strong>의 변화 관계를 이해하고, 물질 교환 효율과의 연관성을 설명할 수 있다.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="intro-q1">
-        <h2 class="text-4xl font-bold text-center mb-6">1단계: 생각 깨우기 - 시원한 얼음에서 찾는 힌트!</h2>
-        <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-            <p class="text-xl text-center mb-6">컵에 담긴 음료수를 빨리 시원하게 만들고 싶을 때, 커다란 얼음 덩어리 하나를 넣는 것과 같은 양의 잘게 부순 얼음을 넣는 것 중 어느 쪽이 더 효과적일까요?</p>
-            <div id="ice-choices" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-xl">① 커다란 얼음 덩어리</button>
-                <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-xl" data-correct="true">② 잘게 부순 얼음</button>
-                <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-xl">③ 효과는 똑같다</button>
-            </div>
-            <div id="ice-feedback" class="text-center font-bold mb-6 h-6 text-lg"></div>
-        </div>
-    </section>
-    
-    <section id="intro-q2">
-        <h2 class="text-4xl font-bold text-center mb-12">생각 열기 2</h2>
-        <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-            <p class="text-5xl font-bold text-slate-700">우리 몸의 세포는<br>왜 이렇게 작을까?</p>
-            <p class="mt-4 text-xl text-slate-500">우리 몸은 아주 크지만, 몸을 이루는 세포는 눈에 보이지 않을 정도로 작습니다.  왜 그럴까요?</p>
-        </div>
-    </section>
-    
-    <section id="definition">
-        <h2 class="text-4xl font-bold text-center mb-12">세포 분열이란 무엇일까?</h2>
-        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
-             <ul class="list-disc list-inside space-y-3 text-xl">
-                <li>세포는 생명체를 구성하는 <strong class="text-sky-600">기본 단위</strong>입니다.</li>
-                <li><strong class="text-sky-600">세포 분열</strong>은 하나의 세포가 두 개의 딸세포로 나뉘는 과정입니다.</li>
-                <li>이때 유전 정보가 그대로 복제되어, 원래 세포(모세포)와 똑같은 세포가 만들어집니다.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="necessity">
-        <h2 class="text-4xl font-bold text-center mb-12">왜 생물은 세포 분열을 해야 할까?</h2>
-         <div id="necessity-reveal" class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 text-center cursor-pointer">
-            <p class="reveal-item text-3xl">생물이 성장하는 것은 세포 크기가 커지는 것이 아니라,</p>
-            <p class="reveal-item text-3xl"><strong class="text-sky-600">세포 분열로 세포 수가 늘어나기 때문</strong>입니다.</p>
-            <p class="reveal-item text-2xl mt-4">또한, 세포는 <strong class="text-sky-600">물질 교환을 효율적으로 하기 위해</strong> 분열합니다.</p>
-            <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
-        </div>
-    </section>
-
-    <section id="exchange">
-        <h2 class="text-4xl font-bold text-center mb-12">세포의 생명 활동과 물질 교환</h2>
-        <div id="exchange-reveal" class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer">
-             <p class="reveal-item text-2xl">세포는 생명을 유지하기 위해 <strong class="text-sky-600">세포 표면(세포막)</strong>을 통해</p>
-             <p class="reveal-item text-2xl">영양소를 흡수하고 노폐물을 배출하는 <strong class="text-sky-600">물질 교환</strong>을 합니다.</p>
-             <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
-        </div>
-    </section>
-    
-    <section id="efficiency">
-        <h2 class="text-4xl font-bold text-center mb-12">세포 크기와 물질 교환 효율</h2>
-        <div id="efficiency-reveal" class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer">
-             <p class="reveal-item text-2xl">세포가 커지면 부피는 표면적보다 훨씬 빠르게 증가합니다.</p>
-             <p class="reveal-item text-2xl">이는 <strong class="text-sky-600">물질 교환의 효율을 떨어뜨려</strong> 세포가 계속 커지는 데 한계가 됩니다.</p>
-             <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
-        </div>
-    </section>
-
-    <section id="cube-example">
-        <h2 class="text-4xl font-bold text-center mb-12">정육면체로 알아보는 표면적과 부피</h2>
-        <details class="bg-white p-6 md:p-8 rounded-2xl shadow-lg cursor-pointer group">
-            <summary class="font-bold text-2xl list-none text-center">
-                세포 크기에 따른 변화 알아보기 <span class="text-sky-500 group-open:hidden">(클릭)</span>
-            </summary>
-            <div class="mt-8">
-                <table class="w-full text-center comparison-table text-lg">
-                    <thead>
-                        <tr class="bg-slate-100">
-                            <th>한 변의 길이</th><th>표면적 (길이²)×6</th><th>부피 (길이³)</th><th>부피에 대한 표면적 비</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1cm</td><td>6 cm²</td><td>1 cm³</td><td class="font-bold text-2xl text-sky-600">6</td></tr>
-                        <tr><td>2cm</td><td>24 cm²</td><td>8 cm³</td><td class="font-bold text-2xl text-sky-600">3</td></tr>
-                        <tr><td>3cm</td><td>54 cm²</td><td>27 cm³</td><td class="font-bold text-2xl text-sky-600">2</td></tr>
-                    </tbody>
-                </table>
-                <p class="text-center mt-8 font-bold text-2xl">결론: 커질수록 부피에 대한 표면적의 비율은 <strong class="text-red-500">작아진다.</strong></p>
-            </div>
-        </details>
-    </section>
-
-    <section id="final-reason">
-        <h2 class="text-4xl font-bold text-center mb-12">세포가 분열하는 이유: 효율적인 생존 전략</h2>
-        <details class="bg-white p-8 rounded-2xl shadow-lg cursor-pointer group">
-            <summary class="font-bold text-2xl list-none text-center">
-                핵심 이유 알아보기 <span class="text-sky-500 group-open:hidden">(클릭)</span>
-            </summary>
-            <p class="text-2xl text-center mt-8">세포는 부피 당 표면적의 비율을 높게 유지하여<br/><strong class="text-sky-600"> 물질 교환을 효율적으로 수행하기 위해</strong> 분열합니다.<br/>따라서 세포는 무작정 커지지 않고 분열하여 그 수를 늘립니다.</p>
-        </details>
-    </section>
-
-    <section id="organism-size">
-        <h2 class="text-4xl font-bold text-center mb-12">코끼리는 쥐보다 세포가 클까?</h2>
-        <div id="organism-reveal" class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer">
-            <p class="reveal-item text-2xl">몸집이 큰 생물은 세포의 크기가 큰 것이 아니라,</p>
-            <p class="reveal-item text-2xl"><strong class="text-sky-600">세포의 수가 훨씬 더 많습니다.</strong></p>
-            <p class="reveal-item text-2xl">모든 생물은 효율적인 물질 교환을 위해 세포 크기를 일정하게 유지하려 합니다.</p>
-            <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
-        </div>
-    </section>
-
-    <section id="summary">
-        <h2 class="text-4xl font-bold text-center mb-12">핵심 정리</h2>
-        <div id="summary-reveal" class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 cursor-pointer">
-            <ul class="list-disc list-inside space-y-3 text-xl">
-                <li class="reveal-item">세포 분열의 두 가지 핵심 목적은 <strong class="text-sky-600">생장</strong>과 <strong class="text-sky-600">효율적인 물질 교환</strong>입니다.</li>
-                <li class="reveal-item">세포가 커질수록 부피에 대한 표면적의 비가 <strong class="text-red-500">작아져</strong>  물질 교환에 불리해집니다.</li>
-                <li class="reveal-item">따라서 몸집이 큰 생물은 세포 크기가 큰 것이 아니라 <strong class="text-sky-600">세포 수 가 많은 것</strong>입니다.</li>
-            </ul>
-             <span class="text-slate-400 text-sm mt-4 block">(클릭하여 다음 내용 보기)</span>
-        </div>
-    </section>
-
-    <!-- [NEW] Interactive Quiz Section (Add-on) -->
-    <section id="final-quiz" class="text-center">
-        <h2 class="text-4xl font-bold mb-8">🎯 최종 확인 퀴즈</h2>
-        <div class="quiz-container">
-            <p class="text-2xl mb-6">세포가 커질수록 <strong>부피에 대한 표면적의 비율</strong>은 어떻게 변할까요?</p>
-            <div class="quiz-options">
-                <button class="quiz-btn" data-correct="false">커진다</button>
-                <button class="quiz-btn" data-correct="true">작아진다</button>
-                <button class="quiz-btn" data-correct="false">변하지 않는다</button>
-                <button class="quiz-btn" data-correct="false">알 수 없다</button>
-            </div>
-            <div class="quiz-feedback"></div>
-        </div>
-    </section>
-
-    <section id="next">
-        <div class="text-center">
-            <h2 class="text-4xl font-bold mb-4">다음 시간에 배울 내용</h2>
-            <p class="text-3xl text-slate-600">V. 생식과 유전 - 1. 생식: 염색체 수가 유지되는 세포 분열</p>
-        </div>
-    </section>
+ <section class="text-center" data-slide-index="0" data-slide-num="1" data-title="V. 생식과 유전: 세포 분열이 필요한 까닭" id="slide-1">
+  <div class="bg-sky-50 rounded-2xl p-8">
+   <h2 class="text-2xl md:text-4xl md:text-3xl md:text-5xl font-bold mb-2">
+    V. 생식과 유전: 세포 분열이 필요한 까닭
+   </h2>
+   <p class="text-2xl md:text-3xl text-slate-600">
+    생물의 성장과 효율적인 물질 교환을 위한 세포의 전략
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="1" data-slide-num="2" data-title="학습 목표" id="slide-2">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   학습 목표
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
+   <ul class="list-disc list-inside space-y-3 text-xl">
+    <li>
+     세포 분열의 필요성을 설명할 수 있다.
+    </li>
+    <li>
+     세포 분열이 개체의
+     <strong class="text-sky-600">
+      생장
+     </strong>
+     과 어떤 관계가 있는지 설명할 수 있다.
+    </li>
+    <li>
+     세포 크기가 커질 때
+     <strong class="text-sky-600">
+      표면적과 부피
+     </strong>
+     의 변화 관계를 이해하고, 물질 교환 효율과의 연관성을 설명할 수 있다.
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section data-slide-index="2" data-slide-num="3" data-title="1단계: 생각 깨우기 - 시원한 얼음에서 찾는 힌트!" id="slide-3">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-6">
+   1단계: 생각 깨우기 - 시원한 얼음에서 찾는 힌트!
+  </h2>
+  <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+   <p class="text-xl text-center mb-6">
+    컵에 담긴 음료수를 빨리 시원하게 만들고 싶을 때, 커다란 얼음 덩어리 하나를 넣는 것과 같은 양의 잘게 부순 얼음을 넣는 것 중 어느 쪽이 더 효과적일까요?
+   </p>
+   <div class="grid grid-cols-1 md:grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="ice-choices">
+    <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-xl">
+     ① 커다란 얼음 덩어리
+    </button>
+    <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-xl" data-correct="true">
+     ② 잘게 부순 얼음
+    </button>
+    <button class="choice-btn border-2 border-slate-300 p-4 rounded-lg text-xl">
+     ③ 효과는 똑같다
+    </button>
+   </div>
+   <div class="text-center font-bold mb-6 h-6 text-lg" id="ice-feedback">
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="3" data-slide-num="4" data-title="생각 열기 2" id="slide-4">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   생각 열기 2
+  </h2>
+  <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+   <p class="text-3xl md:text-5xl font-bold text-slate-700">
+    우리 몸의 세포는
+    <br/>
+    왜 이렇게 작을까?
+   </p>
+   <p class="mt-4 text-xl text-slate-500">
+    우리 몸은 아주 크지만, 몸을 이루는 세포는 눈에 보이지 않을 정도로 작습니다.  왜 그럴까요?
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="4" data-slide-num="5" data-title="세포 분열이란 무엇일까?" id="slide-5">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   세포 분열이란 무엇일까?
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
+   <ul class="list-disc list-inside space-y-3 text-xl">
+    <li>
+     세포는 생명체를 구성하는
+     <strong class="text-sky-600">
+      기본 단위
+     </strong>
+     입니다.
+    </li>
+    <li>
+     <strong class="text-sky-600">
+      세포 분열
+     </strong>
+     은 하나의 세포가 두 개의 딸세포로 나뉘는 과정입니다.
+    </li>
+    <li>
+     이때 유전 정보가 그대로 복제되어, 원래 세포(모세포)와 똑같은 세포가 만들어집니다.
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section data-slide-index="5" data-slide-num="6" data-title="왜 생물은 세포 분열을 해야 할까?" id="slide-6">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   왜 생물은 세포 분열을 해야 할까?
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 text-center cursor-pointer" id="necessity-reveal">
+   <p class="reveal-item text-3xl">
+    생물이 성장하는 것은 세포 크기가 커지는 것이 아니라,
+   </p>
+   <p class="reveal-item text-3xl">
+    <strong class="text-sky-600">
+     세포 분열로 세포 수가 늘어나기 때문
+    </strong>
+    입니다.
+   </p>
+   <p class="reveal-item text-2xl mt-4">
+    또한, 세포는
+    <strong class="text-sky-600">
+     물질 교환을 효율적으로 하기 위해
+    </strong>
+    분열합니다.
+   </p>
+   <span class="text-slate-400 text-sm mt-4 block">
+    (클릭하여 다음 내용 보기)
+   </span>
+  </div>
+ </section>
+ <section data-slide-index="6" data-slide-num="7" data-title="세포의 생명 활동과 물질 교환" id="slide-7">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   세포의 생명 활동과 물질 교환
+  </h2>
+  <div class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer" id="exchange-reveal">
+   <p class="reveal-item text-2xl">
+    세포는 생명을 유지하기 위해
+    <strong class="text-sky-600">
+     세포 표면(세포막)
+    </strong>
+    을 통해
+   </p>
+   <p class="reveal-item text-2xl">
+    영양소를 흡수하고 노폐물을 배출하는
+    <strong class="text-sky-600">
+     물질 교환
+    </strong>
+    을 합니다.
+   </p>
+   <span class="text-slate-400 text-sm mt-4 block">
+    (클릭하여 다음 내용 보기)
+   </span>
+  </div>
+ </section>
+ <section data-slide-index="7" data-slide-num="8" data-title="세포 크기와 물질 교환 효율" id="slide-8">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   세포 크기와 물질 교환 효율
+  </h2>
+  <div class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer" id="efficiency-reveal">
+   <p class="reveal-item text-2xl">
+    세포가 커지면 부피는 표면적보다 훨씬 빠르게 증가합니다.
+   </p>
+   <p class="reveal-item text-2xl">
+    이는
+    <strong class="text-sky-600">
+     물질 교환의 효율을 떨어뜨려
+    </strong>
+    세포가 계속 커지는 데 한계가 됩니다.
+   </p>
+   <span class="text-slate-400 text-sm mt-4 block">
+    (클릭하여 다음 내용 보기)
+   </span>
+  </div>
+ </section>
+ <section data-slide-index="8" data-slide-num="9" data-title="정육면체로 알아보는 표면적과 부피" id="slide-9">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   정육면체로 알아보는 표면적과 부피
+  </h2>
+  <details class="bg-white p-6 md:p-8 rounded-2xl shadow-lg cursor-pointer group">
+   <summary class="font-bold text-2xl list-none text-center">
+    세포 크기에 따른 변화 알아보기
+    <span class="text-sky-500 group-open:hidden">
+     (클릭)
+    </span>
+   </summary>
+   <div class="mt-8">
+    <table class="w-full text-center comparison-table text-lg">
+     <thead>
+      <tr class="bg-slate-100">
+       <th>
+        한 변의 길이
+       </th>
+       <th>
+        표면적 (길이&sup2;)&times;6
+       </th>
+       <th>
+        부피 (길이&sup3;)
+       </th>
+       <th>
+        부피에 대한 표면적 비
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        1cm
+       </td>
+       <td>
+        6 cm&sup2;
+       </td>
+       <td>
+        1 cm&sup3;
+       </td>
+       <td class="font-bold text-2xl text-sky-600">
+        6
+       </td>
+      </tr>
+      <tr>
+       <td>
+        2cm
+       </td>
+       <td>
+        24 cm&sup2;
+       </td>
+       <td>
+        8 cm&sup3;
+       </td>
+       <td class="font-bold text-2xl text-sky-600">
+        3
+       </td>
+      </tr>
+      <tr>
+       <td>
+        3cm
+       </td>
+       <td>
+        54 cm&sup2;
+       </td>
+       <td>
+        27 cm&sup3;
+       </td>
+       <td class="font-bold text-2xl text-sky-600">
+        2
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p class="text-center mt-8 font-bold text-2xl">
+     결론: 커질수록 부피에 대한 표면적의 비율은
+     <strong class="text-red-500">
+      작아진다.
+     </strong>
+    </p>
+   </div>
+  </details>
+ </section>
+ <section data-slide-index="9" data-slide-num="10" data-title="세포가 분열하는 이유: 효율적인 생존 전략" id="slide-10">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   세포가 분열하는 이유: 효율적인 생존 전략
+  </h2>
+  <details class="bg-white p-8 rounded-2xl shadow-lg cursor-pointer group">
+   <summary class="font-bold text-2xl list-none text-center">
+    핵심 이유 알아보기
+    <span class="text-sky-500 group-open:hidden">
+     (클릭)
+    </span>
+   </summary>
+   <p class="text-2xl text-center mt-8">
+    세포는 부피 당 표면적의 비율을 높게 유지하여
+    <br>
+     <strong class="text-sky-600">
+      물질 교환을 효율적으로 수행하기 위해
+     </strong>
+     분열합니다.
+     <br/>
+     따라서 세포는 무작정 커지지 않고 분열하여 그 수를 늘립니다.
+    </br>
+   </p>
+  </details>
+ </section>
+ <section data-slide-index="10" data-slide-num="11" data-title="코끼리는 쥐보다 세포가 클까?" id="slide-11">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   코끼리는 쥐보다 세포가 클까?
+  </h2>
+  <div class="bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer" id="organism-reveal">
+   <p class="reveal-item text-2xl">
+    몸집이 큰 생물은 세포의 크기가 큰 것이 아니라,
+   </p>
+   <p class="reveal-item text-2xl">
+    <strong class="text-sky-600">
+     세포의 수가 훨씬 더 많습니다.
+    </strong>
+   </p>
+   <p class="reveal-item text-2xl">
+    모든 생물은 효율적인 물질 교환을 위해 세포 크기를 일정하게 유지하려 합니다.
+   </p>
+   <span class="text-slate-400 text-sm mt-4 block">
+    (클릭하여 다음 내용 보기)
+   </span>
+  </div>
+ </section>
+ <section data-slide-index="11" data-slide-num="12" data-title="핵심 정리" id="slide-12">
+  <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+   핵심 정리
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4 cursor-pointer" id="summary-reveal">
+   <ul class="list-disc list-inside space-y-3 text-xl">
+    <li class="reveal-item">
+     세포 분열의 두 가지 핵심 목적은
+     <strong class="text-sky-600">
+      생장
+     </strong>
+     과
+     <strong class="text-sky-600">
+      효율적인 물질 교환
+     </strong>
+     입니다.
+    </li>
+    <li class="reveal-item">
+     세포가 커질수록 부피에 대한 표면적의 비가
+     <strong class="text-red-500">
+      작아져
+     </strong>
+     물질 교환에 불리해집니다.
+    </li>
+    <li class="reveal-item">
+     따라서 몸집이 큰 생물은 세포 크기가 큰 것이 아니라
+     <strong class="text-sky-600">
+      세포 수 가 많은 것
+     </strong>
+     입니다.
+    </li>
+   </ul>
+   <span class="text-slate-400 text-sm mt-4 block">
+    (클릭하여 다음 내용 보기)
+   </span>
+  </div>
+ </section>
+ <!-- [NEW] Interactive Quiz Section (Add-on) -->
+ <section class="text-center" data-slide-index="12" data-slide-num="13" data-title="🎯 최종 확인 퀴즈" id="slide-13">
+  <h2 class="text-2xl md:text-4xl font-bold mb-8">
+   🎯 최종 확인 퀴즈
+  </h2>
+  <div class="quiz-container">
+   <p class="text-2xl mb-6">
+    세포가 커질수록
+    <strong>
+     부피에 대한 표면적의 비율
+    </strong>
+    은 어떻게 변할까요?
+   </p>
+   <div class="quiz-options">
+    <button class="quiz-btn" data-correct="false">
+     커진다
+    </button>
+    <button class="quiz-btn" data-correct="true">
+     작아진다
+    </button>
+    <button class="quiz-btn" data-correct="false">
+     변하지 않는다
+    </button>
+    <button class="quiz-btn" data-correct="false">
+     알 수 없다
+    </button>
+   </div>
+   <div class="quiz-feedback">
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="13" data-slide-num="14" data-title="다음 시간에 배울 내용" id="slide-14">
+  <div class="text-center">
+   <h2 class="text-2xl md:text-4xl font-bold mb-4">
+    다음 시간에 배울 내용
+   </h2>
+   <p class="text-3xl text-slate-600">
+    V. 생식과 유전 - 1. 생식: 염색체 수가 유지되는 세포 분열
+   </p>
+  </div>
+ </section>
 </main>
-
 <!-- Add-on: Slide Engine Script -->
-<script src="js/slide_engine.js"></script>
+<script src="js/slide_engine.js">
+</script>

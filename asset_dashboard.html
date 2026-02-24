@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>2025 스마트 이미지 리소스 관리자</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .asset-card { transition: all 0.2s; border: 1px solid #e2e8f0; }
+        .asset-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: #06b6d4; }
+        .img-container { height: 160px; display: flex; align-items: center; justify-content: center; background: #f8fafc; overflow: hidden; position: relative; border-bottom: 1px solid #e2e8f0; }
+        .img-container img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        .slide-badge { font-size: 0.75rem; font-weight: 700; color: #475569; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; }
+        .modified { border-color: #0891b2; background-color: #ecfeff; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <div class="max-w-7xl mx-auto p-8">
+        <header class="flex justify-between items-end mb-10 border-b border-slate-200 pb-8">
+            <div>
+                <h1 class="text-3xl font-black text-slate-900 tracking-tight">Smart Asset Manager (2025)</h1>
+                <p class="text-slate-500 mt-2 text-sm">이미지 주소를 입력하면 <strong>즉시 미리보기</strong>가 반영됩니다.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="exportChanges()" class="bg-slate-900 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-slate-800 transition-all text-sm flex items-center gap-2 shadow-lg shadow-slate-200">
+                    <span>📋</span> 변경 사항 JSON 복사
+                </button>
+                <a href="index.html" class="bg-white text-slate-700 border border-slate-300 px-5 py-2.5 rounded-lg font-bold hover:bg-slate-50 transition-all text-sm">Home</a>
+            </div>
+        </header>
+        <div id="dashboard-container" class="space-y-12">
+
+        <section class="file-section" data-filename="2_mitosis.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">2_mitosis.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="세포질 분열"><span>📄</span> P.12</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">동물 세포질 분열</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5617556564463306687" src="images/cell_division.png" alt="동물 세포질 분열" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/cell_division.png" value="images/cell_division.png" 
+                               oninput="previewImage(this, 'img_5617556564463306687')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="세포질 분열"><span>📄</span> P.12</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">식물 세포질 분열</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6952725076569930348" src="images/cell_division_2.png" alt="식물 세포질 분열" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/cell_division_2.png" value="images/cell_division_2.png" 
+                               oninput="previewImage(this, 'img_6952725076569930348')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="양파 뿌리 끝 세포 관찰"><span>📄</span> P.13</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">양파 뿌리 끝 약 1cm를 잘라 에탄올과 아세트산 혼합...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_1152810170090169507" src="images/1-fixation.jpg" alt="양파 뿌리 끝 약 1cm를 잘라 에탄올과 아세트산 혼합..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/1-fixation.jpg" value="images/1-fixation.jpg" 
+                               oninput="previewImage(this, 'img_1152810170090169507')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="양파 뿌리 끝 세포 관찰"><span>📄</span> P.13</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">묽은 염산에 뿌리 끝을 넣고 가열하여 세포벽을 연하게 ...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_347852095421753604" src="images/2-maceration.png" alt="묽은 염산에 뿌리 끝을 넣고 가열하여 세포벽을 연하게 ..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/2-maceration.png" value="images/2-maceration.png" 
+                               oninput="previewImage(this, 'img_347852095421753604')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="양파 뿌리 끝 세포 관찰"><span>📄</span> P.13</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">아세트산 카민과 같은 염색 용액으로 핵과 염색체를 붉게...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_1196625992915906608" src="images/3-staining.jpg" alt="아세트산 카민과 같은 염색 용액으로 핵과 염색체를 붉게..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/3-staining.jpg" value="images/3-staining.jpg" 
+                               oninput="previewImage(this, 'img_1196625992915906608')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="양파 뿌리 끝 세포 관찰"><span>📄</span> P.13</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">염색된 뿌리 끝을 해부침으로 잘게 찢고 압착하여 세포를...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4622932377848559663" src="images/4-separation.jpg" alt="염색된 뿌리 끝을 해부침으로 잘게 찢고 압착하여 세포를..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/4-separation.jpg" value="images/4-separation.jpg" 
+                               oninput="previewImage(this, 'img_4622932377848559663')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        <section class="file-section" data-filename="3_meiosis.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">3_meiosis.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="생식과 생식세포란?"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">생식 (Reproduction)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_1885035714827479986" src="images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg" alt="생식 (Reproduction)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg" value="images/Plant-Life-Cycle-for-Kids-Stages-Diagram.jpg" 
+                               oninput="previewImage(this, 'img_1885035714827479986')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="생식과 생식세포란?"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">생식세포 (Germ Cell)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4370420723637358944" src="images/gametes1_med.jpeg" alt="생식세포 (Germ Cell)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/gametes1_med.jpeg" value="images/gametes1_med.jpeg" 
+                               oninput="previewImage(this, 'img_4370420723637358944')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="감수 분열의 결과"><span>📄</span> P.7</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">감수 분열 과정 요약</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7087182567885264953" src="images/Meiosis_main_steps.svg" alt="감수 분열 과정 요약" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/Meiosis_main_steps.svg" value="images/Meiosis_main_steps.svg" 
+                               oninput="previewImage(this, 'img_7087182567885264953')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="비교 1: 염색체 행동"><span>📄</span> P.8</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">체세포 분열(왼쪽)과 감수 분열(오른쪽)의 염색체 행동...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6404663657471474973" src="images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg" alt="체세포 분열(왼쪽)과 감수 분열(오른쪽)의 염색체 행동..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg" value="images/[비상교육] 중등_과학 3_5-1_세포 분열 비교(출).jpg" 
+                               oninput="previewImage(this, 'img_6404663657471474973')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵 1개당 DNA의 상대적 양"><span>📄</span> P.10</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">감수 분열 과정에서의 DNA 양 변화 그래프</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_1844624014837099471" src="images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg" alt="감수 분열 과정에서의 DNA 양 변화 그래프" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg" value="images/[비상교육] 중등_과학 3_5-1_생식세포 형성 과정에서 DNA 상대량 변화(출).jpg" 
+                               oninput="previewImage(this, 'img_1844624014837099471')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="심화 과정: 교차 (Crossing Over)와 유전적 다양성"><span>📄</span> P.11</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">염색체 교차 과정</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5344297510499955062" src="images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp" alt="염색체 교차 과정" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp" value="images/vector-scientific-illustration-chromosomal-crossover-260nw-2229608011.webp" 
+                               oninput="previewImage(this, 'img_5344297510499955062')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        <section class="file-section" data-filename="4_fert_egg.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">4_fert_egg.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="생각 열기"><span>📄</span> P.3</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">하나의 수정란 세포가 어떻게 복잡한 구조를 가진 병아리...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2866002423080970551" src="images/Schematic-drawings-of-chronological-chick-embryo-development.png" alt="하나의 수정란 세포가 어떻게 복잡한 구조를 가진 병아리..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/Schematic-drawings-of-chronological-chick-embryo-development.png" value="images/Schematic-drawings-of-chronological-chick-embryo-development.png" 
+                               oninput="previewImage(this, 'img_2866002423080970551')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 개념 1: 생식세포 - 정자와 난자"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">정자와 난자의 크기와 모양이 다른 이유는 각자의 역할(...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5654389889379430219" src="images/gametes1_med.jpeg" alt="정자와 난자의 크기와 모양이 다른 이유는 각자의 역할(..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/gametes1_med.jpeg" value="images/gametes1_med.jpeg" 
+                               oninput="previewImage(this, 'img_5654389889379430219')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 개념 2: 수정 (Fertilization) - 새로운 생명의 시작"><span>📄</span> P.5</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">하나의 정자가 난자와 결합하여 수정란을 형성하는 과정입...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2216353719608853133" src="images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png" alt="하나의 정자가 난자와 결합하여 수정란을 형성하는 과정입..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png" value="images/Staged-penetration-and-fusion-of-the-sperm-nucleus-and-the-centriole-in-the-egg-in-the.png" 
+                               oninput="previewImage(this, 'img_2216353719608853133')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 개념 3: 발생 ① - 난할 (Cleavage)"><span>📄</span> P.6</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">수정란이 2, 4, 8세포기로 분열하는 과정. 전체 배...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_744138540710559005" src="images/Cell_Cleavage.png" alt="수정란이 2, 4, 8세포기로 분열하는 과정. 전체 배..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/Cell_Cleavage.png" value="images/Cell_Cleavage.png" 
+                               oninput="previewImage(this, 'img_744138540710559005')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 개념 4: 발생 ② - 착상과 태반 형성"><span>📄</span> P.7</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">수정부터 착상까지의 과정</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7625330598647615519" src="images/uterus_implantation.jpg" alt="수정부터 착상까지의 과정" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/uterus_implantation.jpg" value="images/uterus_implantation.jpg" 
+                               oninput="previewImage(this, 'img_7625330598647615519')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="발생 ③: 태아의 성장 (임신 초기)"><span>📄</span> P.8</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">임신 11주차 태아 (평균 크기: 4.1cm)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_8024310117185859929" src="images/fetus_11_weeks.jpg" alt="임신 11주차 태아 (평균 크기: 4.1cm)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/fetus_11_weeks.jpg" value="images/fetus_11_weeks.jpg" 
+                               oninput="previewImage(this, 'img_8024310117185859929')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="발생 ④: 태아의 성장 (임신 중기)"><span>📄</span> P.9</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">임신 21주차 태아 (평균 크기: 25.6cm)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_3975993240738211387" src="images/fetus_21_weeks.jpg" alt="임신 21주차 태아 (평균 크기: 25.6cm)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/fetus_21_weeks.jpg" value="images/fetus_21_weeks.jpg" 
+                               oninput="previewImage(this, 'img_3975993240738211387')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="발생 ⑤: 태아의 성장 (임신 후기) 및 출산"><span>📄</span> P.10</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">임신 37주차 태아 (평균 크기: 47.4cm)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_3623282036636333573" src="images/fetus_37_weeks.jpg" alt="임신 37주차 태아 (평균 크기: 47.4cm)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/fetus_37_weeks.jpg" value="images/fetus_37_weeks.jpg" 
+                               oninput="previewImage(this, 'img_3623282036636333573')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="발생 ⑥: 발생 과정 한눈에 보기"><span>📄</span> P.11</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">초기 배아부터 태아까지의 모습</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7619463591716905792" src="images/Human_embryonic_fetus_development.jpg" alt="초기 배아부터 태아까지의 모습" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/Human_embryonic_fetus_development.jpg" value="images/Human_embryonic_fetus_development.jpg" 
+                               oninput="previewImage(this, 'img_7619463591716905792')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="발생 ⑥: 발생 과정 한눈에 보기"><span>📄</span> P.11</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">주차별 태아 발달 단계</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6861362645545381071" src="images/52554-Fetal-Development-Tear-Pad-English_media-01.avif" alt="주차별 태아 발달 단계" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/52554-Fetal-Development-Tear-Pad-English_media-01.avif" value="images/52554-Fetal-Development-Tear-Pad-English_media-01.avif" 
+                               oninput="previewImage(this, 'img_6861362645545381071')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="발생 ⑥: 발생 과정 한눈에 보기"><span>📄</span> P.11</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">임신 기간 전체 성장 과정</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_8711611142002720917" src="images/fetal-growth-4-40-weeks-260nw-551553100.webp" alt="임신 기간 전체 성장 과정" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/fetal-growth-4-40-weeks-260nw-551553100.webp" value="images/fetal-growth-4-40-weeks-260nw-551553100.webp" 
+                               oninput="previewImage(this, 'img_8711611142002720917')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="난할과 체세포 분열 비교"><span>📄</span> P.12</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">난할과 체세포 분열 비교 GIF</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4440644204981817217" src="images/cleamodcell.gif" alt="난할과 체세포 분열 비교 GIF" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/cleamodcell.gif" value="images/cleamodcell.gif" 
+                               oninput="previewImage(this, 'img_4440644204981817217')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        <section class="file-section" data-filename="5_mendel1.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">5_mendel1.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델이 밝힌 유전 원리"><span>📄</span> P.1</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">완두콩 속에 숨겨진 생명의 비밀</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_21508429481381354" src="images/mendel_and_peas.jpg" alt="완두콩 속에 숨겨진 생명의 비밀" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/mendel_and_peas.jpg" value="images/mendel_and_peas.jpg" 
+                               oninput="previewImage(this, 'img_21508429481381354')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="Section 2"><span>📄</span> P.2</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">🎯 학습 목표</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6064988410373253944" src="images/target_illustration.jpg" alt="🎯 학습 목표" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/target_illustration.jpg" value="images/target_illustration.jpg" 
+                               oninput="previewImage(this, 'img_6064988410373253944')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🤔 생각 열기: 우리는 왜 부모님을 닮았을까?"><span>📄</span> P.3</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">어미가 같은 강아지들도 생김새와 털색이 조금씩 다른 이...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_8784521308034517474" src="images/litter_of_puppies.webp" alt="어미가 같은 강아지들도 생김새와 털색이 조금씩 다른 이..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/litter_of_puppies.webp" value="images/litter_of_puppies.webp" 
+                               oninput="previewImage(this, 'img_8784521308034517474')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (1): 형질과 유전"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">형질 (Trait)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2254950512304623410" src="images/natural-eye-colour-chart-683x1024.png" alt="형질 (Trait)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/natural-eye-colour-chart-683x1024.png" value="images/natural-eye-colour-chart-683x1024.png" 
+                               oninput="previewImage(this, 'img_2254950512304623410')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (1): 형질과 유전"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">유전 (Heredity)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2310755765291696495" src="images/family_resemblance.webp" alt="유전 (Heredity)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/family_resemblance.webp" value="images/family_resemblance.webp" 
+                               oninput="previewImage(this, 'img_2310755765291696495')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (1): 형질과 유전"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">대립 형질 (Allelic traits)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6030854420914149735" src="images/allelic_traits_example.png" alt="대립 형질 (Allelic traits)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/allelic_traits_example.png" value="images/allelic_traits_example.png" 
+                               oninput="previewImage(this, 'img_6030854420914149735')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델 이전의 생각: 혼합설"><span>📄</span> P.5</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">"부모의 형질이 자손에게 물감처럼 섞여 전달된다"고 생...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2362042428128977218" src="images/paint_mixing.jpg" alt=""부모의 형질이 자손에게 물감처럼 섞여 전달된다"고 생..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/paint_mixing.jpg" value="images/paint_mixing.jpg" 
+                               oninput="previewImage(this, 'img_2362042428128977218')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="수도사의 정원에서 시작된 위대한 발견"><span>📄</span> P.6</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">정원의 멘델</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_717733109163939772" src="images/mendel_in_garden.jpg" alt="정원의 멘델" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/mendel_in_garden.jpg" value="images/mendel_in_garden.jpg" 
+                               oninput="previewImage(this, 'img_717733109163939772')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🌿 멘델의 실험 재료: 완두"><span>📄</span> P.7</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">완두콩 식물</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5886119459315011904" src="images/pea_plant_lifecycle.jpg" alt="완두콩 식물" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/pea_plant_lifecycle.jpg" value="images/pea_plant_lifecycle.jpg" 
+                               oninput="previewImage(this, 'img_5886119459315011904')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델의 실험 준비: 순종 얻기"><span>📄</span> P.8</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">순종 (Pure line)이란?</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6483121382964006094" src="images/self_pollination_diagram.png" alt="순종 (Pure line)이란?" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/self_pollination_diagram.png" value="images/self_pollination_diagram.png" 
+                               oninput="previewImage(this, 'img_6483121382964006094')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (2): 유전자와 표현형"><span>📄</span> P.9</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">1. 유전자 (Gene)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5124850668612715260" src="images/chromosome1.png" alt="1. 유전자 (Gene)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/chromosome1.png" value="images/chromosome1.png" 
+                               oninput="previewImage(this, 'img_5124850668612715260')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (2): 유전자와 표현형"><span>📄</span> P.9</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">2. 대립유전자 (Allele)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6204957696011028978" src="images/allele.webp" alt="2. 대립유전자 (Allele)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/allele.webp" value="images/allele.webp" 
+                               oninput="previewImage(this, 'img_6204957696011028978')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (2): 유전자와 표현형"><span>📄</span> P.9</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">3. 유전자형 (Genotype)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6941228830976310361" src="images/genotype.png" alt="3. 유전자형 (Genotype)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/genotype.png" value="images/genotype.png" 
+                               oninput="previewImage(this, 'img_6941228830976310361')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="핵심 용어 (2): 유전자와 표현형"><span>📄</span> P.9</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">4. 표현형 (Phenotype)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4671096608714203184" src="images/genotype_phenotype_eye_color.png" alt="4. 표현형 (Phenotype)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/genotype_phenotype_eye_color.png" value="images/genotype_phenotype_eye_color.png" 
+                               oninput="previewImage(this, 'img_4671096608714203184')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="순종과 잡종의 유전자형"><span>📄</span> P.10</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">염색체 위의 대립유전자</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7818599198857388180" src="images/homozygote_heterozygote.jpg" alt="염색체 위의 대립유전자" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/homozygote_heterozygote.jpg" value="images/homozygote_heterozygote.jpg" 
+                               oninput="previewImage(this, 'img_7818599198857388180')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델의 첫 번째 실험: 한 쌍의 대립 형질 교배"><span>📄</span> P.11</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">어버이(P) 세대 교배</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4512464414352838816" src="images/1st_exp_breeding_P.jpg" alt="어버이(P) 세대 교배" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/1st_exp_breeding_P.jpg" value="images/1st_exp_breeding_P.jpg" 
+                               oninput="previewImage(this, 'img_4512464414352838816')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="실험 결과: 잡종 1대에서는?"><span>📄</span> P.12</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">결과: 잡종 1대(F1)에서는모두 둥근 완두만나타났다!</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_1072683315696519036" src="images/f1_generation.jpg" alt="결과: 잡종 1대(F1)에서는모두 둥근 완두만나타났다!" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/f1_generation.jpg" value="images/f1_generation.jpg" 
+                               oninput="previewImage(this, 'img_1072683315696519036')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델의 첫 번째 원리: 우열의 원리"><span>📄</span> P.13</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">우성과 열성 개념도</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5874052692144937082" src="images/dominant_recessive_concept.jpg" alt="우성과 열성 개념도" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/dominant_recessive_concept.jpg" value="images/dominant_recessive_concept.jpg" 
+                               oninput="previewImage(this, 'img_5874052692144937082')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="우열의 원리: 유전자형으로 이해하기"><span>📄</span> P.14</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">우열의 원리 도식</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6628832252720361851" src="images/dominance_principle_diagram.jpg" alt="우열의 원리 도식" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/dominance_principle_diagram.jpg" value="images/dominance_principle_diagram.jpg" 
+                               oninput="previewImage(this, 'img_6628832252720361851')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델의 두 번째 실험: 잡종 1대의 자가 수분"><span>📄</span> P.15</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">잡종 1대(F1) 자가 수분</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_9027746180669683249" src="images/f1_self_pollination.jpg" alt="잡종 1대(F1) 자가 수분" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/f1_self_pollination.jpg" value="images/f1_self_pollination.jpg" 
+                               oninput="previewImage(this, 'img_9027746180669683249')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="실험 결과: 잡종 2대에서는?"><span>📄</span> P.16</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">결과: 둥근 완두와 주름진 완두가 약3 : 1의 비율로...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_6057556981396300097" src="images/f2_generation_ratio.jpg" alt="결과: 둥근 완두와 주름진 완두가 약3 : 1의 비율로..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/f2_generation_ratio.jpg" value="images/f2_generation_ratio.jpg" 
+                               oninput="previewImage(this, 'img_6057556981396300097')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="감수 분열과 유전자의 분리"><span>📄</span> P.17</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">감수 1분열에서 쌍으로 존재하던상동 염색체가 분리됩니다...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_955174696925376126" src="images/meiosis_segregation.jpg" alt="감수 1분열에서 쌍으로 존재하던상동 염색체가 분리됩니다..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/meiosis_segregation.jpg" value="images/meiosis_segregation.jpg" 
+                               oninput="previewImage(this, 'img_955174696925376126')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="멘델의 두 번째 원리: 분리의 법칙"><span>📄</span> P.18</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">이 원리 때문에 잡종 1대에서 사라졌던 열성 형질이 잡...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2984809674396404098" src="images/law_of_segregation.jpg" alt="이 원리 때문에 잡종 1대에서 사라졌던 열성 형질이 잡..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/law_of_segregation.jpg" value="images/law_of_segregation.jpg" 
+                               oninput="previewImage(this, 'img_2984809674396404098')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🎲 탐구 활동: 분리의 법칙 확인하기"><span>📄</span> P.20</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">활동 목표</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7384401140909654239" src="images/go_stones_in_bags.jpg" alt="활동 목표" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/go_stones_in_bags.jpg" value="images/go_stones_in_bags.jpg" 
+                               oninput="previewImage(this, 'img_7384401140909654239')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="탐구 활동 과정 (1)"><span>📄</span> P.21</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">1. 잡종 1대(Aa) 설정하기</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_646865136793203979" src="images/setting_up_experiment.jpg" alt="1. 잡종 1대(Aa) 설정하기" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/setting_up_experiment.jpg" value="images/setting_up_experiment.jpg" 
+                               oninput="previewImage(this, 'img_646865136793203979')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="탐구 활동 과정 (2)"><span>📄</span> P.22</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">2. 수정 모의실험 (잡종 2대 만들기)</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7610488871339732972" src="images/drawing_lots.jpg" alt="2. 수정 모의실험 (잡종 2대 만들기)" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/drawing_lots.jpg" value="images/drawing_lots.jpg" 
+                               oninput="previewImage(this, 'img_7610488871339732972')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="탐구 활동 결과 및 정리"><span>📄</span> P.23</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">결과 예측</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_532407565301790022" src="images/bar_chart_results.jpg" alt="결과 예측" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/bar_chart_results.jpg" value="images/bar_chart_results.jpg" 
+                               oninput="previewImage(this, 'img_532407565301790022')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="📝 핵심 내용 정리"><span>📄</span> P.24</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">핵심 정리 마인드맵</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2207748726454533982" src="images/summary_mind_map.jpg" alt="핵심 정리 마인드맵" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/summary_mind_map.jpg" value="images/summary_mind_map.jpg" 
+                               oninput="previewImage(this, 'img_2207748726454533982')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="📚 다음 학습 예고"><span>📄</span> P.28</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">두 쌍 이상의 형질은 어떻게 함께 유전될까? -독립의 ...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7412264246492543315" src="images/next_lesson_preview.jpg" alt="두 쌍 이상의 형질은 어떻게 함께 유전될까? -독립의 ..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/next_lesson_preview.jpg" value="images/next_lesson_preview.jpg" 
+                               oninput="previewImage(this, 'img_7412264246492543315')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        <section class="file-section" data-filename="6_mendel2.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">6_mendel2.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="V. 생식과 유전"><span>📄</span> P.1</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">두 쌍의 대립 형질은 서로에게 어떤 영향을 줄까?</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5704754736782431691" src="images/mendel_in_garden.jpg" alt="두 쌍의 대립 형질은 서로에게 어떤 영향을 줄까?" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/mendel_in_garden.jpg" value="images/mendel_in_garden.jpg" 
+                               oninput="previewImage(this, 'img_5704754736782431691')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🤔 도입 질문"><span>📄</span> P.3</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">두 개의 주사위</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_3976860854063242583" src="https://placehold.co/400x300/e2e8f0/64748b?text=두개의+주사위" alt="두 개의 주사위" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="https://placehold.co/400x300/e2e8f0/64748b?text=두개의+주사위" value="https://placehold.co/400x300/e2e8f0/64748b?text=두개의+주사위" 
+                               oninput="previewImage(this, 'img_3976860854063242583')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🔬 멘델의 실험 설계"><span>📄</span> P.4</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">멘델의 교배 실험 과정</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4527905388220196466" src="images/1st_exp_breeding_P.jpg" alt="멘델의 교배 실험 과정" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/1st_exp_breeding_P.jpg" value="images/1st_exp_breeding_P.jpg" 
+                               oninput="previewImage(this, 'img_4527905388220196466')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🌱 4가지 종류의 생식세포"><span>📄</span> P.7</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">생식세포 형성</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_501688804338546053" src="images/gametes1_med.jpeg" alt="생식세포 형성" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/gametes1_med.jpeg" value="images/gametes1_med.jpeg" 
+                               oninput="previewImage(this, 'img_501688804338546053')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        <section class="file-section" data-filename="7_human_genetics.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">7_human_genetics.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="Cover"><span>📄</span> P.1</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">가족의 비밀부터 최첨단 과학까지</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2257185373350813417" src="images/family_resemblance.webp" alt="가족의 비밀부터 최첨단 과학까지" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/family_resemblance.webp" value="images/family_resemblance.webp" 
+                               oninput="previewImage(this, 'img_2257185373350813417')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🤔 왜 우리는 모두 다를까?"><span>📄</span> P.3</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">쌍꺼풀, 보조개, 귓불 모양... 우리를 특별하게 만드...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_1902551585806606689" src="images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg" alt="쌍꺼풀, 보조개, 귓불 모양... 우리를 특별하게 만드..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg" value="images/[비상교육] 중등_과학 3_5-2-3_182p_사람의 여러 가지 유전 형질.jpg" 
+                               oninput="previewImage(this, 'img_1902551585806606689')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🌳 연구 방법 1: 가계도 분석"><span>📄</span> P.5</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">특정 형질이 집안 대대로 어떻게 나타나는지 추적하는 '...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2083022028394928428" src="images/family_tree.png" alt="특정 형질이 집안 대대로 어떻게 나타나는지 추적하는 '..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/family_tree.png" value="images/family_tree.png" 
+                               oninput="previewImage(this, 'img_2083022028394928428')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="Section 11"><span>📄</span> P.11</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">qPCR 증폭 곡선 그래프</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_2022900996900886864" src="images/qpcr_curves-1.jpg" alt="qPCR 증폭 곡선 그래프" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/qpcr_curves-1.jpg" value="images/qpcr_curves-1.jpg" 
+                               oninput="previewImage(this, 'img_2022900996900886864')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="Section 12"><span>📄</span> P.12</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">RNA 시퀀싱 과정</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_4337007644494384353" src="images/RNA_seq.jpg" alt="RNA 시퀀싱 과정" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/RNA_seq.jpg" value="images/RNA_seq.jpg" 
+                               oninput="previewImage(this, 'img_4337007644494384353')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="Section 13"><span>📄</span> P.13</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">SDS-PAGE 젤 결과</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_5092809784836227128" src="images/SDS_page.jpg" alt="SDS-PAGE 젤 결과" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/SDS_page.jpg" value="images/SDS_page.jpg" 
+                               oninput="previewImage(this, 'img_5092809784836227128')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        <section class="file-section" data-filename="8_genetics_activity.html">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-cyan-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-800">8_genetics_activity.html</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="V. 생식과 유전"><span>📄</span> P.1</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">동전을 던져 확인하는 유전의 확률적 원리</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_7521796688237907997" src="images/litter_of_puppies.webp" alt="동전을 던져 확인하는 유전의 확률적 원리" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/litter_of_puppies.webp" value="images/litter_of_puppies.webp" 
+                               oninput="previewImage(this, 'img_7521796688237907997')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🤔 생각 열기: 나는 부모님과 왜 다를까?"><span>📄</span> P.3</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">부모님 두 분 다 쌍꺼풀이 있는데, 나만 없는 경우가 ...</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_8567384986917105153" src="images/family_resemblance.webp" alt="부모님 두 분 다 쌍꺼풀이 있는데, 나만 없는 경우가 ..." onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/family_resemblance.webp" value="images/family_resemblance.webp" 
+                               oninput="previewImage(this, 'img_8567384986917105153')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🔬 심화: 유전학의 응용"><span>📄</span> P.10</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">DNA 지문</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_8728575177489480053" src="images/southern_blot.webp" alt="DNA 지문" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/southern_blot.webp" value="images/southern_blot.webp" 
+                               oninput="previewImage(this, 'img_8728575177489480053')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                
+                <div class="asset-card bg-white rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-3 border-b border-slate-100 bg-white flex justify-between items-center">
+                        <span class="slide-badge" title="🔬 심화: 유전학의 응용"><span>📄</span> P.10</span>
+                        <span class="text-[10px] font-bold text-slate-400 truncate max-w-[120px]">맞춤형 의학</span>
+                    </div>
+                    <div class="img-container group relative">
+                        <img id="img_8333175175126216439" src="images/RNA_seq.jpg" alt="맞춤형 의학" onerror="this.src='https://via.placeholder.com/150?text=Error'">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col gap-3">
+                        <input type="text" data-original="images/RNA_seq.jpg" value="images/RNA_seq.jpg" 
+                               oninput="previewImage(this, 'img_8333175175126216439')"
+                               class="img-input w-full text-xs p-2.5 bg-slate-50 border border-slate-200 rounded-lg font-mono">
+                    </div>
+                </div>
+                </div></section>
+        </div>
+    </div>
+    <script>
+        function previewImage(inputElement, imgId) {
+            const newSrc = inputElement.value.trim();
+            const imgElement = document.getElementById(imgId);
+            const card = inputElement.closest('.asset-card');
+            if (newSrc) imgElement.src = newSrc;
+            if (newSrc !== inputElement.dataset.original) card.classList.add('modified');
+            else card.classList.remove('modified');
+        }
+        function exportChanges() {
+            const changes = [];
+            const inputs = document.querySelectorAll('.img-input');
+            inputs.forEach(input => {
+                const original = input.dataset.original;
+                const current = input.value.trim();
+                if (original !== current) {
+                    const filename = input.closest('.file-section').dataset.filename;
+                    changes.push({ file: filename, old_src: original, new_src: current });
+                }
+            });
+            if (changes.length === 0) { alert('변경 사항이 없습니다.'); return; }
+            navigator.clipboard.writeText(JSON.stringify(changes, null, 2)).then(() => {
+                alert('✅ 변경 사항 복사 완료! Gemini에게 요청하세요.');
+            });
+        }
+    </script>
+</body>
+</html>

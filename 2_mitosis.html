@@ -1,429 +1,429 @@
 <div class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0 modal-overlay" id="modal-overlay" onclick="closeModal()">
-<div class="modal-content bg-white rounded-lg p-4 max-w-md w-full transform scale-95 opacity-0 hidden" id="dna-modal" onclick="event.stopPropagation()">
-<h3 class="text-xl font-bold mb-4">
-     DNA 이중 나선 구조
-    </h3>
-<img alt="회전하는 DNA 이중 나선" class="w-full rounded" data-asset-id="2_mitosis_img_1" src="images/DNA_animation.gif"/>
-<button class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors" onclick="closeModal()">
-     닫기
-    </button>
-</div>
-<div class="modal-content bg-white rounded-lg p-4 max-w-lg w-full transform scale-95 opacity-0 hidden" id="gene-modal" onclick="event.stopPropagation()">
-<h3 class="text-xl font-bold mb-4">
-     원형 유전체 지도 (Circular Genome Map) 예시
-    </h3>
-<img alt="대장균의 원형 유전체 지도" class="w-full rounded bg-white" data-asset-id="2_mitosis_img_2" src="images/circular_genome_ecoli.jpg"/>
-<p class="text-xs text-slate-500 mt-2">
-     예시: 대장균(E. coli)의 유전체 지도. 각 색깔은 다른 유전자 그룹을 나타냅니다.
-    </p>
-<button class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors" onclick="closeModal()">
-     닫기
-    </button>
-</div>
+ <div class="modal-content bg-white rounded-lg p-4 max-w-md w-full transform scale-95 opacity-0 hidden" id="dna-modal" onclick="event.stopPropagation()">
+  <h3 class="text-xl font-bold mb-4">
+   DNA 이중 나선 구조
+  </h3>
+  <img alt="회전하는 DNA 이중 나선" class="w-full rounded" data-asset-id="2_mitosis_img_1" src="images/DNA_animation.gif"/>
+  <button class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors" onclick="closeModal()">
+   닫기
+  </button>
+ </div>
+ <div class="modal-content bg-white rounded-lg p-4 max-w-lg w-full transform scale-95 opacity-0 hidden" id="gene-modal" onclick="event.stopPropagation()">
+  <h3 class="text-xl font-bold mb-4">
+   원형 유전체 지도 (Circular Genome Map) 예시
+  </h3>
+  <img alt="대장균의 원형 유전체 지도" class="w-full rounded bg-white" data-asset-id="2_mitosis_img_2" src="images/circular_genome_ecoli.jpg"/>
+  <p class="text-xs text-slate-500 mt-2">
+   예시: 대장균(E. coli)의 유전체 지도. 각 색깔은 다른 유전자 그룹을 나타냅니다.
+  </p>
+  <button class="mt-4 w-full bg-slate-200 text-slate-800 font-bold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors" onclick="closeModal()">
+   닫기
+  </button>
+ </div>
 </div>
 <main class="container mx-auto p-4 md:p-8">
-<section class="text-center" id="title">
-<div class="bg-emerald-50 rounded-2xl p-8">
-<h2 class="text-3xl md:text-4xl font-bold mb-2">
-      V. 생식과 유전
-     </h2>
-<p class="text-xl md:text-2xl text-slate-600">
-      세포 분열과 염색체
-     </p>
-</div>
-</section>
-<section id="objectives">
-<h2 class="text-3xl font-bold text-center mb-12">
-     학습 목표
-    </h2>
-<div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
-<ul class="list-disc list-inside space-y-3 text-lg">
-<li>
-       염색체와 유전자의 관계를 설명할 수 있다.
-      </li>
-<li>
-       체세포 분열의 특징을 염색체의 행동으로 설명할 수 있다.
-      </li>
-</ul>
-</div>
-</section>
-<section id="intro-activity">
-<div class="text-center">
-<h2 class="text-3xl font-bold mb-8">
-      생각 열기
-     </h2>
-<p class="text-4xl font-bold text-slate-700">
-      분열 전인 세포와 분열 중인 세포의
-      <br/>
-      차이점은 무엇일까?
-     </p>
-</div>
-</section>
-<section id="intro-cells">
-<h2 class="text-3xl font-bold text-center mb-12">
-     생명 현상의 기본, 세포 분열
-    </h2>
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md text-center">
-<p class="text-xl">
-      모든 생물은 세포로 이루어져 있으며, 생명 활동을 위해 세포는 분열합니다. 체세포 분열은 생물의
-      <strong class="text-emerald-600">
-       성장
-      </strong>
-      과 손상된 부분의
-      <strong class="text-emerald-600">
-       회복(재생)
-      </strong>
-      에 필수적인 과정입니다.
-     </p>
-</div>
-</section>
-<section id="chromosome-info">
-<h2 class="text-3xl font-bold text-center mb-12">
-     염색체 (Chromosome)
-    </h2>
-<div class="grid md:grid-cols-2 gap-8 items-center">
-<div class="bg-white p-8 rounded-xl shadow-md">
-<h3 class="font-bold text-xl mb-2">
-       정의
-      </h3>
-<p>
-       분열 중인 세포에서 유전 물질이 꼬이고 뭉쳐서 만들어진 막대 모양의 구조물입니다.
-      </p>
-</div>
-<div class="bg-white p-8 rounded-xl shadow-md">
-<h3 class="font-bold text-xl mb-2">
-       구조
-      </h3>
-<p>
-       두 개의
-       <strong class="text-emerald-600">
-        염색 분체
-       </strong>
-       가 중앙의
-       <strong class="text-emerald-600">
-        동원체
-       </strong>
-       에 의해 연결된 구조입니다.
-      </p>
-</div>
-</div>
-</section>
-<section id="dna-genes">
-<h2 class="text-3xl font-bold text-center mb-12">
-     DNA와 유전자
-    </h2>
-<div class="grid md:grid-cols-2 gap-8 items-start">
-<div class="bg-white p-8 rounded-xl shadow-md space-y-4">
-<h3 class="font-bold text-xl">
-       DNA (디옥시리보핵산)
-      </h3>
-<p>
-       생명의 모든 유전 정보를 담고 있는 설계도입니다. 두 가닥이 서로 꼬여있는
-       <strong class="text-emerald-600">
-        이중 나선 구조
-       </strong>
-       를 하고 있으며, 이 구조 안에 유전 암호가 저장되어 있습니다.
-      </p>
-<button class="mt-2 w-full bg-emerald-100 text-emerald-800 font-bold py-2 px-4 rounded-lg hover:bg-emerald-200 transition-colors" onclick="openModal('dna-modal')">
-       이중 나선 구조 보기
-      </button>
-</div>
-<div class="bg-white p-8 rounded-xl shadow-md space-y-4">
-<h3 class="font-bold text-xl">
-       유전자 (Gene)
-      </h3>
-<p>
-       DNA의 특정 구간으로, 눈 색깔, 키 등 생물의 특정 형질을 결정하는
-       <strong class="text-emerald-600">
-        하나의 정보 단위
-       </strong>
-       입니다. 염색체에는 수많은 유전자가 배열되어 있습니다.
-      </p>
-<button class="mt-2 w-full bg-emerald-100 text-emerald-800 font-bold py-2 px-4 rounded-lg hover:bg-emerald-200 transition-colors" onclick="openModal('gene-modal')">
-       원형 유전체 지도 예시 보기
-      </button>
-</div>
-</div>
-</section>
-<section id="chromosome-num">
-<h2 class="text-3xl font-bold text-center mb-12">
-     염색체 수의 특징
-    </h2>
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-<p class="text-xl text-center mb-4">
-      같은 종의 생물은 체세포에 동일한 수의 염색체를 가집니다. 보통 짝을 이루고 있어
-      <strong class="text-emerald-600">
-       2n
-      </strong>
-      으로 표기합니다.
-     </p>
-<p class="text-center text-lg">
-      예: 사람의 체세포에는 23쌍, 총 46개의 염색체가 있습니다 (2n=46).
-     </p>
-</div>
-</section>
-<section id="mitosis-overview">
-<h2 class="text-3xl font-bold text-center mb-12">
-     체세포 분열 (Mitosis) 개요
-    </h2>
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-<p class="text-xl text-center">
-      생물의 몸을 구성하는 체세포가 두 개의 딸세포로 나뉘는 과정으로,
-      <strong class="text-emerald-600">
-       핵 분열
-      </strong>
-      과
-      <strong class="text-emerald-600">
-       세포질 분열
-      </strong>
-      로 이루어집니다. 핵심은 분열 후에도 염색체 수가 모세포와 동일하게 유지된다는 것입니다 (2n → 2n).
-     </p>
-</div>
-</section>
-<section id="cell-cycle">
-<h2 class="text-3xl font-bold text-center mb-12">
-     세포 주기 (Cell Cycle)
-    </h2>
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md text-center">
-<p class="text-xl">
-      세포의 일생을 세포 주기라고 하며, 분열을 준비하는
-      <strong class="text-emerald-600">
-       간기
-      </strong>
-      와 실제 분열이 일어나는
-      <strong class="text-emerald-600">
-       M기(분열기)
-      </strong>
-      로 나뉩니다. 대부분의 시간(약 90%)은 간기에 해당합니다.
-     </p>
-</div>
-</section>
-<section id="interphase">
-<h2 class="text-3xl font-bold text-center mb-12">
-     간기: 분열을 위한 준비
-    </h2>
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-<ul class="list-disc list-inside space-y-3 text-lg">
-<li>
-       세포 주기 중 가장 긴 시기입니다.
-      </li>
-<li>
-       세포가 성장하고 생명 활동을 합니다.
-      </li>
-<li>
-       가장 중요한 사건은
-       <strong class="text-emerald-600">
-        DNA 복제
-       </strong>
-       입니다. 이로 인해 각 염색체는 두 개의 염색 분체를 갖게 됩니다.
-      </li>
-</ul>
-</div>
-</section>
-<section id="mitosis-phases">
-<h2 class="text-3xl font-bold text-center mb-12">
-     핵 분열 과정 영상
-    </h2>
-<div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
-<div class="grid lg:grid-cols-3 gap-8">
-<div class="lg:col-span-1 flex flex-col space-y-3">
-<button class="phase-button p-3 rounded-lg text-lg" data-phase="prophase">
-        전기
-       </button>
-<button class="phase-button p-3 rounded-lg text-lg" data-phase="metaphase">
-        중기
-       </button>
-<button class="phase-button p-3 rounded-lg text-lg" data-phase="anaphase">
-        후기
-       </button>
-<button class="phase-button p-3 rounded-lg text-lg" data-phase="telophase">
-        말기
-       </button>
-</div>
-<div class="lg:col-span-2 flex flex-col gap-4">
-<div class="w-full bg-slate-100 rounded-lg overflow-hidden">
-<div id="player-container">
-<div id="player">
-</div>
-</div>
-</div>
-<div class="w-full p-4 bg-emerald-50 rounded-lg min-h-[100px]" id="phase-description">
-<h4 class="text-xl font-bold text-emerald-800 mb-2" id="phase-title">
-         단계를 선택하세요
-        </h4>
-<p class="text-slate-700" id="phase-text">
-         버튼을 클릭하면 해당 단계의 영상이 재생됩니다.
-        </p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="cytokinesis">
-<h2 class="text-3xl font-bold text-center mb-12">
+ <section class="text-center" data-slide-index="0" data-slide-num="1" data-title="V. 생식과 유전" id="slide-1">
+  <div class="bg-emerald-50 rounded-2xl p-8">
+   <h2 class="text-3xl md:text-2xl md:text-4xl font-bold mb-2">
+    V. 생식과 유전
+   </h2>
+   <p class="text-xl md:text-2xl text-slate-600">
+    세포 분열과 염색체
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="1" data-slide-num="2" data-title="학습 목표" id="slide-2">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   학습 목표
+  </h2>
+  <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-4">
+   <ul class="list-disc list-inside space-y-3 text-lg">
+    <li>
+     염색체와 유전자의 관계를 설명할 수 있다.
+    </li>
+    <li>
+     체세포 분열의 특징을 염색체의 행동으로 설명할 수 있다.
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section data-slide-index="2" data-slide-num="3" data-title="생각 열기" id="slide-3">
+  <div class="text-center">
+   <h2 class="text-3xl font-bold mb-8">
+    생각 열기
+   </h2>
+   <p class="text-2xl md:text-4xl font-bold text-slate-700">
+    분열 전인 세포와 분열 중인 세포의
+    <br/>
+    차이점은 무엇일까?
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="3" data-slide-num="4" data-title="생명 현상의 기본, 세포 분열" id="slide-4">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   생명 현상의 기본, 세포 분열
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md text-center">
+   <p class="text-xl">
+    모든 생물은 세포로 이루어져 있으며, 생명 활동을 위해 세포는 분열합니다. 체세포 분열은 생물의
+    <strong class="text-emerald-600">
+     성장
+    </strong>
+    과 손상된 부분의
+    <strong class="text-emerald-600">
+     회복(재생)
+    </strong>
+    에 필수적인 과정입니다.
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="4" data-slide-num="5" data-title="염색체 (Chromosome)" id="slide-5">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   염색체 (Chromosome)
+  </h2>
+  <div class="grid md:grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
+   <div class="bg-white p-8 rounded-xl shadow-md">
+    <h3 class="font-bold text-xl mb-2">
+     정의
+    </h3>
+    <p>
+     분열 중인 세포에서 유전 물질이 꼬이고 뭉쳐서 만들어진 막대 모양의 구조물입니다.
+    </p>
+   </div>
+   <div class="bg-white p-8 rounded-xl shadow-md">
+    <h3 class="font-bold text-xl mb-2">
+     구조
+    </h3>
+    <p>
+     두 개의
+     <strong class="text-emerald-600">
+      염색 분체
+     </strong>
+     가 중앙의
+     <strong class="text-emerald-600">
+      동원체
+     </strong>
+     에 의해 연결된 구조입니다.
+    </p>
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="5" data-slide-num="6" data-title="DNA와 유전자" id="slide-6">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   DNA와 유전자
+  </h2>
+  <div class="grid md:grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
+   <div class="bg-white p-8 rounded-xl shadow-md space-y-4">
+    <h3 class="font-bold text-xl">
+     DNA (디옥시리보핵산)
+    </h3>
+    <p>
+     생명의 모든 유전 정보를 담고 있는 설계도입니다. 두 가닥이 서로 꼬여있는
+     <strong class="text-emerald-600">
+      이중 나선 구조
+     </strong>
+     를 하고 있으며, 이 구조 안에 유전 암호가 저장되어 있습니다.
+    </p>
+    <button class="mt-2 w-full bg-emerald-100 text-emerald-800 font-bold py-2 px-4 rounded-lg hover:bg-emerald-200 transition-colors" onclick="openModal('dna-modal')">
+     이중 나선 구조 보기
+    </button>
+   </div>
+   <div class="bg-white p-8 rounded-xl shadow-md space-y-4">
+    <h3 class="font-bold text-xl">
+     유전자 (Gene)
+    </h3>
+    <p>
+     DNA의 특정 구간으로, 눈 색깔, 키 등 생물의 특정 형질을 결정하는
+     <strong class="text-emerald-600">
+      하나의 정보 단위
+     </strong>
+     입니다. 염색체에는 수많은 유전자가 배열되어 있습니다.
+    </p>
+    <button class="mt-2 w-full bg-emerald-100 text-emerald-800 font-bold py-2 px-4 rounded-lg hover:bg-emerald-200 transition-colors" onclick="openModal('gene-modal')">
+     원형 유전체 지도 예시 보기
+    </button>
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="6" data-slide-num="7" data-title="염색체 수의 특징" id="slide-7">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   염색체 수의 특징
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+   <p class="text-xl text-center mb-4">
+    같은 종의 생물은 체세포에 동일한 수의 염색체를 가집니다. 보통 짝을 이루고 있어
+    <strong class="text-emerald-600">
+     2n
+    </strong>
+    으로 표기합니다.
+   </p>
+   <p class="text-center text-lg">
+    예: 사람의 체세포에는 23쌍, 총 46개의 염색체가 있습니다 (2n=46).
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="7" data-slide-num="8" data-title="체세포 분열 (Mitosis) 개요" id="slide-8">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   체세포 분열 (Mitosis) 개요
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+   <p class="text-xl text-center">
+    생물의 몸을 구성하는 체세포가 두 개의 딸세포로 나뉘는 과정으로,
+    <strong class="text-emerald-600">
+     핵 분열
+    </strong>
+    과
+    <strong class="text-emerald-600">
      세포질 분열
-    </h2>
-<div class="grid md:grid-cols-2 gap-8">
-<div class="bg-white p-8 rounded-xl shadow-md">
-<h3 class="font-bold text-xl mb-2">
-       동물 세포
-      </h3>
-<p>
-       세포막이 바깥에서 안으로 오므라들며 두 개로 나뉩니다 (세포질 만입).
+    </strong>
+    로 이루어집니다. 핵심은 분열 후에도 염색체 수가 모세포와 동일하게 유지된다는 것입니다 (2n &rarr; 2n).
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="8" data-slide-num="9" data-title="세포 주기 (Cell Cycle)" id="slide-9">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   세포 주기 (Cell Cycle)
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md text-center">
+   <p class="text-xl">
+    세포의 일생을 세포 주기라고 하며, 분열을 준비하는
+    <strong class="text-emerald-600">
+     간기
+    </strong>
+    와 실제 분열이 일어나는
+    <strong class="text-emerald-600">
+     M기(분열기)
+    </strong>
+    로 나뉩니다. 대부분의 시간(약 90%)은 간기에 해당합니다.
+   </p>
+  </div>
+ </section>
+ <section data-slide-index="9" data-slide-num="10" data-title="간기: 분열을 위한 준비" id="slide-10">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   간기: 분열을 위한 준비
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+   <ul class="list-disc list-inside space-y-3 text-lg">
+    <li>
+     세포 주기 중 가장 긴 시기입니다.
+    </li>
+    <li>
+     세포가 성장하고 생명 활동을 합니다.
+    </li>
+    <li>
+     가장 중요한 사건은
+     <strong class="text-emerald-600">
+      DNA 복제
+     </strong>
+     입니다. 이로 인해 각 염색체는 두 개의 염색 분체를 갖게 됩니다.
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section data-slide-index="10" data-slide-num="11" data-title="핵 분열 과정 영상" id="slide-11">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   핵 분열 과정 영상
+  </h2>
+  <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+   <div class="grid lg:grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+    <div class="lg:col-span-1 flex flex-col space-y-3">
+     <button class="phase-button p-3 rounded-lg text-lg" data-phase="prophase">
+      전기
+     </button>
+     <button class="phase-button p-3 rounded-lg text-lg" data-phase="metaphase">
+      중기
+     </button>
+     <button class="phase-button p-3 rounded-lg text-lg" data-phase="anaphase">
+      후기
+     </button>
+     <button class="phase-button p-3 rounded-lg text-lg" data-phase="telophase">
+      말기
+     </button>
+    </div>
+    <div class="lg:col-span-2 flex flex-col gap-4">
+     <div class="w-full bg-slate-100 rounded-lg overflow-hidden">
+      <div id="player-container">
+       <div id="player">
+       </div>
+      </div>
+     </div>
+     <div class="w-full p-4 bg-emerald-50 rounded-lg min-h-[100px]" id="phase-description">
+      <h4 class="text-xl font-bold text-emerald-800 mb-2" id="phase-title">
+       단계를 선택하세요
+      </h4>
+      <p class="text-slate-700" id="phase-text">
+       버튼을 클릭하면 해당 단계의 영상이 재생됩니다.
       </p>
-</div>
-<div class="bg-white p-8 rounded-xl shadow-md">
-<h3 class="font-bold text-xl mb-2">
-       식물 세포
-      </h3>
-<p>
-       세포 중앙에서
-       <strong class="text-emerald-600">
-        세포판
-       </strong>
-       이 만들어져 바깥으로 자라면서 두 개로 나뉩니다.
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="11" data-slide-num="12" data-title="세포질 분열" id="slide-12">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   세포질 분열
+  </h2>
+  <div class="grid md:grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+   <div class="bg-white p-8 rounded-xl shadow-md">
+    <h3 class="font-bold text-xl mb-2">
+     동물 세포
+    </h3>
+    <p>
+     세포막이 바깥에서 안으로 오므라들며 두 개로 나뉩니다 (세포질 만입).
+    </p>
+   </div>
+   <div class="bg-white p-8 rounded-xl shadow-md">
+    <h3 class="font-bold text-xl mb-2">
+     식물 세포
+    </h3>
+    <p>
+     세포 중앙에서
+     <strong class="text-emerald-600">
+      세포판
+     </strong>
+     이 만들어져 바깥으로 자라면서 두 개로 나뉩니다.
+    </p>
+   </div>
+  </div>
+  <div class="mt-12 max-w-xl mx-auto">
+   <div class="relative">
+    <div class="relative w-full h-72 overflow-hidden rounded-lg shadow-lg bg-slate-200" id="slider-container">
+     <div class="flex transition-transform duration-500 ease-in-out h-full" id="slider">
+      <img alt="동물 세포질 분열" class="w-full h-full object-contain flex-shrink-0" data-asset-id="2_mitosis_img_3" src="images/cell_division.png"/>
+      <img alt="식물 세포질 분열" class="w-full h-full object-contain flex-shrink-0" data-asset-id="2_mitosis_img_4" src="images/cell_division_2.png"/>
+     </div>
+    </div>
+    <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/60 hover:bg-white rounded-full p-2 ml-2 transition shadow" id="prev-btn">
+     <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      </path>
+     </svg>
+    </button>
+    <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/60 hover:bg-white rounded-full p-2 mr-2 transition shadow" id="next-btn">
+     <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      </path>
+     </svg>
+    </button>
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="12" data-slide-num="13" data-title="양파 뿌리 끝 세포 관찰" id="slide-13">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   양파 뿌리 끝 세포 관찰
+  </h2>
+  <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+   <div class="text-center mb-8">
+    <p class="text-lg text-slate-600">
+     세포 분열이 활발한
+     <strong class="text-emerald-600">
+      양파 뿌리 끝 생장점
+     </strong>
+     을 이용하면 체세포 분열의 여러 단계를 직접 관찰할 수 있습니다.
+    </p>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+    <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
+     <summary class="font-bold text-xl list-none text-center">
+      1. 고정
+      <span class="text-sm font-normal text-slate-500 block group-open:hidden">
+       (클릭)
+      </span>
+     </summary>
+     <div class="mt-4 text-left">
+      <img alt="고정 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_5" src="images/1-fixation.jpg"/>
+      <p class="text-slate-600 text-sm">
+       양파 뿌리 끝 약 1cm를 잘라 에탄올과 아세트산 혼합 용액(3:1)에 넣어 세포 분열을 멈추고 살아있을 때의 모습을 유지시킵니다.
       </p>
-</div>
-</div>
-<div class="mt-12 max-w-xl mx-auto">
-<div class="relative">
-<div class="relative w-full h-72 overflow-hidden rounded-lg shadow-lg bg-slate-200" id="slider-container">
-<div class="flex transition-transform duration-500 ease-in-out h-full" id="slider">
-<img alt="동물 세포질 분열" class="w-full h-full object-contain flex-shrink-0" data-asset-id="2_mitosis_img_3" src="images/cell_division.png"/>
-<img alt="식물 세포질 분열" class="w-full h-full object-contain flex-shrink-0" data-asset-id="2_mitosis_img_4" src="images/cell_division_2.png"/>
-</div>
-</div>
-<button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/60 hover:bg-white rounded-full p-2 ml-2 transition shadow" id="prev-btn">
-<svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-</path>
-</svg>
-</button>
-<button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/60 hover:bg-white rounded-full p-2 mr-2 transition shadow" id="next-btn">
-<svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-</path>
-</svg>
-</button>
-</div>
-</div>
-</section>
-<section id="lab">
-<h2 class="text-3xl font-bold text-center mb-12">
-     양파 뿌리 끝 세포 관찰
-    </h2>
-<div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
-<div class="text-center mb-8">
-<p class="text-lg text-slate-600">
-       세포 분열이 활발한
-       <strong class="text-emerald-600">
-        양파 뿌리 끝 생장점
-       </strong>
-       을 이용하면 체세포 분열의 여러 단계를 직접 관찰할 수 있습니다.
+     </div>
+    </details>
+    <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
+     <summary class="font-bold text-xl list-none text-center">
+      2. 해리
+      <span class="text-sm font-normal text-slate-500 block group-open:hidden">
+       (클릭)
+      </span>
+     </summary>
+     <div class="mt-4 text-left">
+      <img alt="해리 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_6" src="images/2-maceration.png"/>
+      <p class="text-slate-600 text-sm">
+       묽은 염산에 뿌리 끝을 넣고 가열하여 세포벽을 연하게 만들어 세포들이 잘 분리되도록 합니다.
       </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-<summary class="font-bold text-xl list-none text-center">
-        1. 고정
-        <span class="text-sm font-normal text-slate-500 block group-open:hidden">
-         (클릭)
-        </span>
-</summary>
-<div class="mt-4 text-left">
-<img alt="고정 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_5" src="images/1-fixation.jpg"/>
-<p class="text-slate-600 text-sm">
-         양파 뿌리 끝 약 1cm를 잘라 에탄올과 아세트산 혼합 용액(3:1)에 넣어 세포 분열을 멈추고 살아있을 때의 모습을 유지시킵니다.
-        </p>
-</div>
-</details>
-<details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-<summary class="font-bold text-xl list-none text-center">
-        2. 해리
-        <span class="text-sm font-normal text-slate-500 block group-open:hidden">
-         (클릭)
-        </span>
-</summary>
-<div class="mt-4 text-left">
-<img alt="해리 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_6" src="images/2-maceration.png"/>
-<p class="text-slate-600 text-sm">
-         묽은 염산에 뿌리 끝을 넣고 가열하여 세포벽을 연하게 만들어 세포들이 잘 분리되도록 합니다.
-        </p>
-</div>
-</details>
-<details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-<summary class="font-bold text-xl list-none text-center">
-        3. 염색
-        <span class="text-sm font-normal text-slate-500 block group-open:hidden">
-         (클릭)
-        </span>
-</summary>
-<div class="mt-4 text-left">
-<img alt="염색 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_7" src="images/3-staining.jpg"/>
-<p class="text-slate-600 text-sm">
-         아세트산 카민과 같은 염색 용액으로 핵과 염색체를 붉게 염색하여 관찰이 쉽도록 합니다.
-        </p>
-</div>
-</details>
-<details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
-<summary class="font-bold text-xl list-none text-center">
-        4. 분리 및 관찰
-        <span class="text-sm font-normal text-slate-500 block group-open:hidden">
-         (클릭)
-        </span>
-</summary>
-<div class="mt-4 text-left">
-<img alt="분리 및 관찰 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_8" src="images/4-separation.jpg"/>
-<p class="text-slate-600 text-sm">
-         염색된 뿌리 끝을 해부침으로 잘게 찢고 압착하여 세포를 한 겹으로 편 뒤 현미경으로 관찰합니다.
-        </p>
-</div>
-</details>
-</div>
-</div>
-</section>
-<section id="summary">
-<h2 class="text-3xl font-bold text-center mb-12">
-     핵심 정리
-    </h2>
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-<ul class="list-disc list-inside space-y-3 text-lg">
-<li>
-       체세포 분열 결과, 모세포와 유전 정보가 동일한
-       <strong class="text-emerald-600">
-        두 개의 딸세포
-       </strong>
-       가 만들어집니다.
-      </li>
-<li>
-       염색체 수에는 변화가 없습니다
-       <strong class="text-emerald-600">
-        (2n → 2n)
-       </strong>
-       .
-      </li>
-<li>
-       체세포 분열은
-       <strong class="text-emerald-600">
-        생장
-       </strong>
-       과
-       <strong class="text-emerald-600">
-        재생
-       </strong>
-       에 중요한 역할을 합니다.
-      </li>
-</ul>
-</div>
-</section>
-<section id="next">
-<div class="text-center">
-<h2 class="text-3xl font-bold mb-4">
-      다음 시간에 배울 내용
-     </h2>
-<p class="text-2xl text-slate-600">
-      V. 생식과 유전 - 생식 세포가 만들어지는 과정인 감수 분열
-     </p>
-</div>
-</section>
+     </div>
+    </details>
+    <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
+     <summary class="font-bold text-xl list-none text-center">
+      3. 염색
+      <span class="text-sm font-normal text-slate-500 block group-open:hidden">
+       (클릭)
+      </span>
+     </summary>
+     <div class="mt-4 text-left">
+      <img alt="염색 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_7" src="images/3-staining.jpg"/>
+      <p class="text-slate-600 text-sm">
+       아세트산 카민과 같은 염색 용액으로 핵과 염색체를 붉게 염색하여 관찰이 쉽도록 합니다.
+      </p>
+     </div>
+    </details>
+    <details class="bg-slate-100 rounded-lg p-4 cursor-pointer group">
+     <summary class="font-bold text-xl list-none text-center">
+      4. 분리 및 관찰
+      <span class="text-sm font-normal text-slate-500 block group-open:hidden">
+       (클릭)
+      </span>
+     </summary>
+     <div class="mt-4 text-left">
+      <img alt="분리 및 관찰 과정" class="w-full h-32 object-cover rounded mb-2" data-asset-id="2_mitosis_img_8" src="images/4-separation.jpg"/>
+      <p class="text-slate-600 text-sm">
+       염색된 뿌리 끝을 해부침으로 잘게 찢고 압착하여 세포를 한 겹으로 편 뒤 현미경으로 관찰합니다.
+      </p>
+     </div>
+    </details>
+   </div>
+  </div>
+ </section>
+ <section data-slide-index="13" data-slide-num="14" data-title="핵심 정리" id="slide-14">
+  <h2 class="text-3xl font-bold text-center mb-12">
+   핵심 정리
+  </h2>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+   <ul class="list-disc list-inside space-y-3 text-lg">
+    <li>
+     체세포 분열 결과, 모세포와 유전 정보가 동일한
+     <strong class="text-emerald-600">
+      두 개의 딸세포
+     </strong>
+     가 만들어집니다.
+    </li>
+    <li>
+     염색체 수에는 변화가 없습니다
+     <strong class="text-emerald-600">
+      (2n &rarr; 2n)
+     </strong>
+     .
+    </li>
+    <li>
+     체세포 분열은
+     <strong class="text-emerald-600">
+      생장
+     </strong>
+     과
+     <strong class="text-emerald-600">
+      재생
+     </strong>
+     에 중요한 역할을 합니다.
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section data-slide-index="14" data-slide-num="15" data-title="다음 시간에 배울 내용" id="slide-15">
+  <div class="text-center">
+   <h2 class="text-3xl font-bold mb-4">
+    다음 시간에 배울 내용
+   </h2>
+   <p class="text-2xl text-slate-600">
+    V. 생식과 유전 - 생식 세포가 만들어지는 과정인 감수 분열
+   </p>
+  </div>
+ </section>
 </main>
